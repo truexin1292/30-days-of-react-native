@@ -2,10 +2,12 @@
   "name": "ThirtyDaysOfReactNative",
   "version": "0.0.1",
   "private": true,
+  "author": "weifang",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "react-native": "^0.21.0"
+    "react-native": "^0.21.0",
+    "react-timer-mixin": "^0.13.3"
   }
 }

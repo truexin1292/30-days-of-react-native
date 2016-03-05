@@ -6,6 +6,7 @@
 import React, {
   AppRegistry,
   Component,
+  Image,
   NavigatorIOS,
   ScrollView,
   StyleSheet,
@@ -14,31 +15,68 @@ import React, {
   View
 } from 'react-native';
 
-var Day1 = require('./view/day1')
+var Util = require('./view/utils');
+var Icon = require('react-native-vector-icons/Ionicons');
+var Swiper = require('react-native-swiper')
 
 var MainView =  React.createClass({
-  _jumpToDay: function(day){
-    var dayTitle = "",
-      dayComponent = null;
-
-    switch(day){
-      case 1:
-        dayTitle = "Day 1: A stop watch";
-        dayComponent = Day1;
-    }
-
+  getInitialState:function () {
+      return{
+        days:[{
+          key:0,
+          title:"A stopwatch",
+          component: require('./view/day1'),
+          icon: "ios-stopwatch",
+          size: 48,
+          color: "#ff856c"
+        },{
+          key:1,
+          title:"A weather app",
+          component: require('./view/day2'),
+          icon: "ios-partlysunny",
+          size:60,
+          color:"#90bdc1"
+        }]
+      }
+  },
+  _jumpToDay: function(index){
     this.props.navigator.push({
-      title: dayTitle,
-      component:dayComponent,
+      title: "Day"+(index+1)+": "+this.state.days[index].title,
+      component: this.state.days[index].component,
       navigationBarHidden: false,
     })
   },
   render: function() {
+    var onThis = this;
+    var boxs = this.state.days.map(function(elem, index) {
+      return(
+        <TouchableHighlight key={elem.key} style={[styles.touchBox,styles.touchBox1]} underlayColor="#eee" onPress={()=> onThis._jumpToDay(index)}>
+          <View style={styles.boxContainer}>
+            <Text style={styles.boxText}>Day{index+1}</Text>
+            <Icon size={elem.size} name={elem.icon} style={[styles.boxIcon,{color:elem.color}]}></Icon>
+          </View>
+        </TouchableHighlight>
+      );
+    })
     return(
       <ScrollView>
-         <TouchableHighlight underlayColor="#eee" onPress={()=> this._jumpToDay(1)}>
-            <Text style={{color:'#555'}}>Day1: A stop watch</Text>
+        <Swiper style={styles.wrapper} height={150} showsButtons={false} autoplay={true}>
+          <TouchableHighlight onPress={()=> onThis._jumpToDay(0)}>
+            <View style={styles.slide1}>
+              <Image style={styles.image} source={require('./view/img/day1.png')}></Image>
+              <Text style={styles.slideText}>Day1: A stopwatch</Text>
+            </View>
           </TouchableHighlight>
+          <TouchableHighlight onPress={()=> onThis._jumpToDay(1)}>
+            <View style={styles.slide2}>
+              <Image style={styles.image} source={require('./view/img/day2.png')}></Image>
+              <Text style={styles.slideText}>Day2: A weather app</Text>
+            </View>
+          </TouchableHighlight>
+        </Swiper>
+        <View style={styles.touchBoxContainer}>
+          {boxs}
+        </View>
       </ScrollView>
     );
   }
@@ -69,6 +107,85 @@ const styles = StyleSheet.create({
   itemWrapper:{
     backgroundColor: '#f3f3f3'
   },
+  touchBox:{
+    width: Util.size.width/3,
+    height:Util.size.width/3,
+    backgroundColor:"#fff",
+  },
+  touchBoxContainer:{
+    flexDirection: "row", 
+    width: Util.size.width,
+    borderTopWidth: Util.pixel,
+    borderTopColor:"#ccc",
+    borderLeftWidth: Util.pixel,
+    borderLeftColor:"#ccc",
+    borderRightWidth: Util.pixel,
+    borderRightColor:"#ccc",
+  },
+  touchBox1:{
+    borderBottomWidth: Util.pixel,
+    borderBottomColor:"#ccc",
+    borderRightWidth: Util.pixel,
+    borderRightColor:"#ccc",
+  },
+  touchBox2:{
+    borderBottomWidth: Util.pixel,
+    borderBottomColor:"#ccc",
+  },
+  boxContainer:{
+    alignItems:"center",
+    justifyContent:"center",
+    width: Util.size.width/3,
+    height:Util.size.width/3,
+  },
+  boxIcon:{
+    position:"relative",
+    top:-10
+  },
+  boxText:{
+    position:"absolute",
+    bottom:15,
+    width:Util.size.width/3,
+    textAlign:"center",
+    left: 0,
+    backgroundColor:"transparent"
+  },
+  slide1: {
+    flex: 1,
+    height: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  slide2: {
+    flex: 1,
+    height: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  slide3: {
+    flex: 1,
+    height: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  wrapper:{
+  },
+  slideText:{
+    position:"absolute",
+    bottom: 0,
+    paddingTop:5,
+    paddingBottom:5,
+    backgroundColor:"rgba(255,255,255,0.5)",
+    width: Util.size.width,
+    textAlign:"center",
+    fontSize: 12
+  },
+  image:{
+    // height:150,
+    width: Util.size.width,
+    flex: 1,
+    alignSelf: 'stretch',
+  }
 });
 
 AppRegistry.registerComponent('ThirtyDaysOfReactNative', () => ThirtyDaysOfReactNative);

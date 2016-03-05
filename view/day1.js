@@ -100,7 +100,9 @@ var WatchRecord =  React.createClass({
 	      renderRow={(rowData) => 
 	      	<View style={styles.recordItem}>
 	      		<Text style={styles.recordItemTitle}>{rowData.title}</Text>
-	      		<Text style={styles.recordItemTime}>{rowData.time}</Text>
+	      		<View style={{alignItems: "center"}}>
+	      			<Text style={styles.recordItemTime}>{rowData.time}</Text>
+	      		</View>
 	      	</View>}/>
 	  );
 	}
@@ -229,25 +231,25 @@ const styles = StyleSheet.create({
 	},
 	watchFaceContainer:{
 		width: Util.size.width,
-		paddingTop: 30, paddingLeft: 30, paddingRight:30, paddingBottom:40,
+		paddingTop: 50, paddingLeft: 30, paddingRight:30, paddingBottom:40,
 		backgroundColor: "#fff",
 		borderBottomWidth: 1, borderBottomColor:"#ddd",
 		height: 170,
 	},
 	sectionTime:{
 		fontSize: 20,
-		textAlign:"right",
-		fontFamily: "System", 
 		fontWeight:"100",
 		paddingRight: 30,
-		color: "#555"
+		color: "#555",
+		position:"absolute",
+		left:Util.size.width-140,
+		top:30
 	},
 	totalTime:{
 		fontSize: 70,
-		textAlign:"center",
-		fontFamily: "System", 
 		fontWeight: "100",
-		color: "#222"
+		color: "#222",
+		paddingLeft:20
 	},
 	watchControlContainer:{
 		width: Util.size.width,

@@ -9,4 +9,9 @@ This project is inspired by
 
 30DaysofSwift (https://github.com/allenwong/30DaysofSwift)
 
+## Day 1
+An IOS-system-like stop watch.
+Fully functioned as the system app.
+<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day1.png" width="300"/>
+
 

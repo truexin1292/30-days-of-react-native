@@ -35,7 +35,8 @@ var WatchControl = React.createClass({
 			watchOn: false, 
 			startBtnText: "启动",
 			startBtnColor: "#60B644",
-			stopBtnText: "计次"
+			stopBtnText: "计次",
+			underlayColor:"#fff"
 		}
 	},
 	_startWatch: function () {
@@ -47,14 +48,16 @@ var WatchControl = React.createClass({
 			this.setState({
 				startBtnText: "停止",
 				startBtnColor: "#ff0044",
-				stopBtnText: "计次"
+				stopBtnText: "计次",
+				underlayColor:"#eee"
 			})
 		}else{
 			this.props.stopWatch()
 			this.setState({
 				startBtnText: "启动",
 				startBtnColor: "#60B644",
-				stopBtnText: "复位"
+				stopBtnText: "复位",
+				underlayColor:"#eee"
 			})
 		}	
 	},
@@ -72,7 +75,7 @@ var WatchControl = React.createClass({
 		return(
 			<View style={styles.watchControlContainer}>
 				<View style={{flex:1,alignItems:"flex-start"}}>
-					<TouchableHighlight style={styles.btnStop} underlayColor="#eee" onPress={this._addRecord}>
+					<TouchableHighlight style={styles.btnStop} underlayColor={this.state.underlayColor} onPress={this._addRecord}>
 			        	<Text style={styles.btnStopText}>{this.state.stopBtnText}</Text>
 			        </TouchableHighlight>
 			    </View>
@@ -190,12 +193,15 @@ var Day1 =  React.createClass({
 	},
 	_clearRecord: function () {
 		this.setState({
+		  	stopWatch: false,
+		  	resetWatch: true,
+		  	intialTime: 0,
+		  	currentTime:0,
+		  	recordTime:0,
+		  	timeAccumulation:0,
 		  	totalTime: "00:00.00",
 			sectionTime: "00:00.00",
-			stopWatch: false,
 		  	recordCounter: 0,
-		  	resetWatch: true,
-		  	countingTime: 0,
 		  	record:[{title:"",time:""},
 			  		{title:"",time:""},
 			  		{title:"",time:""},
@@ -291,13 +297,15 @@ const styles = StyleSheet.create({
 		backgroundColor:"transparent",
 		flex:1,
 		textAlign:"left",
-		paddingLeft:20
+		paddingLeft:20,
+		color:"#777"
 	},
 	recordItemTime:{
 		backgroundColor:"transparent",
 		flex:1,
 		textAlign:"right",
-		paddingRight:20
+		paddingRight:20,
+		color:"#222"
 	}
 });
 

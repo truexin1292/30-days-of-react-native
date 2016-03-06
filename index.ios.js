@@ -9,6 +9,7 @@ import React, {
   Image,
   NavigatorIOS,
   ScrollView,
+  StatusBarIOS,
   StyleSheet,
   Text,
   TouchableHighlight,
@@ -17,7 +18,7 @@ import React, {
 
 var Util = require('./view/utils');
 var Icon = require('react-native-vector-icons/Ionicons');
-var Swiper = require('react-native-swiper')
+var Swiper = require('react-native-swiper');
 
 var MainView =  React.createClass({
   getInitialState:function () {
@@ -38,12 +39,20 @@ var MainView =  React.createClass({
           size:60,
           color:"#90bdc1",
           hideNav: true,
+        },{
+          key:2,
+          title:"twitter",
+          component: require('./view/day3'),
+          icon: "social-twitter",
+          size:50,
+          color:"#1b95e0",
+          hideNav: false,
         }]
       }
   },
   _jumpToDay: function(index){
     this.props.navigator.push({
-      title: "Day"+(index+1)+": "+this.state.days[index].title,
+      title: this.state.days[index].title,
       component: this.state.days[index].component,
       navigationBarHidden: this.state.days[index].hideNav,
     })
@@ -169,7 +178,6 @@ const styles = StyleSheet.create({
     fontSize: 12
   },
   image:{
-    // height:150,
     width: Util.size.width,
     flex: 1,
     alignSelf: 'stretch',

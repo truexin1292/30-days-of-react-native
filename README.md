@@ -1,7 +1,8 @@
 # 30 Days of React Native
 A collection of small experiments with React Native.
 
-<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/main.png" width="300"/>
+
+![main](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/main.gif)
 
 This project is inspired by 
 
@@ -21,13 +22,17 @@ An IOS-system-like stop watch.
 
 Fully functioned as the system app.
 
-<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day1.png" width="300"/>
+### Main skills
+Data binding and communication between parent&child and children.
+
+![day1](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day1.gif)
 
 ## Day 2
 An IOS-system-like weather app.
 
 The animation is partially done. 
 
-<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2/d2.png" width="250"/>
-<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2/d1.png" width="250"/>
-<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2/l1.png" width="250"/>
+### Main skills
+layout
+
+![day2](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2.gif)

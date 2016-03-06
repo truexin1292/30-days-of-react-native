@@ -698,6 +698,7 @@ var Weather = React.createClass({
 var Day2 = React.createClass({
 	_back: function () {
 		this.props.navigator.pop();
+		StatusBarIOS.setStyle(0);
 	},
 	render: function () {
 		return(

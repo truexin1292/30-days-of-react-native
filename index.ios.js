@@ -28,14 +28,16 @@ var MainView =  React.createClass({
           component: require('./view/day1'),
           icon: "ios-stopwatch",
           size: 48,
-          color: "#ff856c"
+          color: "#ff856c",
+          hideNav: false,
         },{
           key:1,
           title:"A weather app",
           component: require('./view/day2'),
           icon: "ios-partlysunny",
           size:60,
-          color:"#90bdc1"
+          color:"#90bdc1",
+          hideNav: true,
         }]
       }
   },
@@ -43,7 +45,7 @@ var MainView =  React.createClass({
     this.props.navigator.push({
       title: "Day"+(index+1)+": "+this.state.days[index].title,
       component: this.state.days[index].component,
-      navigationBarHidden: false,
+      navigationBarHidden: this.state.days[index].hideNav,
     })
   },
   render: function() {
@@ -60,15 +62,15 @@ var MainView =  React.createClass({
     })
     return(
       <ScrollView>
-        <Swiper style={styles.wrapper} height={150} showsButtons={false} autoplay={true}>
+        <Swiper height={150} showsButtons={false} autoplay={true}>
           <TouchableHighlight onPress={()=> onThis._jumpToDay(0)}>
-            <View style={styles.slide1}>
+            <View style={styles.slide}>
               <Image style={styles.image} source={require('./view/img/day1.png')}></Image>
               <Text style={styles.slideText}>Day1: A stopwatch</Text>
             </View>
           </TouchableHighlight>
           <TouchableHighlight onPress={()=> onThis._jumpToDay(1)}>
-            <View style={styles.slide2}>
+            <View style={styles.slide}>
               <Image style={styles.image} source={require('./view/img/day2.png')}></Image>
               <Text style={styles.slideText}>Day2: A weather app</Text>
             </View>
@@ -92,7 +94,7 @@ class ThirtyDaysOfReactNative extends Component {
         title:"30 Days of RN",
         component: MainView,
         backButtonTitle: 'back',
-        shadowHidden: true
+        shadowHidden: true,
       }}
       itemWrapperStyle={styles.itemWrapper}
       tintColor="#777"/>
@@ -150,25 +152,11 @@ const styles = StyleSheet.create({
     left: 0,
     backgroundColor:"transparent"
   },
-  slide1: {
+  slide: {
     flex: 1,
     height: 150,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  slide2: {
-    flex: 1,
-    height: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  slide3: {
-    flex: 1,
-    height: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  wrapper:{
   },
   slideText:{
     position:"absolute",

@@ -46,7 +46,7 @@ var MainView =  React.createClass({
           icon: "social-twitter",
           size:50,
           color:"#1b95e0",
-          hideNav: false,
+          hideNav: true,
         }]
       }
   },

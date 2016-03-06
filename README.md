@@ -22,9 +22,6 @@ An IOS-system-like stop watch.
 
 Fully functioned as the system app.
 
-### Main skills
-Data binding and communication between parent&child and children.
-
 ![day1](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day1.gif)
 
 ## Day 2
@@ -32,7 +29,13 @@ An IOS-system-like weather app.
 
 The animation is partially done. 
 
-### Main skills
-layout
-
 ![day2](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2.gif)
+
+## Day 3
+The Twitter app entrance animation.
+
+![day2](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day3.gif)
+
+## License
+
+ThirtyDaysOfReactNative is under the MIT license.

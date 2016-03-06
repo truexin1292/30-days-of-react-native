@@ -28,6 +28,6 @@ An IOS-system-like weather app.
 
 The animation is partially done. 
 
-<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2/d1.png" width="300"/>
-<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2/d2.png" width="300"/>
-<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2/l1.png" width="300"/>
+<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2/d2.png" width="250"/>
+<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2/d1.png" width="250"/>
+<img src="https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day2/l1.png" width="250"/>

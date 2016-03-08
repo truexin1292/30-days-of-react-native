@@ -47,6 +47,14 @@ var MainView =  React.createClass({
           size:50,
           color:"#1b95e0",
           hideNav: true,
+        },{
+          key:3,
+          title:"cocoapods",
+          component: require('./view/day4'),
+          icon: "social-javascript",
+          size:50,
+          color:"#FF9A05",
+          hideNav: false,
         }]
       }
   },
@@ -119,12 +127,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#f3f3f3'
   },
   touchBox:{
-    width: Util.size.width/3,
+    width: Util.size.width/3-0.34,
     height:Util.size.width/3,
     backgroundColor:"#fff",
   },
   touchBoxContainer:{
     flexDirection: "row", 
+    flexWrap:"wrap",
     width: Util.size.width,
     borderTopWidth: Util.pixel,
     borderTopColor:"#ccc",

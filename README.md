@@ -34,7 +34,13 @@ The animation is partially done.
 ## Day 3
 The Twitter app entrance animation.
 
-![day2](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day3.gif)
+![day3](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day3.gif)
+
+## Day 4
+Using CocoaPods with React Native
+an example with JTSImageViewController
+
+![day4](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day4.gif)
 
 ## License
 

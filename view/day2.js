@@ -4,13 +4,10 @@
  * Have trouble completing the animation part
  * will study on the animation in later experiments
  */
-
 'use strict';
-import React, {
-  AppRegistry,
-  AlertIOS,
-  Component,
-  ListView,
+
+var React = require('react-native');
+var {
   Image,
   ScrollView,
   StatusBarIOS,
@@ -18,540 +15,26 @@ import React, {
   Text,
   TouchableHighlight,
   View
-} from 'react-native';
-
+} = React;
 var Util = require('./utils');
 var Icon = require('react-native-vector-icons/Ionicons');
 var Swiper = require('react-native-swiper');
 
+var weatherData = [{key:0,city:"\u798f\u5dde",night:!0,bg:require("./img/day2/w2.png"),abs:"\u5927\u90e8\u6674\u6717",degree:15,today:{week:"\u661f\u671f\u516d",day:"\u4eca\u5929",high:16,low:14},hours:[{key:101,time:"\u73b0\u5728",icon:"ios-moon",degree:"15\xb0",color:"rgba(255,255,255,1)"},{key:102,time:"3\u65f6",icon:"ios-cloudy-night",degree:"15\xb0",color:"rgba(255,255,255,0.8)"},{key:103,time:"4\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:104,time:"5\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:105,time:"6\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:106,time:"06:21",icon:"ios-sunny-outline",degree:"\u65e5\u51fa",color:"#fedf32"},{key:107,time:"7\u65f6",icon:"ios-partlysunny",degree:"16\xb0",color:"rgba(255,255,255,0.9)"},{key:108,time:"8\u65f6",icon:"ios-partlysunny",degree:"18\xb0",color:"rgba(255,255,255,0.9)"},{key:109,time:"9\u65f6",icon:"ios-sunny",degree:"19\xb0",color:"#fedf32"},{key:110,time:"10\u65f6",icon:"ios-sunny",degree:"122\xb0",color:"#fedf32"},{key:111,time:"11\u65f6",icon:"ios-sunny",degree:"23\xb0",color:"#fedf32"},{key:112,time:"13\u65f6",icon:"ios-sunny",degree:"22\xb0",color:"#fedf32"},{key:113,time:"13\u65f6",icon:"ios-sunny",degree:"22\xb0",color:"#fedf32"},{key:114,time:"14\u65f6",icon:"ios-partlysunny",degree:"16\xb0",color:"rgba(255,255,255,0.9)"},{key:115,time:"15\u65f6",icon:"ios-partlysunny",degree:"22\xb0",color:"rgba(255,255,255,0.9)"},{key:116,time:"16\u65f6",icon:"ios-partlysunny",degree:"21\xb0",color:"rgba(255,255,255,0.9)"},{key:117,time:"17\u65f6",icon:"ios-partlysunny",degree:"19\xb0",color:"rgba(255,255,255,0.9)"},{key:118,time:"18\u65f6",icon:"ios-partlysunny",degree:"18\xb0",color:"rgba(255,255,255,0.9)"},{key:119,time:"18:06",icon:"ios-partlysunny-outline",degree:"\u65e5\u843d",color:"rgba(255,255,255,0.9)"},{key:120,time:"19\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:121,time:"20\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:122,time:"21\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:123,time:"22\u65f6",icon:"ios-cloudy-night",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:124,time:"23\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:125,time:"0\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:126,time:"1\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:127,time:"2\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"}],days:[{key:21,day:"\u661f\u671f\u4e00",icon:"ios-partlysunny",high:21,low:16},{key:22,day:"\u661f\u671f\u4e8c",icon:"ios-rainy",high:22,low:14},{key:23,day:"\u661f\u671f\u4e09",icon:"ios-rainy",high:21,low:11},{key:24,day:"\u661f\u671f\u56db",icon:"ios-rainy",high:12,low:8},{key:25,day:"\u661f\u671f\u4e94",icon:"ios-rainy",high:9,low:7},{key:26,day:"\u661f\u671f\u516d",icon:"ios-partlysunny",high:13,low:9},{key:27,day:"\u661f\u671f\u65e5",icon:"ios-rainy",high:17,low:13},{key:28,day:"\u661f\u671f\u4e00",icon:"ios-partlysunny",high:18,low:14},{key:29,day:"\u661f\u671f\u4e8c",icon:"ios-partlysunny",high:22,low:17}],info:"\u4eca\u5929\uff1a\u4eca\u5929\u5927\u90e8\u591a\u4e91\u3002\u73b0\u5728\u6c14\u6e29 15\xb0\uff1b\u6700\u9ad8\u6c14\u6e2923\xb0\u3002",rise:"06:21",down:"18:06",prop:"10%",humi:"94%",dir:"\u4e1c\u5317\u504f\u5317",speed:"3\u5343\u7c73\uff0f\u5c0f\u65f6",feel:"15\xb0",rain:"0.0 \u5398\u7c73",pres:"1,016 \u767e\u5e15",sight:"5.0 \u516c\u91cc",uv:"0"},{key:1,city:"\u5361\u5c14\u52a0\u91cc",night:!1,bg:require("./img/day2/w3.png"),abs:"\u5927\u90e8\u6674\u6717",degree:15,today:{week:"\u661f\u671f\u516d",day:"\u4eca\u5929",high:16,low:14},hours:[{key:101,time:"\u73b0\u5728",icon:"ios-moon",degree:"15\xb0",color:"rgba(255,255,255,1)"},{key:102,time:"3\u65f6",icon:"ios-cloudy-night",degree:"15\xb0",color:"rgba(255,255,255,0.8)"},{key:103,time:"4\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:104,time:"5\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:105,time:"6\u65f6",icon:"ios-cloudy-night",degree:"16\xb0",color:"rgba(255,255,255,0.8)"},{key:106,time:"06:21",icon:"ios-sunny-outline",degree:"\u65e5\u51fa",color:"#fedf32"},{key:107,time:"7\u65f6",icon:"ios-partlysunny",degree:"16\xb0",color:"rgba(255,255,255,0.9)"},{key:108,time:"8\u65f6",icon:"ios-partlysunny",degree:"18\xb0",color:"rgba(255,255,255,0.9)"},{key:109,time:"9\u65f6",icon:"ios-sunny",degree:"19\xb0",color:"#fedf32"},{key:110,time:"10\u65f6",icon:"ios-sunny",degree:"122\xb0",color:"#fedf32"},{key:111,time:"11\u65f6",icon:"ios-sunny",degree:"23\xb0",color:"#fedf32"},{key:112,time:"13\u65f6",icon:"ios-sunny",degree:"22\xb0",color:"#fedf32"},{key:113,time:"13\u65f6",icon:"ios-sunny",degree:"22\xb0",color:"#fedf32"},{key:114,time:"14\u65f6",icon:"ios-partlysunny",degree:"16\xb0",color:"rgba(255,255,255,0.9)"},{key:115,time:"15\u65f6",icon:"ios-partlysunny",degree:"22\xb0",color:"rgba(255,255,255,0.9)"},{key:116,time:"16\u65f6",icon:"ios-partlysunny",degree:"21\xb0",color:"rgba(255,255,255,0.9)"},{key:117,time:"17\u65f6",icon:"ios-partlysunny",degree:"19\xb0",color:"rgba(255,255,255,0.9)"},{key:118,time:"18\u65f6",icon:"ios-partlysunny",degree:"18\xb0",color:"rgba(255,255,255,0.9)"},{key:119,time:"18:06",icon:"ios-partlysunny-outline",degree:"\u65e5\u843d",color:"rgba(255,255,255,0.9)"},{key:120,time:"19\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:121,time:"20\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:122,time:"21\u65f6",icon:"ios-cloudy-night",degree:"18\xb0",color:"rgba(255,255,255,0.8)"},{key:123,time:"22\u65f6",icon:"ios-cloudy-night",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:124,time:"23\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:125,time:"0\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:126,time:"1\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"},{key:127,time:"2\u65f6",icon:"ios-cloudy",degree:"17\xb0",color:"rgba(255,255,255,0.8)"}],days:[{key:21,day:"\u661f\u671f\u4e00",icon:"ios-partlysunny",high:21,low:16},{key:22,day:"\u661f\u671f\u4e8c",icon:"ios-rainy",high:22,low:14},{key:23,day:"\u661f\u671f\u4e09",icon:"ios-rainy",high:21,low:11},{key:24,day:"\u661f\u671f\u56db",icon:"ios-rainy",high:12,low:8},{key:25,day:"\u661f\u671f\u4e94",icon:"ios-rainy",high:9,low:7},{key:26,day:"\u661f\u671f\u516d",icon:"ios-partlysunny",high:13,low:9},{key:27,day:"\u661f\u671f\u65e5",icon:"ios-rainy",high:17,low:13},{key:28,day:"\u661f\u671f\u4e00",icon:"ios-partlysunny",high:18,low:14},{key:29,day:"\u661f\u671f\u4e8c",icon:"ios-partlysunny",high:22,low:17}],info:"\u4eca\u5929\uff1a\u4eca\u5929\u5927\u90e8\u591a\u4e91\u3002\u73b0\u5728\u6c14\u6e29 15\xb0\uff1b\u6700\u9ad8\u6c14\u6e2923\xb0\u3002",rise:"06:21",down:"18:06",prop:"10%",humi:"94%",dir:"\u4e1c\u5317\u504f\u5317",speed:"3\u5343\u7c73\uff0f\u5c0f\u65f6",feel:"15\xb0",rain:"0.0 \u5398\u7c73",pres:"1,016 \u767e\u5e15",sight:"5.0 \u516c\u91cc",uv:"0"}];
+
 var Weather = React.createClass({
 	getInitialState: function () {
-		StatusBarIOS.setStyle(1);
-		var weatherData = [{
-			key:0,
-			city: "福州",
-			night: true,
-			bg:require('./img/day2/w2.png'),
-			abs:"大部晴朗",
-			degree: 15,
-			today:{
-				week:"星期六",
-				day:"今天",
-				high:16,
-				low:14
-			},
-			hours:[{
-				key: 101,
-				time:"现在",
-				icon:"ios-moon",
-				degree:"15°",
-				color:"rgba(255,255,255,1)"
-			},{
-				key: 102,
-				time:"3时",
-				icon:"ios-cloudy-night",
-				degree:"15°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 103,
-				time:"4时",
-				icon:"ios-cloudy-night",
-				degree:"16°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 104,
-				time:"5时",
-				icon:"ios-cloudy-night",
-				degree:"16°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 105,
-				time:"6时",
-				icon:"ios-cloudy-night",
-				degree:"16°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 106,
-				time:"06:21",
-				icon:"ios-sunny-outline",
-				degree:"日出",
-				color:"#fedf32"			
-			},{
-				key: 107,
-				time:"7时",
-				icon:"ios-partlysunny",
-				degree:"16°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 108,
-				time:"8时",
-				icon:"ios-partlysunny",
-				degree:"18°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 109,
-				time:"9时",
-				icon:"ios-sunny",
-				degree:"19°",
-				color:"#fedf32"
-			},{
-				key: 110,
-				time:"10时",
-				icon:"ios-sunny",
-				degree:"122°",
-				color:"#fedf32"
-			},{
-				key: 111,
-				time:"11时",
-				icon:"ios-sunny",
-				degree:"23°",
-				color:"#fedf32"
-			},{
-				key: 112,
-				time:"13时",
-				icon:"ios-sunny",
-				degree:"22°",
-				color:"#fedf32"
-			},{
-				key: 113,
-				time:"13时",
-				icon:"ios-sunny",
-				degree:"22°",
-				color:"#fedf32"
-			},{
-				key: 114,
-				time:"14时",
-				icon:"ios-partlysunny",
-				degree:"16°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 115,
-				time:"15时",
-				icon:"ios-partlysunny",
-				degree:"22°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 116,
-				time:"16时",
-				icon:"ios-partlysunny",
-				degree:"21°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 117,
-				time:"17时",
-				icon:"ios-partlysunny",
-				degree:"19°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 118,
-				time:"18时",
-				icon:"ios-partlysunny",
-				degree:"18°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 119,
-				time:"18:06",
-				icon:"ios-partlysunny-outline",
-				degree:"日落",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 120,
-				time:"19时",
-				icon:"ios-cloudy-night",
-				degree:"18°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 121,
-				time:"20时",
-				icon:"ios-cloudy-night",
-				degree:"18°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 122,
-				time:"21时",
-				icon:"ios-cloudy-night",
-				degree:"18°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 123,
-				time:"22时",
-				icon:"ios-cloudy-night",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 124,
-				time:"23时",
-				icon:"ios-cloudy",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 125,
-				time:"0时",
-				icon:"ios-cloudy",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 126,
-				time:"1时",
-				icon:"ios-cloudy",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 127,
-				time:"2时",
-				icon:"ios-cloudy",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			}],
-			days:[{
-				key:21,
-				day:"星期一",
-				icon:"ios-partlysunny",
-				high: 21,
-				low:16
-			},{
-				key:22,
-				day:"星期二",
-				icon:"ios-rainy",
-				high: 22,
-				low:14
-			},{
-				key:23,
-				day:"星期三",
-				icon:"ios-rainy",
-				high: 21,
-				low:11
-			},{
-				key:24,
-				day:"星期四",
-				icon:"ios-rainy",
-				high: 12,
-				low:8
-			},{
-				key:25,
-				day:"星期五",
-				icon:"ios-rainy",
-				high: 9,
-				low:7
-			},{
-				key:26,
-				day:"星期六",
-				icon:"ios-partlysunny",
-				high: 13,
-				low:9
-			},{
-				key:27,
-				day:"星期日",
-				icon:"ios-rainy",
-				high: 17,
-				low:13
-			},{
-				key:28,
-				day:"星期一",
-				icon:"ios-partlysunny",
-				high: 18,
-				low:14
-			},{
-				key:29,
-				day:"星期二",
-				icon:"ios-partlysunny",
-				high: 22,
-				low:17
-			}],
-			info:"今天：今天大部多云。现在气温 15°；最高气温23°。",
-			rise:"06:21",
-			down:"18:06",
-			prop:"10%",
-			humi:"94%",
-			dir:"东北偏北",
-			speed:"3千米／小时",
-			feel:"15°",
-			rain:"0.0 厘米",
-			pres:"1,016 百帕",
-			sight:"5.0 公里",
-			uv:"0"
-		},{
-			key:1,
-			city: "卡尔加里",
-			night:false,
-			bg:require('./img/day2/w3.png'),
-			abs:"大部晴朗",
-			degree: 15,
-			today:{
-				week:"星期六",
-				day:"今天",
-				high:16,
-				low:14
-			},
-			hours:[{
-				key: 101,
-				time:"现在",
-				icon:"ios-moon",
-				degree:"15°",
-				color:"rgba(255,255,255,1)"
-			},{
-				key: 102,
-				time:"3时",
-				icon:"ios-cloudy-night",
-				degree:"15°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 103,
-				time:"4时",
-				icon:"ios-cloudy-night",
-				degree:"16°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 104,
-				time:"5时",
-				icon:"ios-cloudy-night",
-				degree:"16°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 105,
-				time:"6时",
-				icon:"ios-cloudy-night",
-				degree:"16°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 106,
-				time:"06:21",
-				icon:"ios-sunny-outline",
-				degree:"日出",
-				color:"#fedf32"			
-			},{
-				key: 107,
-				time:"7时",
-				icon:"ios-partlysunny",
-				degree:"16°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 108,
-				time:"8时",
-				icon:"ios-partlysunny",
-				degree:"18°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 109,
-				time:"9时",
-				icon:"ios-sunny",
-				degree:"19°",
-				color:"#fedf32"
-			},{
-				key: 110,
-				time:"10时",
-				icon:"ios-sunny",
-				degree:"122°",
-				color:"#fedf32"
-			},{
-				key: 111,
-				time:"11时",
-				icon:"ios-sunny",
-				degree:"23°",
-				color:"#fedf32"
-			},{
-				key: 112,
-				time:"13时",
-				icon:"ios-sunny",
-				degree:"22°",
-				color:"#fedf32"
-			},{
-				key: 113,
-				time:"13时",
-				icon:"ios-sunny",
-				degree:"22°",
-				color:"#fedf32"
-			},{
-				key: 114,
-				time:"14时",
-				icon:"ios-partlysunny",
-				degree:"16°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 115,
-				time:"15时",
-				icon:"ios-partlysunny",
-				degree:"22°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 116,
-				time:"16时",
-				icon:"ios-partlysunny",
-				degree:"21°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 117,
-				time:"17时",
-				icon:"ios-partlysunny",
-				degree:"19°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 118,
-				time:"18时",
-				icon:"ios-partlysunny",
-				degree:"18°",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 119,
-				time:"18:06",
-				icon:"ios-partlysunny-outline",
-				degree:"日落",
-				color:"rgba(255,255,255,0.9)"
-			},{
-				key: 120,
-				time:"19时",
-				icon:"ios-cloudy-night",
-				degree:"18°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 121,
-				time:"20时",
-				icon:"ios-cloudy-night",
-				degree:"18°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 122,
-				time:"21时",
-				icon:"ios-cloudy-night",
-				degree:"18°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 123,
-				time:"22时",
-				icon:"ios-cloudy-night",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 124,
-				time:"23时",
-				icon:"ios-cloudy",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 125,
-				time:"0时",
-				icon:"ios-cloudy",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 126,
-				time:"1时",
-				icon:"ios-cloudy",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			},{
-				key: 127,
-				time:"2时",
-				icon:"ios-cloudy",
-				degree:"17°",
-				color:"rgba(255,255,255,0.8)"
-			}],
-			days:[{
-				key:21,
-				day:"星期一",
-				icon:"ios-partlysunny",
-				high: 21,
-				low:16
-			},{
-				key:22,
-				day:"星期二",
-				icon:"ios-rainy",
-				high: 22,
-				low:14
-			},{
-				key:23,
-				day:"星期三",
-				icon:"ios-rainy",
-				high: 21,
-				low:11
-			},{
-				key:24,
-				day:"星期四",
-				icon:"ios-rainy",
-				high: 12,
-				low:8
-			},{
-				key:25,
-				day:"星期五",
-				icon:"ios-rainy",
-				high: 9,
-				low:7
-			},{
-				key:26,
-				day:"星期六",
-				icon:"ios-partlysunny",
-				high: 13,
-				low:9
-			},{
-				key:27,
-				day:"星期日",
-				icon:"ios-rainy",
-				high: 17,
-				low:13
-			},{
-				key:28,
-				day:"星期一",
-				icon:"ios-partlysunny",
-				high: 18,
-				low:14
-			},{
-				key:29,
-				day:"星期二",
-				icon:"ios-partlysunny",
-				high: 22,
-				low:17
-			}],
-			info:"今天：今天大部多云。现在气温 15°；最高气温23°。",
-			rise:"06:21",
-			down:"18:06",
-			prop:"10%",
-			humi:"94%",
-			dir:"东北偏北",
-			speed:"3千米／小时",
-			feel:"15°",
-			rain:"0.0 厘米",
-			pres:"1,016 百帕",
-			sight:"5.0 公里",
-			uv:"0"
-		}]
 		return {
 			weather: weatherData,
-			// degreeOpacity: [1,1],
-			// headOpacity:[0,0]
 		}
 	},
-	// _animateScroll: function (index,e) {
-	// 	if (index==0) {
-	// 		var offsetY = e.nativeEvent.contentOffset.y,
-	// 			opacities = this.state.degreeOpacity,
-	// 			headOpacities = this.state.headOpacity;
-	// 		if (offsetY<0) {
-	// 			opacities[index] = 1;
-	// 		}else if(offsetY< 110){
-	// 			opacities[index] = 1-(offsetY+10)/110;
-	// 		}else{
-	// 			opacities[index] = 0;
-	// 		}
-	// 		if (offsetY<35) {
-	// 			headOpacities[index] = 0
-	// 		}else{
-	// 			headOpacities[index] = 1
-	// 		}
-	// 		this.setState({
-	// 			degreeOpacity: opacities,
-	// 			headOpacity: headOpacities
-	// 		})
-	// 	};
-
-	// },
+	componentDidMount: function () {
+		StatusBarIOS.setStyle(1);
+	},
 	_back: function () {
 		this.props.back();
 	},
 	render: function () {
-		// for scroll 
-		// onScroll={onThis._animateScroll.bind(onThis, index)} scrollEventThrottle={16}
-		// for head into
-		// {[styles.abs,{opacity:1-onThis.state.headOpacity[index]}]}
 		var onThis = this;
 		var slides = this.state.weather.map(function(elem, index) {
 			var hourView = elem.hours.map(function(hourElem, hourIndex) {
@@ -671,12 +154,6 @@ var Weather = React.createClass({
 			);
 		})
 
-		// animate
-		// <View style={{position:"absolute", top:35, width:Util.size.width,alignItems:"center",opacity:this.state.headOpacity[0]}}>
-        // 		<Text style={styles.city}>{this.state.weather[0].city}</Text>
-        //   	<Text style={styles.abs}>{this.state.weather[0].abs}</Text>
-        // </View>
-
 		return(
 			<View>
 				<Swiper 
@@ -687,8 +164,8 @@ var Weather = React.createClass({
 				activeDot={<View style={{backgroundColor: 'rgba(255,255,255,0.5)', width: 6, height: 6, borderRadius: 3, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}>
 		            {slides}
 	        	</Swiper>
-	        	<TouchableHighlight onPress={this._back} style={{position:"absolute", right:20,bottom:7}}>
-	        		<Icon size={17} name="ios-list-outline" style={{color:"#fff"}}></Icon>
+	        	<TouchableHighlight onPress={this._back} style={styles.backBtn}>
+	        		<Icon size={17} name="ios-list-outline" style={styles.backBtnIcon}></Icon>
 	        	</TouchableHighlight>
 			</View>
 		)
@@ -798,13 +275,11 @@ const styles = StyleSheet.create({
 	},
 	withinDayHoursContainer:{
 		marginTop:3,
-		borderTopColor:"rgba(255,255,255,0.7)",
-		borderTopWidth:Util.pixel,
-		borderBottomColor:"rgba(255,255,255,0.7)",
-		borderBottomWidth:Util.pixel,
+		borderTopColor:"rgba(255,255,255,0.7)",borderTopWidth:Util.pixel,
+		borderBottomColor:"rgba(255,255,255,0.7)",borderBottomWidth:Util.pixel
 	},
 	withinDayHours:{
-		paddingLeft:7, paddingTop:10, paddingBottom:10,paddingRight:10,
+		paddingLeft:7,paddingTop:10,paddingBottom:10,paddingRight:10,
 		flexDirection:"row",
 		flexWrap:"nowrap"
 	},
@@ -888,10 +363,8 @@ const styles = StyleSheet.create({
 	},
 	weatherInfo:{
 		marginTop:5,
-		borderTopColor:"rgba(255,255,255,0.7)",
-		borderTopWidth:Util.pixel,
-		borderBottomColor:"rgba(255,255,255,0.7)",
-		borderBottomWidth:Util.pixel,
+		borderTopColor:"rgba(255,255,255,0.7)", borderTopWidth:Util.pixel,
+		borderBottomColor:"rgba(255,255,255,0.7)", borderBottomWidth:Util.pixel
 	},
 	weatherInfoText:{
 		color:"#fff",
@@ -920,6 +393,13 @@ const styles = StyleSheet.create({
 		flex:1,
 		fontSize: 15,
 		color:"#fff",
+	},
+	backBtn:{
+		position:"absolute", 
+		right:20,bottom:7
+	},
+	backBtnIcon:{
+		color:"#fff"
 	}
 })
 

@@ -2,36 +2,26 @@
  * Day 5
  * find my location
  */
-
 'use strict';
-import React, {
-  Component,
+
+var React = require('react-native');
+var {
   Image,
   MapView,
-  PropTypes,
   StyleSheet,
   Text,
-  TextInput,
   TouchableHighlight,
   View
-} from 'react-native';
+} = React;
 
 var Util = require('./utils');
 var Icon = require('react-native-vector-icons/Ionicons');
-
-var regionText = {
-  latitude: '0',
-  longitude: '0',
-  latitudeDelta: '0',
-  longitudeDelta: '0',
-};
 
 var Map = React.createClass({
   getInitialState: function () {
     return{
       isFirstLoad: true,
       mapRegion: undefined,
-      mapRegionInput: undefined,
       annotations: [],
     }
   },
@@ -42,26 +32,13 @@ var Map = React.createClass({
       title: 'You Are Here',
     }];
   },
-  _onRegionChange: function(region) {
-    this.setState({
-      mapRegionInput: region,
-    });
-  },
   _onRegionChangeComplete: function(region) {
     if (this.state.isFirstLoad) {
       this.setState({
-        mapRegionInput: region,
         annotations: this._getAnnotations(region),
         isFirstLoad: false,
       });
     }
-  },
-  _onRegionInputChanged: function(region) {
-    this.setState({
-      mapRegion: region,
-      mapRegionInput: region,
-      annotations: this._getAnnotations(region),
-    });
   },
   render: function () {
     return(
@@ -70,7 +47,6 @@ var Map = React.createClass({
           style={styles.map}
           showsUserLocation={this.props.showsUserLocation}
           followUserLocation={this.props.followUserLocation}
-          onRegionChange={this._onRegionChange}
           onRegionChangeComplete={this._onRegionChangeComplete}
           region={this.state.mapRegion}
           annotations={this.state.annotations}/>

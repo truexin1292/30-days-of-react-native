@@ -5,12 +5,7 @@
 
 'use strict';
 import React, {
-  Animated,
-  AppRegistry,
-  AlertIOS,
-  Component,
   Image,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableHighlight,

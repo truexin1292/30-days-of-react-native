@@ -22,6 +22,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		3728FB3E9F51421A8E0732BB /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E432F2CF88D4D95B0ED8D20 /* Foundation.ttf */; };
+		591B870F1C8FC3A200D27177 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 591B870B1C8FC39700D27177 /* libRCTVideo.a */; };
+		591B87111C8FC40E00D27177 /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 591B87101C8FC40E00D27177 /* moments.mp4 */; };
 		59D32FEE1C8E81BE00763774 /* libJTSImageViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D32FED1C8E81BE00763774 /* libJTSImageViewController.a */; };
 		59D32FFC1C8E821900763774 /* JTSImagePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D32FFB1C8E821900763774 /* JTSImagePreview.m */; };
 		5A8F8FE49A685E4B4F98D6BB /* libPods-ThirtyDaysOfReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BFB6BBCE8EC81EAED6CAA34 /* libPods-ThirtyDaysOfReactNative.a */; };
@@ -100,6 +102,13 @@
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
 		};
+		591B870A1C8FC39700D27177 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 591B86FE1C8FC39700D27177 /* RCTVideo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTVideo;
+		};
 		59B0CDCC1C8A7A9400A7EF58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F1D3B81C1164382BF0C462E /* RNVectorIcons.xcodeproj */;
@@ -150,6 +159,8 @@
 		3F1D3B81C1164382BF0C462E /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		483397770BE44E8E85689D2B /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		4BDE6E787C324910B6EAD4C0 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		591B86FE1C8FC39700D27177 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
+		591B87101C8FC40E00D27177 /* moments.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = moments.mp4; path = ../view/img/moments.mp4; sourceTree = "<group>"; };
 		59D32FED1C8E81BE00763774 /* libJTSImageViewController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJTSImageViewController.a; path = "Pods/../build/Debug-iphoneos/libJTSImageViewController.a"; sourceTree = "<group>"; };
 		59D32FFA1C8E821900763774 /* JTSImagePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImagePreview.h; sourceTree = "<group>"; };
 		59D32FFB1C8E821900763774 /* JTSImagePreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImagePreview.m; sourceTree = "<group>"; };
@@ -175,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591B870F1C8FC3A200D27177 /* libRCTVideo.a in Frameworks */,
 				59D32FEE1C8E81BE00763774 /* libJTSImageViewController.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -291,6 +303,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		591B86FF1C8FC39700D27177 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				591B870B1C8FC39700D27177 /* libRCTVideo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		59B0CDBF1C8A7A9400A7EF58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +330,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				591B86FE1C8FC39700D27177 /* RCTVideo.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -360,6 +381,7 @@
 		8A71E93686564D10AC814440 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				591B87101C8FC40E00D27177 /* moments.mp4 */,
 				4BDE6E787C324910B6EAD4C0 /* Entypo.ttf */,
 				AF58C31503E44242883A8CF8 /* EvilIcons.ttf */,
 				A57B12529AE14BBBBD401BF6 /* FontAwesome.ttf */,
@@ -495,6 +517,10 @@
 					ProjectRef = 00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */;
 				},
 				{
+					ProductGroup = 591B86FF1C8FC39700D27177 /* Products */;
+					ProjectRef = 591B86FE1C8FC39700D27177 /* RCTVideo.xcodeproj */;
+				},
+				{
 					ProductGroup = 139FDEE71B06529A00C62182 /* Products */;
 					ProjectRef = 139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */;
 				},
@@ -572,6 +598,13 @@
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		591B870B1C8FC39700D27177 /* libRCTVideo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTVideo.a;
+			remoteRef = 591B870A1C8FC39700D27177 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		59B0CDCD1C8A7A9400A7EF58 /* libRNVectorIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -607,6 +640,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591B87111C8FC40E00D27177 /* moments.mp4 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				7FA6521EFB37496389705639 /* Entypo.ttf in Resources */,

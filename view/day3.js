@@ -2,16 +2,13 @@
  * Day 3
  * twitter entrance animation
  */
-
 'use strict';
-import React, {
+
+var React = require('react-native');
+var {
   Animated,
-  AppRegistry,
-  AlertIOS,
-  Component,
   Easing,
   Image,
-  NavigatorIOS,
   RefreshControl,
   ScrollView,
   StyleSheet,
@@ -19,8 +16,7 @@ import React, {
   Text,
   TouchableHighlight,
   View
-} from 'react-native';
-
+} = React;
 var Util = require('./utils');
 var Icon = require('react-native-vector-icons/Ionicons');
 var AnimatedIcon = Animated.createAnimatedComponent(Icon);

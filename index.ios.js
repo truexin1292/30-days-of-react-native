@@ -1,9 +1,10 @@
 /**
  * 30 Days of React Native
  */
-
 'use strict';
-import React, {
+
+var React = require('react-native');
+var {
   AppRegistry,
   Component,
   Image,
@@ -14,10 +15,10 @@ import React, {
   Text,
   TouchableHighlight,
   View
-} from 'react-native';
-
+} = React;
 var Util = require('./view/utils');
 var Icon = require('react-native-vector-icons/Ionicons');
+var IconFA = require('react-native-vector-icons/FontAwesome');
 var Swiper = require('react-native-swiper');
 
 var MainView =  React.createClass({
@@ -27,6 +28,7 @@ var MainView =  React.createClass({
           key:0,
           title:"A stopwatch",
           component: require('./view/day1'),
+          isFA: false,
           icon: "ios-stopwatch",
           size: 48,
           color: "#ff856c",
@@ -35,6 +37,7 @@ var MainView =  React.createClass({
           key:1,
           title:"A weather app",
           component: require('./view/day2'),
+          isFA: false,
           icon: "ios-partlysunny",
           size:60,
           color:"#90bdc1",
@@ -43,6 +46,7 @@ var MainView =  React.createClass({
           key:2,
           title:"twitter",
           component: require('./view/day3'),
+          isFA: false,
           icon: "social-twitter",
           size:50,
           color:"#1b95e0",
@@ -51,7 +55,8 @@ var MainView =  React.createClass({
           key:3,
           title:"cocoapods",
           component: require('./view/day4'),
-          icon: "social-javascript",
+          isFA: true,
+          icon: "contao",
           size:50,
           color:"#FF9A05",
           hideNav: false,
@@ -59,10 +64,20 @@ var MainView =  React.createClass({
           key:4,
           title:"find my location",
           component: require('./view/day5'),
+          isFA: false,
           icon: "ios-location",
           size:50,
           color:"#00D204",
           hideNav: false,
+        },{
+          key:5,
+          title:"Spotify",
+          component: require('./view/day6'),
+          isFA: true,
+          icon: "spotify",
+          size:50,
+          color:"#777",
+          hideNav: true,
         }]
       }
   },
@@ -80,7 +95,8 @@ var MainView =  React.createClass({
         <TouchableHighlight key={elem.key} style={[styles.touchBox,styles.touchBox1]} underlayColor="#eee" onPress={()=> onThis._jumpToDay(index)}>
           <View style={styles.boxContainer}>
             <Text style={styles.boxText}>Day{index+1}</Text>
-            <Icon size={elem.size} name={elem.icon} style={[styles.boxIcon,{color:elem.color}]}></Icon>
+            {elem.isFA? <IconFA size={elem.size} name={elem.icon} style={[styles.boxIcon,{color:elem.color}]}></IconFA>:
+              <Icon size={elem.size} name={elem.icon} style={[styles.boxIcon,{color:elem.color}]}></Icon>}
           </View>
         </TouchableHighlight>
       );
@@ -109,8 +125,11 @@ var MainView =  React.createClass({
   }
 })
 
-class ThirtyDaysOfReactNative extends Component {
-  render() {
+var ThirtyDaysOfReactNative = React.createClass({
+  componentDidMount: function () {
+    StatusBarIOS.setStyle(0);
+  },
+  render: function(){
     return (
       <NavigatorIOS
       ref='nav'
@@ -125,7 +144,7 @@ class ThirtyDaysOfReactNative extends Component {
       tintColor="#777"/>
     );
   }
-}
+})
 
 const styles = StyleSheet.create({
  container:{

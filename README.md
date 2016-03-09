@@ -48,6 +48,11 @@ MapView and find Geo location.
 
 ![day5](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day5.gif)
 
+## Day 6
+Spotify welcome screen/
+
+![day6](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day6.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

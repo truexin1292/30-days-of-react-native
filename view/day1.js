@@ -2,21 +2,17 @@
  * Day 1
  * A stop watch
  */
-
 'use strict';
-import React, {
-  AppRegistry,
-  AlertIOS,
-  Component,
+
+var React = require('react-native');
+var {
   ListView,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableHighlight,
   View
-} from 'react-native';
-
-var Util = require('./utils')
+} = React;
+var Util = require('./utils');
 
 var WatchFace = React.createClass({
 	render: function () {
@@ -128,6 +124,10 @@ var Day1 =  React.createClass({
 		  		{title:"",time:""},
 		  		{title:"",time:""}]
 	  }
+	},
+	componentWillUnmount: function () {
+		this._stopWatch();
+		this._clearRecord();
 	},
 	_startWatch: function () {
 		if (this.state.resetWatch) {

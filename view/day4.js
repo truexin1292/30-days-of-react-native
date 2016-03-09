@@ -2,22 +2,15 @@
  * Day 4
  * bridge to cocoapods
  */
-
 'use strict';
-import React, {
-  Animated,
-  AppRegistry,
-  AlertIOS,
-  Component,
+
+var React = require('react-native');
+var {
   Image,
-  ScrollView,
   StyleSheet,
-  Text,
   TouchableHighlight,
   View
-} from 'react-native';
-
-var Util = require('./utils');
+} = React;
 
 var ShowImg = React.createClass({
   componentDidMount: function() {

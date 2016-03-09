@@ -1,4 +1,4 @@
-
+// obtained from react native tutorials
 
 var React = require('react-native');
 var Dimensions = require('Dimensions');
@@ -8,17 +8,12 @@ var {
 } = React;
 
 var Util = {
-
-  //单位像素
   ratio: PixelRatio.get(),
   pixel: 1 / PixelRatio.get(),
-  //屏幕尺寸
   size: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height
   },
-
-  //post请求
   post: function (url, data, callback) {
     var fetchOptions = {
       method: 'POST',
@@ -31,14 +26,14 @@ var Util = {
 
     fetch(url, fetchOptions)
     .then((response) => {
-      return response.json() // respose a json object
+      return response.json() 
     })
     .then((responseData) => {
       callback(responseData);
     });
   },
-  //Key
-  key: 'HSHHSGSGGSTWSYWSYUSUWSHWBS-REACT-NATIVE'
+
+  key: 'BDKHFSDKJFHSDKFHWEFH-REACT-NATIVE'
 
 };
 

@@ -55,6 +55,14 @@ var MainView =  React.createClass({
           size:50,
           color:"#FF9A05",
           hideNav: false,
+        },{
+          key:4,
+          title:"find my location",
+          component: require('./view/day5'),
+          icon: "ios-location",
+          size:50,
+          color:"#00D204",
+          hideNav: false,
         }]
       }
   },
@@ -80,16 +88,16 @@ var MainView =  React.createClass({
     return(
       <ScrollView>
         <Swiper height={150} showsButtons={false} autoplay={true}>
-          <TouchableHighlight onPress={()=> onThis._jumpToDay(0)}>
+          <TouchableHighlight onPress={()=> onThis._jumpToDay(4)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={require('./view/img/day1.png')}></Image>
-              <Text style={styles.slideText}>Day1: A stopwatch</Text>
+              <Text style={styles.slideText}>Day4: Find My Location</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight onPress={()=> onThis._jumpToDay(1)}>
+          <TouchableHighlight onPress={()=> onThis._jumpToDay(3)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={require('./view/img/day2.png')}></Image>
-              <Text style={styles.slideText}>Day2: A weather app</Text>
+              <Text style={styles.slideText}>Day4: Cocoapods</Text>
             </View>
           </TouchableHighlight>
         </Swiper>

@@ -1,6 +1,6 @@
 /**
  * Day 6
- * spotify login
+ * spotify welcome screen
  */
 'use strict';
 

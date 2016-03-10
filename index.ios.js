@@ -78,6 +78,15 @@ var MainView =  React.createClass({
           size:50,
           color:"#777",
           hideNav: true,
+        },{
+          key:6,
+          title:"Moveable Circle",
+          component: require('./view/day7'),
+          isFA: false,
+          icon: "ios-baseball",
+          size:50,
+          color:"#5e2a06",
+          hideNav: true,
         }]
       }
   },

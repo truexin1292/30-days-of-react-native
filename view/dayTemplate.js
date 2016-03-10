@@ -2,16 +2,16 @@
  * Day 
  * 
  */
-
 'use strict';
-import React, {
+
+var React = require('react-native');
+var {
   Image,
   StyleSheet,
   Text,
   TouchableHighlight,
   View
-} from 'react-native';
-
+} = React;
 var Util = require('./utils');
 
 var Day = React.createClass({

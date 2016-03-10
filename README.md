@@ -54,7 +54,9 @@ Spotify welcome screen/
 ![day6](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day6.gif)
 
 ## Day 7
-Pan gesture basic
+Pan gesture basic. Move a baseball around.
+
+![day7](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day7.gif)
 
 ## License
 

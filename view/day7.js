@@ -85,7 +85,7 @@ var MoveableCircle = React.createClass({
 	},
 	render: function () {
 		return(
-			<View ref={(circle) => {this.circle = circle;}} style={[styles.MoveableCircle,]} {...this._panResponder.panHandlers}>
+			<View ref={(circle) => {this.circle = circle;}} style={styles.MoveableCircle} {...this._panResponder.panHandlers}>
 				<Icon ref="baseball" name="ios-baseball" color={this.state.color} size={120}></Icon>
 			</View>
 		)

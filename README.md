@@ -58,6 +58,11 @@ Pan gesture basic. Move a baseball around.
 
 ![day7](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day7.gif)
 
+## Day 8
+Google map style swipe menu
+
+![day8](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day8.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

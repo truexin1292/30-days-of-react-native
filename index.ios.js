@@ -63,7 +63,7 @@ var MainView =  React.createClass({
         },{
           key:4,
           title:"find my location",
-          component: require('./view/day5'),
+          component: require('./view/day5').Day5,
           isFA: false,
           icon: "ios-location",
           size:50,
@@ -86,6 +86,15 @@ var MainView =  React.createClass({
           icon: "ios-baseball",
           size:50,
           color:"#5e2a06",
+          hideNav: true,
+        },{
+          key:7,
+          title:"Swipe Left Menu",
+          component: require('./view/day8'),
+          isFA: true,
+          icon: "google",
+          size:50,
+          color:"#4285f4",
           hideNav: true,
         }]
       }
@@ -112,17 +121,18 @@ var MainView =  React.createClass({
     })
     return(
       <ScrollView>
-        <Swiper height={150} showsButtons={false} autoplay={true}>
+        <Swiper height={150} showsButtons={false} autoplay={true}
+          activeDot={<View style={{backgroundColor: 'rgba(255,255,255,0.8)', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}>
           <TouchableHighlight onPress={()=> onThis._jumpToDay(4)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={require('./view/img/day1.png')}></Image>
-              <Text style={styles.slideText}>Day4: Find My Location</Text>
+              <Text style={styles.slideText}>Day8: Swipe menu</Text>
             </View>
           </TouchableHighlight>
           <TouchableHighlight onPress={()=> onThis._jumpToDay(3)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={require('./view/img/day2.png')}></Image>
-              <Text style={styles.slideText}>Day4: Cocoapods</Text>
+              <Text style={styles.slideText}>Day7: Moveable Baseball</Text>
             </View>
           </TouchableHighlight>
         </Swiper>

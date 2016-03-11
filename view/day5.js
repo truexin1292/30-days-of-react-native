@@ -44,7 +44,8 @@ var Map = React.createClass({
     return(
       <View>
         <MapView
-          style={styles.map}
+          style={this.props.mapStyle} 
+          mapType = {this.props.mapType}
           showsUserLocation={this.props.showsUserLocation}
           followUserLocation={this.props.followUserLocation}
           onRegionChangeComplete={this._onRegionChangeComplete}
@@ -69,7 +70,7 @@ var Day5 = React.createClass({
 	render: function () {
 		return(
 			<View style={styles.container}>
-        <Map showsUserLocation={this.state.showGeo} followUserLocation={this.state.showGeo}></Map>
+        <Map mapTyle="standard" mapStyle={styles.map} showsUserLocation={this.state.showGeo} followUserLocation={this.state.showGeo}></Map>
         <TouchableHighlight underlayColor="#00bd03" style={styles.btn} onPress={this._getLocation}>
           <Text style={styles.btnText}><Icon size={18} name="navigate"> </Icon> Find my location</Text>
         </TouchableHighlight>
@@ -104,4 +105,7 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = Day5;
+module.exports = {
+    Day5: Day5,
+    map: Map
+}

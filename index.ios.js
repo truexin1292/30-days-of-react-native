@@ -96,6 +96,15 @@ var MainView =  React.createClass({
           size:50,
           color:"#4285f4",
           hideNav: true,
+        },{
+          key:8,
+          title:"Parallax View",
+          component: require('./view/day9'),
+          isFA: false,
+          icon: "ios-pulse-strong",
+          size:50,
+          color:"#652574",
+          hideNav: true,
         }]
       }
   },

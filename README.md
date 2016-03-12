@@ -15,7 +15,7 @@ Require node.js & xcode
 
 1. `npm install`
 
-2. `run DNA.xcodeproj`
+2. `run ios/ThirtyDaysOfReactNative.xcworkspace`
 
 ## Day 1
 An IOS-system-like stop watch.

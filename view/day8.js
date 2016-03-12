@@ -123,6 +123,8 @@ var Day8 = React.createClass({
 		if (gestureState.vx<0||gestureState.dx<0){
 			this._menuStyles.style.left = this._minLeft;
 			this._dropStyles.style.opacity = 0;
+			this._previousLeft = this._minLeft;
+			this._previousOpacity = 0;
 			this.setState({
 		        showDrop:false
 		    })
@@ -130,6 +132,8 @@ var Day8 = React.createClass({
 		if(gestureState.vx>0||gestureState.dx>0){
 			this._menuStyles.style.left = 0;
 			this._dropStyles.style.opacity = 1;
+			this._previousLeft = 0;
+			this._previousOpacity = 1;
 		}
 		this._updatePosition();
 		LayoutAnimation.configureNext(this._CustomLayoutLinear);
@@ -179,8 +183,6 @@ var Day8 = React.createClass({
   	},
   	componentDidMount: function() {
 		this._updatePosition();
-	},
-	componentDidMount: function () {
 		StatusBarIOS.setStyle(1);
 	},
 	render: function () {

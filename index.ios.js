@@ -49,7 +49,7 @@ var MainView =  React.createClass({
           isFA: false,
           icon: "social-twitter",
           size:50,
-          color:"#1b95e0",
+          color:"#2aa2ef",
           hideNav: true,
         },{
           key:3,
@@ -98,12 +98,12 @@ var MainView =  React.createClass({
           hideNav: true,
         },{
           key:8,
-          title:"Parallax View",
+          title:"Twitter Parallax View",
           component: require('./view/day9'),
           isFA: false,
-          icon: "ios-pulse-strong",
+          icon: "social-twitter-outline",
           size:50,
-          color:"#652574",
+          color:"#2aa2ef",
           hideNav: true,
         }]
       }
@@ -165,8 +165,10 @@ var ThirtyDaysOfReactNative = React.createClass({
       initialRoute={{
         title:"30 Days of RN",
         component: MainView,
+        // component: require('./view/day9'),
         backButtonTitle: 'back',
         shadowHidden: true,
+        // navigationBarHidden:true
       }}
       itemWrapperStyle={styles.itemWrapper}
       tintColor="#777"/>

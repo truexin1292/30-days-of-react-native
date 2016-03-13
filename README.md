@@ -66,7 +66,7 @@ Google map style swipe menu
 ## Day 9
 Layout of Twitter user page
 
-![day9](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day9.png)
+![day9](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day9.gif)
 
 ## License
 

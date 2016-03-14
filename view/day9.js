@@ -102,7 +102,7 @@ var TwitterUser = React.createClass({
 	    };
 
   	},
-  	componentDidMount: function() {
+  componentDidMount: function() {
 		this._updatePosition();
 	},
 	render: function () {

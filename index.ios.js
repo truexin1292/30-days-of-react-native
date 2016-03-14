@@ -105,6 +105,15 @@ var MainView =  React.createClass({
           size:50,
           color:"#2aa2ef",
           hideNav: true,
+        },{
+          key:9,
+          title:"Tumblr Menu",
+          component: require('./view/day10'),
+          isFA: false,
+          icon: "social-tumblr",
+          size:50,
+          color:"#37465c",
+          hideNav: true,
         }]
       }
   },
@@ -165,7 +174,7 @@ var ThirtyDaysOfReactNative = React.createClass({
       initialRoute={{
         title:"30 Days of RN",
         component: MainView,
-        // component: require('./view/day9'),
+        // component: require('./view/day10'),
         backButtonTitle: 'back',
         shadowHidden: true,
         // navigationBarHidden:true

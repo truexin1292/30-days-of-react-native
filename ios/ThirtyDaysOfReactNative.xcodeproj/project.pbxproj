@@ -24,6 +24,7 @@
 		3728FB3E9F51421A8E0732BB /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E432F2CF88D4D95B0ED8D20 /* Foundation.ttf */; };
 		591B870F1C8FC3A200D27177 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 591B870B1C8FC39700D27177 /* libRCTVideo.a */; };
 		591B87111C8FC40E00D27177 /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 591B87101C8FC40E00D27177 /* moments.mp4 */; };
+		5928B7D51C979837000F0DB0 /* libRNGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5928B7D31C97982E000F0DB0 /* libRNGL.a */; };
 		594363C31C965BC200F35A5B /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 594363C11C965BB700F35A5B /* libRNBlur.a */; };
 		59D32FEE1C8E81BE00763774 /* libJTSImageViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D32FED1C8E81BE00763774 /* libJTSImageViewController.a */; };
 		59D32FFC1C8E821900763774 /* JTSImagePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D32FFB1C8E821900763774 /* JTSImagePreview.m */; };
@@ -110,6 +111,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTVideo;
 		};
+		5928B7D21C97982E000F0DB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5928B7C21C97982E000F0DB0 /* RNGL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RNGL;
+		};
 		594363C01C965BB700F35A5B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 594363B11C965BB700F35A5B /* RNBlur.xcodeproj */;
@@ -169,6 +177,7 @@
 		4BDE6E787C324910B6EAD4C0 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		591B86FE1C8FC39700D27177 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
 		591B87101C8FC40E00D27177 /* moments.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = moments.mp4; path = ../view/img/moments.mp4; sourceTree = "<group>"; };
+		5928B7C21C97982E000F0DB0 /* RNGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGL.xcodeproj; path = "../node_modules/gl-react-native/ios/RNGL.xcodeproj"; sourceTree = "<group>"; };
 		594363B11C965BB700F35A5B /* RNBlur.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
 		59D32FED1C8E81BE00763774 /* libJTSImageViewController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libJTSImageViewController.a; path = "Pods/../build/Debug-iphoneos/libJTSImageViewController.a"; sourceTree = "<group>"; };
 		59D32FFA1C8E821900763774 /* JTSImagePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImagePreview.h; sourceTree = "<group>"; };
@@ -195,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5928B7D51C979837000F0DB0 /* libRNGL.a in Frameworks */,
 				594363C31C965BC200F35A5B /* libRNBlur.a in Frameworks */,
 				591B870F1C8FC3A200D27177 /* libRCTVideo.a in Frameworks */,
 				59D32FEE1C8E81BE00763774 /* libJTSImageViewController.a in Frameworks */,
@@ -321,6 +331,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5928B7C31C97982E000F0DB0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5928B7D31C97982E000F0DB0 /* libRNGL.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		594363B21C965BB700F35A5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +366,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				5928B7C21C97982E000F0DB0 /* RNGL.xcodeproj */,
 				594363B11C965BB700F35A5B /* RNBlur.xcodeproj */,
 				591B86FE1C8FC39700D27177 /* RCTVideo.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -552,6 +571,10 @@
 					ProjectRef = 594363B11C965BB700F35A5B /* RNBlur.xcodeproj */;
 				},
 				{
+					ProductGroup = 5928B7C31C97982E000F0DB0 /* Products */;
+					ProjectRef = 5928B7C21C97982E000F0DB0 /* RNGL.xcodeproj */;
+				},
+				{
 					ProductGroup = 59B0CDBF1C8A7A9400A7EF58 /* Products */;
 					ProjectRef = 3F1D3B81C1164382BF0C462E /* RNVectorIcons.xcodeproj */;
 				},
@@ -626,6 +649,13 @@
 			fileType = archive.ar;
 			path = libRCTVideo.a;
 			remoteRef = 591B870A1C8FC39700D27177 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5928B7D31C97982E000F0DB0 /* libRNGL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGL.a;
+			remoteRef = 5928B7D21C97982E000F0DB0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		594363C11C965BB700F35A5B /* libRNBlur.a */ = {

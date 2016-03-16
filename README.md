@@ -82,6 +82,13 @@ Reference: https://github.com/ProjectSeptemberInc/gl-react-native
 
 ![day11](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day11.gif)
 
+## Day 12
+Charts with React native 
+
+Reference: https://github.com/tomauty/react-native-chart
+
+![day12](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day12.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

@@ -123,6 +123,15 @@ var MainView =  React.createClass({
           size:50,
           color:"#2F3600",
           hideNav: false,
+        },{
+          key:11,
+          title:"charts",
+          component: require('./view/day12'),
+          isFA: false,
+          icon: "stats-bars",
+          size:50,
+          color:"#fd8f9d",
+          hideNav: false,
         }]
       }
   },
@@ -150,16 +159,16 @@ var MainView =  React.createClass({
       <ScrollView>
         <Swiper height={150} showsButtons={false} autoplay={true}
           activeDot={<View style={{backgroundColor: 'rgba(255,255,255,0.8)', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}>
-          <TouchableHighlight onPress={()=> onThis._jumpToDay(4)}>
+          <TouchableHighlight onPress={()=> onThis._jumpToDay(11)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={require('./view/img/day1.png')}></Image>
-              <Text style={styles.slideText}>Day8: Swipe menu</Text>
+              <Text style={styles.slideText}>Day12: Charts</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight onPress={()=> onThis._jumpToDay(3)}>
+          <TouchableHighlight onPress={()=> onThis._jumpToDay(10)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={require('./view/img/day2.png')}></Image>
-              <Text style={styles.slideText}>Day7: Moveable Baseball</Text>
+              <Text style={styles.slideText}>Day11: OpenGL</Text>
             </View>
           </TouchableHighlight>
         </Swiper>
@@ -183,7 +192,7 @@ var ThirtyDaysOfReactNative = React.createClass({
       initialRoute={{
         title:"30 Days of RN",
         component: MainView,
-        // component: require('./view/day11'),
+        // component: require('./view/day12'),
         backButtonTitle: 'back',
         shadowHidden: true,
         // navigationBarHidden:true

@@ -89,6 +89,11 @@ Reference: https://github.com/tomauty/react-native-chart
 
 ![day12](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day12.gif)
 
+## Day 13
+A tweet UI
+
+![day13](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day13.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

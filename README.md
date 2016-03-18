@@ -101,6 +101,11 @@ Reference:https://github.com/meteor-factory/react-native-tinder-swipe-cards
 
 ![day14](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day14.gif)
 
+## Day 15
+A time picker
+
+![day15](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day15.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

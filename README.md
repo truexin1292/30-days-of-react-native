@@ -94,6 +94,13 @@ A tweet UI
 
 ![day13](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day13.gif)
 
+## Day 14
+A tinder swipe 
+
+Reference:https://github.com/meteor-factory/react-native-tinder-swipe-cards
+
+![day14](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day14.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

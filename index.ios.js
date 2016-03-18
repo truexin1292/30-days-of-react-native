@@ -141,6 +141,15 @@ var MainView =  React.createClass({
           size:50,
           color:"#83709d",
           hideNav: true,
+        },{
+          key:13,
+          title:"tinder",
+          component: require('./view/day14'),
+          isFA: false,
+          icon: "fireball",
+          size:50,
+          color:"#ff6b6b",
+          hideNav: true,
         }]
       }
   },
@@ -200,8 +209,10 @@ var ThirtyDaysOfReactNative = React.createClass({
       style={styles.container}
       initialRoute={{
         title:"30 Days of RN",
+        // title:"Tinder",
         component: MainView,
-        // component: require('./view/day13'),
+        // component: require('./view/day14'),
+        // titleTextColor:"#ff6b6b",
         backButtonTitle: 'back',
         shadowHidden: true,
         // navigationBarHidden:true

@@ -15,7 +15,7 @@ var {
 var Util = require('./utils');
 
 var Day = React.createClass({
-	render: function () {
+	render() {
 		return(
 			<View></View>
 		)

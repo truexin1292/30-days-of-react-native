@@ -1,7 +1,9 @@
 /**
  * Day 14
  * Tinder Like Swipe
- * know bugs. simg win't change no matter how. Other properties changes fine.
+ * know bugs. simg of png win't change no matter how. Other properties changes fine.
+ * but changes to gif works fine
+ * Maybe bugs internally
  */
 'use strict';
 
@@ -24,7 +26,7 @@ var Card = React.createClass({
 	render(){
 		return(
 			<View style={[styles.card,{top:this.props.top,width:this.props.width,left:this.props.left}]}>
-				<Image style={{width:this.props.width-2,height:350}} source={this.props.img}></Image>
+				<Image style={{width:this.props.width-2,height:350}} source={{uri:this.props.img}}></Image>
 				<View style={styles.cardInfo}>
 					<View>
 						<Text style={styles.cardText}>{this.props.name}, very old  <Icon name="ios-checkmark" size={18} color="#208bf6"></Icon></Text>
@@ -49,7 +51,7 @@ var SCard = React.createClass({
 	render(){
 		return(
 			<View style={[styles.scard,{top:this.props.top,width:this.props.width}]}>
-				<Image style={{width:this.props.width-2,height:350}} source={this.props.img}></Image>
+				<Image style={{width:this.props.width-2,height:350}} source={{uri:this.props.img}}></Image>
 				<View style={styles.cardInfo}>
 					<View>
 						<Text style={styles.cardText}>{this.props.name}, very old  <Icon name="ios-checkmark" size={18} color="#208bf6"></Icon></Text>
@@ -72,7 +74,7 @@ var SCard = React.createClass({
 
 var SwipeCard = React.createClass({
   getInitialState() {
-  	var simgs=[require("./img/minion1.png"),require("./img/minion2.png"),require("./img/minion3.png"),require("./img/minion4.png"),require("./img/minion5.png")],
+  	var simgs=["minion1","minion2","minion3","minion4","minion5"],
 		names=["Stuart","Bob","Kevin","Dave","Jerry"];
   	var swipeData = simgs.map(function(elem, index) {
 		return {img:simgs[4-index], name:names[4-index], top:13+index*4, width:353-index*4,}
@@ -104,8 +106,7 @@ var SwipeCard = React.createClass({
 var Cards = React.createClass({
 	getInitialState() {
 		return {
-			simgs:[require("./img/minion1.png"),require("./img/minion2.png"),require("./img/minion3.png"),require("./img/minion4.png"),require("./img/minion5.png")],
-			imgs:[require("./img/minion1.png"),require("./img/minion2.png"),require("./img/minion3.png"),require("./img/minion4.png")],
+			imgs:["minion1","minion2","minion3","minion4"],
 			names:["Stuart","Bob","Kevin","Dave","Jerry"]
 		};
 	},
@@ -117,7 +118,7 @@ var Cards = React.createClass({
 		})
 	},
 	render() {
-		var {simgs,names} = this.state;
+		var {names} = this.state;
 		var cards = this.state.imgs.map(function(elem, index) {
 			return <Card key={index} name={names[index]} img={elem} top={30-index*4} width={337+index*4} left={18-index*2}></Card>
 		})

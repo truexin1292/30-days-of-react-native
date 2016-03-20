@@ -4,26 +4,25 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
+import React,{
+  Component,
   Image,
   StyleSheet,
   Text,
   TouchableHighlight,
   View
-} = React;
-var Util = require('./utils');
+} from 'react-native';
+import Util from './utils';
 
-var Day = React.createClass({
-	render() {
-		return(
-			<View></View>
-		)
-	}
-})
+export default class extends Component{
+  render() {
+    return(
+      <View></View>
+    )
+  }
+}
 
 const styles = StyleSheet.create({
 
 });
 
-module.exports = Day;

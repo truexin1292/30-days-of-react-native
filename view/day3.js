@@ -242,5 +242,5 @@ const styles = StyleSheet.create({
     height:Util.size.height-90,
     position:"relative",
     top:-20
-  }
+  },
 });

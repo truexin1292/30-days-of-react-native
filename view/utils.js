@@ -1,21 +1,17 @@
 // obtained from react native tutorials
 
-var React = require('react-native');
-var Dimensions = require('Dimensions');
+import React,{PixelRatio} from 'react-native';
+import Dimensions from 'Dimensions';
 
-var {
-  PixelRatio
-} = React;
-
-var Util = {
+const Util = {
   ratio: PixelRatio.get(),
   pixel: 1 / PixelRatio.get(),
   size: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height
   },
-  post: function (url, data, callback) {
-    var fetchOptions = {
+  post(url, data, callback) {
+    const fetchOptions = {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -32,9 +28,7 @@ var Util = {
       callback(responseData);
     });
   },
-
-  key: 'BDKHFSDKJFHSDKFHWEFH-REACT-NATIVE'
-
+  key: 'BDKHFSDKJFHSDKFHWEFH-REACT-NATIVE',
 };
 
-module.exports = Util;
+export default Util;

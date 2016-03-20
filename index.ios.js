@@ -3,18 +3,7 @@
  */
 'use strict';
 
-import React, {
-  AppRegistry,
-  Component,
-  Image,
-  NavigatorIOS,
-  ScrollView,
-  StatusBarIOS,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from 'react-native';
+import React, {AppRegistry,Component,Image,NavigatorIOS,ScrollView,StatusBarIOS,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
 import Util from './view/utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';

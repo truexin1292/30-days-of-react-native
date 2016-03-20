@@ -170,5 +170,5 @@ const styles = StyleSheet.create({
     textAlign:"center",
     color:"rgba(255,255,255,0.2)",
     fontWeight:"700"
-  }
+  },
 });

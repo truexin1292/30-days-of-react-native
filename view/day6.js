@@ -159,5 +159,5 @@ const styles = StyleSheet.create({
     color:"#fff",
     fontWeight:"500",
     fontSize:14
-  }
+  },
 });

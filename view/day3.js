@@ -4,31 +4,25 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Animated,
-  Easing,
-  Image,
-  RefreshControl,
-  ScrollView,
-  StyleSheet,
-  TabBarIOS,
-  Text,
-  TouchableHighlight,
-  View
-} = React;
-var Util = require('./utils');
-var Icon = require('react-native-vector-icons/Ionicons');
-var AnimatedIcon = Animated.createAnimatedComponent(Icon);
+import React,{Animated,Component,Easing,Image,RefreshControl,ScrollView,StyleSheet,TabBarIOS,Text,TouchableHighlight,View} from 'react-native';
+import Util from './utils';
+import Icon from 'react-native-vector-icons/Ionicons';
+const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
-var Entrance = React.createClass({
-  getInitialState:function  () {
-     return {
+class Entrance extends Component{
+  static propTypes = {
+    hideThis: React.PropTypes.func.isRequired,
+  };
+
+  constructor() {
+    super();
+    this.state = {
        transformAnim: new Animated.Value(1), 
        opacityAnim: new Animated.Value(1), 
      };
-  },
-  componentDidMount: function() {
+  }
+
+  componentDidMount() {
      Animated.timing(         
        this.state.transformAnim,    
        {toValue: 50,
@@ -48,25 +42,26 @@ var Entrance = React.createClass({
     setTimeout(() => {
       this.props.hideThis();
     }, 3300);              
-  },
-  render: function () {
+  }
+
+  render () {
     return(
       <Animated.View style={[styles.entrance,{opacity:this.state.opacityAnim}]}>
         <AnimatedIcon size={60} style={[styles.twitter,{transform:[{scale:this.state.transformAnim}]}]} name="social-twitter"></AnimatedIcon>
       </Animated.View>
     )
   }
-})
+}
 
-var TwitterPost =  React.createClass({
-  getInitialState: function (){
-    var twitterData = [];
-    return {
+class TwitterPost extends Component{
+  constructor() {
+    super();
+    this.state = {
       isRefreshing: false,
-      rowData: twitterData,
     };
-  },
-  _onRefresh:function () {
+  }
+
+  _onRefresh() {
     this.setState({
       isRefreshing: true,
     });
@@ -75,24 +70,25 @@ var TwitterPost =  React.createClass({
         isRefreshing: false,
       });
     }, 1000);
-  },
-  render: function () {
+  }
+
+  render() {
     return(
       <ScrollView
       style={styles.twitterPostContainer}
       refreshControl={
           <RefreshControl
             refreshing={this.state.isRefreshing}
-            onRefresh={this._onRefresh}
+            onRefresh={()=>this._onRefresh()}
             tintColor="#ddd"/>}>
-            <Image source={require('./img/day3.png')} style={{width:Util.size.width, height:Util.size.height-110}}></Image>
+            <Image source={{uri:'day3'}} style={{width:Util.size.width, height:Util.size.height-110}}></Image>
       </ScrollView>
     )
   }
-})
+}
 
-var TwitterFlow =  React.createClass({
-  render: function () {
+class TwitterFlow extends Component{
+  render() {
     return(
       <View>
         <View style={styles.nav}>
@@ -111,20 +107,23 @@ var TwitterFlow =  React.createClass({
       </View>
     )
   }
-})
+}
 
-var TwitterTab = React.createClass({
-  getInitialState: function () {
-    return {
+class TwitterTab extends Component{
+  constructor() {
+    super();
+    this.state = {
       selectedTab:'主页',
-    }
-  },
+    };
+  }
+
   changeTab(tabName) {
       this.setState({
         selectedTab: tabName
       });
-  },
-  render: function(){
+  }
+
+  render(){
     return (
       <TabBarIOS
         barTintColor="#fff"
@@ -135,7 +134,7 @@ var TwitterTab = React.createClass({
         selectedIconName="ios-home"
         onPress={ () => this.changeTab('主页') }
         selected={ this.state.selectedTab === '主页' }>
-          <TwitterFlow></TwitterFlow>
+          <TwitterFlow/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="通知"
@@ -143,7 +142,7 @@ var TwitterTab = React.createClass({
         selectedIconName="ios-bell"
         onPress={ () => this.changeTab('通知') }
         selected={ this.state.selectedTab === '通知'}>
-          <TwitterFlow></TwitterFlow>
+          <TwitterFlow/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="私信"
@@ -151,7 +150,7 @@ var TwitterTab = React.createClass({
         selectedIconName="ios-email"
         onPress={ () => this.changeTab('私信') }
         selected={ this.state.selectedTab === '私信'}>
-          <TwitterFlow></TwitterFlow>
+          <TwitterFlow/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="我"
@@ -159,35 +158,37 @@ var TwitterTab = React.createClass({
         selectedIconName="ios-person"
         onPress={ () => this.changeTab('我') }
         selected={ this.state.selectedTab === '我'}>
-          <TwitterFlow></TwitterFlow>
+          <TwitterFlow/>
         </Icon.TabBarItem>
       </TabBarIOS>
     );
   }
-});
+}
 
-
-var Day3 = React.createClass({
-  getInitialState: function () {
-    return{
+export default class extends Component{
+  constructor() {
+    super();
+    this.state = {
       show:true
-    }
-  },
-  _hideEntrance: function () {
+    };
+  }
+
+  _hideEntrance() {
     this.setState({
       show:false
     })
-  },
-	render: function () {
-    var entrance = this.state.show? <Entrance hideThis={this._hideEntrance}></Entrance>:<View></View>
+  }
+
+	render() {
+    let entrance = this.state.show? <Entrance hideThis={()=> this._hideEntrance()}/>:<View></View>
 		return(
 			<View style={styles.twitterContainer}>
-        <TwitterTab></TwitterTab>
+        <TwitterTab/>
         {entrance}
       </View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
   itemWrapper:{
@@ -243,5 +244,3 @@ const styles = StyleSheet.create({
     top:-20
   }
 });
-
-module.exports = Day3;

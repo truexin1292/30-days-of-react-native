@@ -4,42 +4,46 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  CameraRoll,
-  Text,
-  TextInput,
-  TouchableHighlight,
-  View
-} = React;
-var Util = require('./utils');
-var Icon = require('react-native-vector-icons/Ionicons');
+import React,{Component,Image,StyleSheet,CameraRoll,Text,TextInput,TouchableHighlight,View} from 'react-native';
+import Util from './utils';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-var FunctionView = React.createClass({
-	getInitialState() {
-		return {
+class FunctionView extends Component{
+	static defaultProps = {
+        numOfText: 140,
+    };
+
+    static propTypes = {
+        numOfText: React.PropTypes.number.isRequired,
+    };
+
+	constructor() {
+		super();
+		this.state = {
 			images: [],
 		};
-	},
+	}
+
 	componentDidMount() {
 	    const fetchParams = {
 	      first: 4,
 	    };
-	    CameraRoll.getPhotos(fetchParams).done(this.storeImages, this.logImageError);
-	},
+	    CameraRoll.getPhotos(fetchParams).done((data) => this.storeImages(data), (err) => this.logImageError(err));
+	}
+
 	storeImages(data) {
 	    const assets = data.edges;
 	    const images = assets.map((asset) => asset.node.image);
 	    this.setState({
 	      images: images,
 	    });
-  	},
+  	}
+
   	logImageError(err) {
 	    console.log(err);
-	},
-	render: function () {
+	}
+
+	render() {
 		return(
 			<View style={styles.functionContainer}>
 				<View style={styles.functionIconContainer}>
@@ -68,25 +72,28 @@ var FunctionView = React.createClass({
 			</View>
 		)
 	}
-})
+}
 
-var Day13 = React.createClass({
-	getInitialState() {
-		return {
+export default class extends Component{
+	constructor() {
+		super();
+		this.state = {
 			numOfText:140,
 		};
-	},
-	_updateTextNum: function(text) {
-		var remain = 140 - text.length;
+	}
+
+	_updateTextNum(text) {
+		let remain = 140 - text.length;
 		this.setState({
-			numOfText:remain
-		})
-	},
-	render: function () {
+			numOfText:remain,
+		});
+	}
+
+	render() {
 		return(
 			<View style={styles.container}>
 				<View style={styles.iconContainer}>
-					<Image style={styles.icon} source={require('./img/icon.png')}></Image>
+					<Image style={styles.icon} source={{uri:'icon'}}></Image>
 					<Icon name="android-close" color="#2aa2ef" size={25}></Icon>
 				</View>
 				<TextInput 
@@ -102,7 +109,7 @@ var Day13 = React.createClass({
 			</View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
 	container:{
@@ -201,5 +208,3 @@ const styles = StyleSheet.create({
 		height:113,
 	}
 });
-
-module.exports = Day13;

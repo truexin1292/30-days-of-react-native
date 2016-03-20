@@ -3,8 +3,7 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
+import React, {
   AppRegistry,
   Component,
   Image,
@@ -15,161 +14,180 @@ var {
   Text,
   TouchableHighlight,
   View
-} = React;
-var Util = require('./view/utils');
-var Icon = require('react-native-vector-icons/Ionicons');
-var IconFA = require('react-native-vector-icons/FontAwesome');
-var Swiper = require('react-native-swiper');
+} from 'react-native';
+import Util from './view/utils';
+import Icon from 'react-native-vector-icons/Ionicons';
+import IconFA from 'react-native-vector-icons/FontAwesome';
+import Swiper from 'react-native-swiper';
 
-var MainView =  React.createClass({
-  getInitialState:function () {
-      return{
-        days:[{
-          key:0,
-          title:"A stopwatch",
-          component: require('./view/day1'),
-          isFA: false,
-          icon: "ios-stopwatch",
-          size: 48,
-          color: "#ff856c",
-          hideNav: false,
-        },{
-          key:1,
-          title:"A weather app",
-          component: require('./view/day2'),
-          isFA: false,
-          icon: "ios-partlysunny",
-          size:60,
-          color:"#90bdc1",
-          hideNav: true,
-        },{
-          key:2,
-          title:"twitter",
-          component: require('./view/day3'),
-          isFA: false,
-          icon: "social-twitter",
-          size:50,
-          color:"#2aa2ef",
-          hideNav: true,
-        },{
-          key:3,
-          title:"cocoapods",
-          component: require('./view/day4'),
-          isFA: true,
-          icon: "contao",
-          size:50,
-          color:"#FF9A05",
-          hideNav: false,
-        },{
-          key:4,
-          title:"find my location",
-          component: require('./view/day5').Day5,
-          isFA: false,
-          icon: "ios-location",
-          size:50,
-          color:"#00D204",
-          hideNav: false,
-        },{
-          key:5,
-          title:"Spotify",
-          component: require('./view/day6'),
-          isFA: true,
-          icon: "spotify",
-          size:50,
-          color:"#777",
-          hideNav: true,
-        },{
-          key:6,
-          title:"Moveable Circle",
-          component: require('./view/day7'),
-          isFA: false,
-          icon: "ios-baseball",
-          size:50,
-          color:"#5e2a06",
-          hideNav: true,
-        },{
-          key:7,
-          title:"Swipe Left Menu",
-          component: require('./view/day8'),
-          isFA: true,
-          icon: "google",
-          size:50,
-          color:"#4285f4",
-          hideNav: true,
-        },{
-          key:8,
-          title:"Twitter Parallax View",
-          component: require('./view/day9'),
-          isFA: false,
-          icon: "social-twitter-outline",
-          size:50,
-          color:"#2aa2ef",
-          hideNav: true,
-        },{
-          key:9,
-          title:"Tumblr Menu",
-          component: require('./view/day10'),
-          isFA: false,
-          icon: "social-tumblr",
-          size:50,
-          color:"#37465c",
-          hideNav: true,
-        },{
-          key:10,
-          title:"OpenGL",
-          component: require('./view/day11'),
-          isFA: false,
-          icon: "contrast",
-          size:50,
-          color:"#2F3600",
-          hideNav: false,
-        },{
-          key:11,
-          title:"charts",
-          component: require('./view/day12'),
-          isFA: false,
-          icon: "stats-bars",
-          size:50,
-          color:"#fd8f9d",
-          hideNav: false,
-        },{
-          key:12,
-          title:"tweet",
-          component: require('./view/day13'),
-          isFA: false,
-          icon: "chatbox-working",
-          size:50,
-          color:"#83709d",
-          hideNav: true,
-        },{
-          key:13,
-          title:"tinder",
-          component: require('./view/day14'),
-          isFA: false,
-          icon: "fireball",
-          size:50,
-          color:"#ff6b6b",
-          hideNav: true,
-        },{
-          key:14,
-          title:"Time picker",
-          component: require('./view/day15'),
-          isFA: false,
-          icon: "ios-calendar-outline",
-          size:50,
-          color:"#ec240e",
-          hideNav: false,
-        }]
-      }
-  },
-  _jumpToDay: function(index){
+import Day1 from './view/day1';
+import Day2 from './view/day2';
+import Day3 from './view/day3';
+import Day4 from './view/day4';
+import Day5 from './view/day5';
+import Day6 from './view/day6';
+import Day7 from './view/day7';
+import Day8 from './view/day8';
+import Day9 from './view/day9';
+import Day10 from './view/day10';
+import Day11 from './view/day11';
+import Day12 from './view/day12';
+import Day13 from './view/day13';
+import Day14 from './view/day14';
+import Day15 from './view/day15';
+
+class MainView extends Component {
+  constructor() {
+    super();
+    this.state = {
+      days:[{
+        key:0,
+        title:"A stopwatch",
+        component: Day1,
+        isFA: false,
+        icon: "ios-stopwatch",
+        size: 48,
+        color: "#ff856c",
+        hideNav: false,
+      },{
+        key:1,
+        title:"A weather app",
+        component: Day2,
+        isFA: false,
+        icon: "ios-partlysunny",
+        size:60,
+        color:"#90bdc1",
+        hideNav: true,
+      },{
+        key:2,
+        title:"twitter",
+        component: Day3,
+        isFA: false,
+        icon: "social-twitter",
+        size:50,
+        color:"#2aa2ef",
+        hideNav: true,
+      },{
+        key:3,
+        title:"cocoapods",
+        component: Day4,
+        isFA: true,
+        icon: "contao",
+        size:50,
+        color:"#FF9A05",
+        hideNav: false,
+      },{
+        key:4,
+        title:"find my location",
+        component: Day5,
+        isFA: false,
+        icon: "ios-location",
+        size:50,
+        color:"#00D204",
+        hideNav: false,
+      },{
+        key:5,
+        title:"Spotify",
+        component: Day6,
+        isFA: true,
+        icon: "spotify",
+        size:50,
+        color:"#777",
+        hideNav: true,
+      },{
+        key:6,
+        title:"Moveable Circle",
+        component: Day7,
+        isFA: false,
+        icon: "ios-baseball",
+        size:50,
+        color:"#5e2a06",
+        hideNav: true,
+      },{
+        key:7,
+        title:"Swipe Left Menu",
+        component: Day8,
+        isFA: true,
+        icon: "google",
+        size:50,
+        color:"#4285f4",
+        hideNav: true,
+      },{
+        key:8,
+        title:"Twitter Parallax View",
+        component: Day9,
+        isFA: false,
+        icon: "social-twitter-outline",
+        size:50,
+        color:"#2aa2ef",
+        hideNav: true,
+      },{
+        key:9,
+        title:"Tumblr Menu",
+        component: Day10,
+        isFA: false,
+        icon: "social-tumblr",
+        size:50,
+        color:"#37465c",
+        hideNav: true,
+      },{
+        key:10,
+        title:"OpenGL",
+        component: Day11,
+        isFA: false,
+        icon: "contrast",
+        size:50,
+        color:"#2F3600",
+        hideNav: false,
+      },{
+        key:11,
+        title:"charts",
+        component: Day12,
+        isFA: false,
+        icon: "stats-bars",
+        size:50,
+        color:"#fd8f9d",
+        hideNav: false,
+      },{
+        key:12,
+        title:"tweet",
+        component: Day13,
+        isFA: false,
+        icon: "chatbox-working",
+        size:50,
+        color:"#83709d",
+        hideNav: true,
+      },{
+        key:13,
+        title:"tinder",
+        component: Day14,
+        isFA: false,
+        icon: "fireball",
+        size:50,
+        color:"#ff6b6b",
+        hideNav: true,
+      },{
+        key:14,
+        title:"Time picker",
+        component: Day15,
+        isFA: false,
+        icon: "ios-calendar-outline",
+        size:50,
+        color:"#ec240e",
+        hideNav: false,
+      }]
+    }
+  }
+
+  _jumpToDay(index){
     this.props.navigator.push({
       title: this.state.days[index].title,
       component: this.state.days[index].component,
       navigationBarHidden: this.state.days[index].hideNav,
     })
-  },
-  render: function() {
+  }
+
+  render() {
     var onThis = this;
     var boxs = this.state.days.map(function(elem, index) {
       return(
@@ -188,13 +206,13 @@ var MainView =  React.createClass({
           activeDot={<View style={{backgroundColor: 'rgba(255,255,255,0.8)', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}>
           <TouchableHighlight onPress={()=> onThis._jumpToDay(11)}>
             <View style={styles.slide}>
-              <Image style={styles.image} source={require('./view/img/day1.png')}></Image>
+              <Image style={styles.image} source={{uri:'day1'}}></Image>
               <Text style={styles.slideText}>Day12: Charts</Text>
             </View>
           </TouchableHighlight>
           <TouchableHighlight onPress={()=> onThis._jumpToDay(10)}>
             <View style={styles.slide}>
-              <Image style={styles.image} source={require('./view/img/day2.png')}></Image>
+              <Image style={styles.image} source={{uri:'day2'}}></Image>
               <Text style={styles.slideText}>Day11: OpenGL</Text>
             </View>
           </TouchableHighlight>
@@ -205,22 +223,23 @@ var MainView =  React.createClass({
       </ScrollView>
     );
   }
-})
+}
 
-var ThirtyDaysOfReactNative = React.createClass({
-  componentDidMount: function () {
+class ThirtyDaysOfReactNative extends Component{
+  componentDidMount() {
     StatusBarIOS.setStyle(0);
-  },
-  render: function(){
+  }
+  
+  render(){
     return (
       <NavigatorIOS
       ref='nav'
       style={styles.container}
       initialRoute={{
-        // title:"30 Days of RN",
-        title:"Time Picker",
-        // component: MainView,
-        component: require('./view/day15'),
+        title:"30 Days of RN",
+        // title:"Time Picker",
+        component: MainView,
+        // component: require('./view/day15'),
         // titleTextColor:"#ff6b6b",
         backButtonTitle: 'back',
         shadowHidden: true,
@@ -230,7 +249,7 @@ var ThirtyDaysOfReactNative = React.createClass({
       tintColor="#777"/>
     );
   }
-})
+}
 
 const styles = StyleSheet.create({
  container:{

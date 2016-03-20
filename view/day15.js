@@ -4,64 +4,63 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  Modal,
-  View,
-  DatePickerIOS
-} = React;
-var Util = require('./utils');
+import React,{Component,Image,StyleSheet,Text,TouchableHighlight,Modal,View,DatePickerIOS} from 'react-native';
+import Util from './utils';
 
-var Day15 = React.createClass({
-	getInitialState() {
-		var date = new Date(),
-			time = this._getTime(date),
-			showModal = false,
-			setDate = new Date(),
-			timeZoneOffsetInHours= (-1) * (new Date()).getTimezoneOffset() / 60;
+export default class extends Component{
+	constructor() {
+		super();
 
-		return {time,showModal,setDate,timeZoneOffsetInHours};
-	},
+		const date = new Date();
+		const time = this._getTime(date);
+		const timeZoneOffsetInHours= (-1) * (new Date()).getTimezoneOffset() / 60;
+		let setDate = new Date();
+		let showModal = false;
+
+		this.state = {time,showModal,setDate,timeZoneOffsetInHours};
+	}
+
 	_getTime(date){
-		var monthNames = [
+		const monthNames = [
 		  "January", "February", "March",
 		  "April", "May", "June", "July",
 		  "August", "September", "October",
 		  "November", "December"
 		];
-		var day = date.getDate(),
+		const day = date.getDate(),
 			monthIndex = date.getMonth(),
 			year = date.getFullYear(),
 			hour = date.getHours(),
 			minute = date.getMinutes();
 		return day + ' ' + monthNames[monthIndex] + ' ' + year + " at "+(hour<10? "0"+hour:hour)+":"+(minute<10? "0"+minute:minute);
-	},
+	}
+
 	_pickTime(){
 		this.setState({
-			showModal:true
-		})
-	},
+			showModal:true,
+		});
+	}
+
 	_setTime(){
 		this.setState({
 			time: this._getTime(this.state.setDate),
-			showModal:false
+			showModal:false,
 		});
-	},
+	}
+
 	_closeModal(){
-		this.setState({showModal:false});
-	},
-	_onDateChange: function(date) {
-		this.setState({setDate: date});
-	},
+		this.setState({showModal:false,});
+	}
+
+	_onDateChange(date) {
+		this.setState({setDate: date,});
+	}
+
 	render() {
 		return(
 			<View style={styles.container}>
 				<Text style={styles.date}>{this.state.time}</Text>
-				<TouchableHighlight underlayColor="#f3f3f3" onPress={this._pickTime}>
+				<TouchableHighlight underlayColor="#f3f3f3" onPress={() => this._pickTime()}>
 					<Text style={styles.btnText}>change time</Text>
 				</TouchableHighlight>
 				<Modal
@@ -70,22 +69,22 @@ var Day15 = React.createClass({
 		          visible={this.state.showModal}>
 		          <View style={styles.modalContainer}>
 		          	<View style={styles.modalNav}>
-		          		<TouchableHighlight underlayColor="#fff" onPress={this._closeModal}><Text style={[styles.btnText,{width:80,textAlign:"left"}]}>Cancle</Text></TouchableHighlight>
+		          		<TouchableHighlight underlayColor="#fff" onPress={() => this._closeModal()}><Text style={[styles.btnText,{width:80,textAlign:"left"}]}>Cancle</Text></TouchableHighlight>
 		          		<Text style={styles.navTitle}>Choose a time</Text>
-		          		<TouchableHighlight underlayColor="#fff" onPress={this._setTime}><Text style={[styles.btnText,,{width:80,textAlign:"right"}]}>Set</Text></TouchableHighlight>
+		          		<TouchableHighlight underlayColor="#fff" onPress={() => this._setTime()}><Text style={[styles.btnText,,{width:80,textAlign:"right"}]}>Set</Text></TouchableHighlight>
 		          	</View>
 		            <View style={styles.modalContent}>
 		                 <DatePickerIOS
 				          date={this.state.setDate}
 				          mode="date"
 				          timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-				          onDateChange={this._onDateChange}
+				          onDateChange={(date) => this._onDateChange(date)}
 				        />
 				         <DatePickerIOS
 				          date={this.state.setDate}
 				          mode="time"
 				          timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-				          onDateChange={this._onDateChange}
+				          onDateChange={(date) => this._onDateChange(date)}
 				        />
 		            </View>
 		          </View>
@@ -93,7 +92,7 @@ var Day15 = React.createClass({
 			</View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
 	container:{
@@ -141,5 +140,3 @@ const styles = StyleSheet.create({
 		fontSize:18
 	}
 });
-
-module.exports = Day15;

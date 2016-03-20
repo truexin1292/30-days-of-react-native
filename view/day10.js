@@ -4,31 +4,24 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  StatusBarIOS,
-  Animated,
-  Easing,
-  View
-} = React;
-const Util = require('./utils');
-const { BlurView, VibrancyView } = require('react-native-blur');
+import React,{Component,Image,StyleSheet,Text,TouchableWithoutFeedback,StatusBarIOS,Animated,Easing,View} from 'react-native';
+import Util from './utils';
+import {BlurView,VibrancyView} from 'react-native-blur';
 
-var Day9 = React.createClass({
-  getInitialState: function () {
-    return{
+export default class extends Component{
+  constructor() {
+    super();
+    this.state = {
       shift: new Animated.Value(-120),
       show:false,
-    }
-  },
-  _pushMenu: function () {
+    };
+  }
+
+  _pushMenu() {
     this.setState({
       show: true,
-    })
+    });
+
     Animated.timing(         
        this.state.shift,    
        {toValue: 50,
@@ -37,8 +30,9 @@ var Day9 = React.createClass({
         easing: Easing.elastic(1),
       },          
     ).start();
-  },
-  _popMenu: function () {
+  }
+
+  _popMenu() {
     Animated.timing(         
        this.state.shift,    
        {toValue: -120,
@@ -47,49 +41,52 @@ var Day9 = React.createClass({
         easing: Easing.elastic(1),
       },          
     ).start();
+
     setTimeout(()=>{
       this.setState({
         show: false,
       })
     },500);
-  },
-  componentDidMount: function () {
+  }
+
+  componentDidMount() {
     StatusBarIOS.setStyle(1);
-  },
-  render: function () {
+  }
+
+  render() {
     return(
       <View style={{backgroundColor:"#37465c"}}>
-        <TouchableWithoutFeedback style={styles.imgContainer} onPress={this._pushMenu}>
-          <Image source={require('./img/tumblr.png')} style={styles.img}></Image>
+        <TouchableWithoutFeedback style={styles.imgContainer} onPress={() => this._pushMenu()}>
+          <Image source={{uri:'tumblr'}} style={styles.img}></Image>
         </TouchableWithoutFeedback>
         {this.state.show?
-        <Image source={require('./img/tumblr.png')} style={styles.menu}>
+        <Image source={{uri:'tumblr'}} style={styles.menu}>
           <BlurView blurType="dark" style={styles.blur}>
             <Animated.View style={[styles.menuItem1,{left:this.state.shift}]}>
-              <Image style={styles.menuImg} source={require('./img/tumblr-text.png')}></Image>
+              <Image style={styles.menuImg} source={{uri:'tumblr-text'}}></Image>
               <Text style={styles.menuText}>Text</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem2,{right:this.state.shift}]}>
-              <Image style={styles.menuImg} source={require('./img/tumblr-photo.png')}></Image>
+              <Image style={styles.menuImg} source={{uri:'tumblr-photo'}}></Image>
               <Text style={styles.menuText}>Photo</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem3,{left:this.state.shift}]}>
-              <Image style={styles.menuImg} source={require('./img/tumblr-quote.png')}></Image>
+              <Image style={styles.menuImg} source={{uri:'tumblr-quote'}}></Image>
               <Text style={styles.menuText}>Quote</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem4,{right:this.state.shift}]}>
-              <Image style={styles.menuImg} source={require('./img/tumblr-link.png')}></Image>
+              <Image style={styles.menuImg} source={{uri:'tumblr-link'}}></Image>
               <Text style={styles.menuText}>Link</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem5,{left:this.state.shift}]}>
-              <Image style={styles.menuImg} source={require('./img/tumblr-chat.png')}></Image>
+              <Image style={styles.menuImg} source={{uri:'tumblr-chat'}}></Image>
               <Text style={styles.menuText}>Chat</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem6,{right:this.state.shift}]}>
-              <Image style={styles.menuImg} source={require('./img/tumblr-audio.png')}></Image>
+              <Image style={styles.menuImg} source={{uri:'tumblr-audio'}}></Image>
               <Text style={styles.menuText}>Audio</Text>
             </Animated.View>
-            <TouchableWithoutFeedback onPress={this._popMenu}><Text style={styles.dismiss}>NeverMind</Text></TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={() => this._popMenu()}><Text style={styles.dismiss}>NeverMind</Text></TouchableWithoutFeedback>
           </BlurView>
           </Image>:
           <View></View>
@@ -97,7 +94,7 @@ var Day9 = React.createClass({
       </View>
     )
   }
-})
+}
 
 const styles = StyleSheet.create({
   imgContainer:{
@@ -175,5 +172,3 @@ const styles = StyleSheet.create({
     fontWeight:"700"
   }
 });
-
-module.exports = Day9;

@@ -4,37 +4,16 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  StatusBarIOS,
-  Text,
-  TouchableHighlight,
-  PanResponder,
-  LayoutAnimation,
-  ScrollView,
-  View
-} = React;
-var Map = require('./day5').map;
-var Util = require('./utils');
-var Icon = require('react-native-vector-icons/FontAwesome');
+import React,{Component,Image,StyleSheet,StatusBarIOS,Text,TouchableHighlight,PanResponder,LayoutAnimation,ScrollView,View} from 'react-native';
+import {Map} from './day5';
+import Util from './utils';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-var Search = React.createClass({
-	render: function () {
-		return(
-			<View>
-
-			</View>
-		)
-	}
-})
-
-var Menu = React.createClass({
-	render: function () {
+class Menu extends Component{
+	render() {
 		return(
 			<View style={styles.sideMenuContainer}>
-				<Image source={require('./img/map.png')} style={styles.img}></Image>
+				<Image source={{uri:'map'}} style={styles.img}></Image>
 				<View style={styles.btnContainer}>
 					<TouchableHighlight underlayColor="#888" onPress={()=>{true}}>
 						<View style={styles.btn}>
@@ -90,20 +69,22 @@ var Menu = React.createClass({
 			</View>
 		)
 	}
-})
+}
 
-var Day8 = React.createClass({
-	getInitialState:function () {
-		return{
+export default class extends Component{
+	constructor() {
+		super();
+		this.state = {
 			showDrop:false
 		}
-	},
-	_previousLeft: -0.7*Util.size.width-10,
-	_previousOpacity: 0,
-	_minLeft: -0.7*Util.size.width-10,
-	_menuStyles: {},
-	_dropStyle: {},
-	_CustomLayoutLinear:{
+	}
+
+	_previousLeft = -0.7*Util.size.width-10;
+	_previousOpacity = 0;
+	_minLeft = -0.7*Util.size.width-10;
+	_menuStyles = {};
+	_dropStyle = {};
+	_CustomLayoutLinear = {
 	    duration: 200,
 	    create: {
 	      type: LayoutAnimation.Types.linear,
@@ -112,14 +93,16 @@ var Day8 = React.createClass({
 	    update: {
 	      type: LayoutAnimation.Types.curveEaseInEaseOut,
 	    },
-  	},
-  	menu: (null : ?{ setNativeProps(props: Object): void }),
-  	drop: (null : ?{ setNativeProps(props: Object): void }),
-  	_updatePosition: function() {
+  	};
+  	menu = (null : ?{ setNativeProps(props: Object): void });
+  	drop = (null : ?{ setNativeProps(props: Object): void });
+
+  	_updatePosition() {
 	    this.menu && this.menu.setNativeProps(this._menuStyles);
 	    this.drop && this.drop.setNativeProps(this._dropStyles);
-	},
-	_endMove: function (evt, gestureState) {
+	}
+
+	_endMove(evt, gestureState) {
 		if (gestureState.vx<0||gestureState.dx<0){
 			this._menuStyles.style.left = this._minLeft;
 			this._dropStyles.style.opacity = 0;
@@ -137,8 +120,9 @@ var Day8 = React.createClass({
 		}
 		this._updatePosition();
 		LayoutAnimation.configureNext(this._CustomLayoutLinear);
-	},
-	componentWillMount: function() {
+	}
+
+	componentWillMount() {
 		this._panResponder = PanResponder.create({
 		    onStartShouldSetPanResponder: (evt, gestureState) => true,
 		    onMoveShouldSetPanResponder: (evt, gestureState) => {
@@ -164,40 +148,41 @@ var Day8 = React.createClass({
 				   LayoutAnimation.configureNext(this._CustomLayoutLinear);
 		    },
 		    onPanResponderTerminationRequest: (evt, gestureState) => true,
-		    onPanResponderRelease: this._endMove,
-		    onPanResponderTerminate: this._endMove,
+		    onPanResponderRelease: (evt, gestureState) => this._endMove(evt, gestureState),
+		    onPanResponderTerminate: (evt, gestureState) => this._endMove(evt, gestureState),
 		    onShouldBlockNativeResponder: (event, gestureState) => true,
 	 	});
 
 	    this._menuStyles = {
 	      style: {
 	        left: this._previousLeft,
-	      }
+	      },
 	    };
 	    this._dropStyles = {
 	      style: {
 	        opacity: this._previousOpacity,
-	      }
+	      },
 	    };
 
-  	},
-  	componentDidMount: function() {
+  	}
+
+  	componentDidMount() {
 		this._updatePosition();
 		StatusBarIOS.setStyle(1);
-	},
-	render: function () {
+	}
+
+	render () {
 		return(
 			<View style={styles.container}>
 				<Map mapType="standard" mapStyle={styles.map} showsUserLocation={false} followUserLocation={false}></Map>
-				<Search></Search>
 				{this.state.showDrop?<View style={styles.drop}  ref={(drop) => {this.drop = drop;}}></View>:<View></View>}
 				<View {...this._panResponder.panHandlers} style={styles.sideMenu} ref={(menu) => {this.menu = menu;}}>
-					<Menu></Menu>
+					<Menu/>
 				</View>
 			</View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
 	container:{
@@ -267,5 +252,3 @@ const styles = StyleSheet.create({
   		borderBottomColor:"#bbb"
   	}
 });
-
-module.exports = Day8;

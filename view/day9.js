@@ -4,49 +4,41 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  PanResponder,
-  LayoutAnimation,
-  ScrollView,
-  TabBarIOS,
-  StatusBarIOS,
-  SegmentedControlIOS,
-  View
-} = React;
-var Util = require('./utils');
-var Icon = require('react-native-vector-icons/Ionicons');
+import React,{Component,Image,StyleSheet,Text,TouchableHighlight,PanResponder,LayoutAnimation,ScrollView,TabBarIOS,StatusBarIOS,SegmentedControlIOS,View} from 'react-native';
+import Util from './utils';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-var TwitterUser = React.createClass({
-	getInitialState: function () {
-		return{
+class TwitterUser extends Component{
+	constructor() {
+    super();
+		this.state = {
 			scrollEnabled: false,
       scale: 1,
       iconTop: 95,
       bannerTop:0,
       opacity:0,
-		}
-	},
-  _scrollEnabled: false,
-	_previousTop: 0,
-  _iconTop:95,
-  _scale:1,
-  _bannerTop:0,
-  _opacity:0,
-	_minTop: -192,
-	_userStyle:{},
-  user: (null : ?{ setNativeProps(props: Object): void }),
-  _updatePosition: function() {
+		};
+	}
+
+  _scrollEnabled = false;
+	_previousTop = 0;
+  _iconTop = 95;
+  _scale = 1;
+  _bannerTop = 0;
+  _opacity = 0;
+	_minTop = -192;
+	_userStyle = {};
+  user = (null : ?{ setNativeProps(props: Object): void });
+
+  _updatePosition() {
 	   this.user && this.user.setNativeProps(this._userStyles);
-	},
-	_endMove: function (evt, gestureState) {
+	}
+
+	_endMove(evt, gestureState) {
 		this._previousTop = this._userStyles.style.top;
-	},
-	componentWillMount: function() {
+	}
+
+	componentWillMount() {
 		this._panResponder = PanResponder.create({
 		    onStartShouldSetPanResponder: (evt, gestureState) => true,
 		    onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
@@ -80,6 +72,7 @@ var TwitterUser = React.createClass({
                 this._bannerTop = 129.5;
                 // this._scrollEnabled = true;
 	           	};
+
           this.setState({
             // scrollEnabled: this._scrollEnabled,
             scale: this._scale,
@@ -87,31 +80,34 @@ var TwitterUser = React.createClass({
             bannerTop: this._bannerTop,
             opacity: this._opacity
           });
+
 			   	this._updatePosition();
 		    },
 		    onPanResponderTerminationRequest: (evt, gestureState) => true,
-		    onPanResponderRelease: this._endMove,
-		    onPanResponderTerminate: this._endMove,
+		    onPanResponderRelease: (evt, gestureState) => this._endMove(evt, gestureState),
+		    onPanResponderTerminate: (evt, gestureState) => this._endMove(evt, gestureState),
 		    onShouldBlockNativeResponder: (event, gestureState) => true,
 	 	});
 
-	    this._userStyles = {
-	      style: {
-	        top: this._previousTop,
-	      }
-	    };
+    this._userStyles = {
+      style: {
+        top: this._previousTop,
+      },
+    };
 
-  	},
-  componentDidMount: function() {
+  }
+
+  componentDidMount() {
 		this._updatePosition();
-	},
-	render: function () {
-		var panProps = this.state.scrollEnabled?{}:{...this._panResponder.panHandlers};
+	}
+
+	render () {
+		let panProps = this.state.scrollEnabled?{}:{...this._panResponder.panHandlers};
 		return(
 			<View ref={(user) => {this.user = user;}} style={styles.userContainer} {...panProps}>
 				<View style={styles.userPanel}>
-          <Image style={[styles.banner,{top: this.state.bannerTop}]} source={require("./img/banner.png")}></Image>
-          <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}]}><Image style={styles.icon} source={require("./img/icon.png")}></Image></View>
+          <Image style={[styles.banner,{top: this.state.bannerTop}]} source={{uri:'banner'}}></Image>
+          <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}]}><Image style={styles.icon} source={{uri:"icon"}}></Image></View>
           <View style={styles.userControl}>
             <TouchableHighlight style={styles.controlIcon}>
               <Icon name="gear-a" color="#8999a5" size={20}></Icon>
@@ -131,8 +127,8 @@ var TwitterUser = React.createClass({
               <Text style={styles.userInfoFollower}><Text style={styles.fontEm}>830k</Text> 关注者</Text>
             </View>
           </View>
-          {this.state.bannerTop<=0?<View></View>:<Image style={[styles.banner,{top: this.state.bannerTop}]} source={require("./img/banner.png")}></Image>}
-          {this.state.bannerTop<=0?<View></View>:<Image style={[styles.banner,{top: this.state.bannerTop, opacity:this.state.opacity}]} source={require("./img/bannerBlur.png")}></Image>}
+          {this.state.bannerTop<=0?<View></View>:<Image style={[styles.banner,{top: this.state.bannerTop}]} source={{uri:'banner'}}></Image>}
+          {this.state.bannerTop<=0?<View></View>:<Image style={[styles.banner,{top: this.state.bannerTop, opacity:this.state.opacity}]} source={{uri:'bannerBlur'}}></Image>}
           <Text style={{position:"absolute",left:160, fontSize:20, fontWeight:"500", top: this.state.bannerTop+90,opacity:this.state.opacity, backgroundColor:"transparent", color:"#fff"}}>Github</Text>
           <View style={styles.segment}>
             <SegmentedControlIOS values={['推文', '媒体', '喜欢']}  selectedIndex={0} tintColor="#2aa2ef"/>
@@ -140,26 +136,29 @@ var TwitterUser = React.createClass({
 				</View>
 				<ScrollView contentInset={{top:0}} style={styles.detailScroll} scrollEnabled={this.state.scrollEnabled}>
 					<View style={{width:Util.size.width,backgroundColor:"#f5f8fa"}}>
-            <Image style={{width:Util.size.width, height:0.835*Util.size.width, resizeMode:"contain"}} source={require('./img/moreinfo.png')}></Image>
+            <Image style={{width:Util.size.width, height:0.835*Util.size.width, resizeMode:"contain"}} source={{uri:'moreinfo'}}></Image>
           </View>
 				</ScrollView>
 			</View>
 		)
 	}
-})
+}
 
-var TwitterTab = React.createClass({
-  getInitialState: function () {
-    return {
+class TwitterTab extends Component{
+  constructor() {
+    super();
+    this.state = {
       selectedTab:'我',
-    }
-  },
+    };
+  }
+
   changeTab(tabName) {
       this.setState({
         selectedTab: tabName
       });
-  },
-  render: function(){
+  }
+
+  render(){
     return (
       <TabBarIOS
         barTintColor="#fff"
@@ -170,7 +169,7 @@ var TwitterTab = React.createClass({
         selectedIconName="ios-home"
         onPress={ () => this.changeTab('主页') }
         selected={ this.state.selectedTab === '主页' }>
-          <TwitterUser></TwitterUser>
+          <TwitterUser/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="通知"
@@ -178,7 +177,7 @@ var TwitterTab = React.createClass({
         selectedIconName="ios-bell"
         onPress={ () => this.changeTab('通知') }
         selected={ this.state.selectedTab === '通知'}>
-          <TwitterUser></TwitterUser>
+          <TwitterUser/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="私信"
@@ -186,7 +185,7 @@ var TwitterTab = React.createClass({
         selectedIconName="ios-email"
         onPress={ () => this.changeTab('私信') }
         selected={ this.state.selectedTab === '私信'}>
-          <TwitterUser></TwitterUser>
+          <TwitterUser/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="我"
@@ -194,25 +193,26 @@ var TwitterTab = React.createClass({
         selectedIconName="ios-person"
         onPress={ () => this.changeTab('我') }
         selected={ this.state.selectedTab === '我'}>
-          <TwitterUser></TwitterUser>
+          <TwitterUser/>
         </Icon.TabBarItem>
       </TabBarIOS>
     );
   }
-});
+}
 
-var Day9 = React.createClass({
-	componentDidMount: function () {
+export default class extends Component{
+	componentDidMount() {
 		StatusBarIOS.setStyle(1);
-	},
-	render: function () {
+	}
+
+	render() {
 		return(
 			<View style={styles.twitterContainer}>
-				<TwitterTab></TwitterTab>
+				<TwitterTab/>
 			</View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
 	itemWrapper:{
@@ -343,5 +343,3 @@ const styles = StyleSheet.create({
     height:40,
   }
 });
-
-module.exports = Day9;

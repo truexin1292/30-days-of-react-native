@@ -4,16 +4,8 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View,
-  ScrollView
-} = React;
-var Util = require('./utils');
+import React,{Component,Image,StyleSheet,Text,TouchableHighlight,View,ScrollView} from 'react-native';
+import Util from './utils';
 import RNChart from 'react-native-chart';
 
 const chartData1 = [
@@ -51,8 +43,8 @@ const chartData3 = [
 
 const xLabels = ['0','1','2','3','4','5','6','7','8','9','10','11'];
 
-var Day12 = React.createClass({
-	render: function () {
+export default class extends Component{
+	render() {
 		return(
 			<ScrollView style={styles.container}>
 				<View style={styles.centerContainer}>
@@ -77,7 +69,7 @@ var Day12 = React.createClass({
 			</ScrollView>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
  	container: {
@@ -100,5 +92,3 @@ const styles = StyleSheet.create({
         width:355,
     }
 });
-
-module.exports = Day12;

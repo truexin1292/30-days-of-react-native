@@ -5,19 +5,10 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  SliderIOS,
-  Text,
-  TouchableHighlight,
-  View,
-  ScrollView
-} = React;
-var Util = require('./utils');
+import React,{Component,Image,StyleSheet,SliderIOS,Text,TouchableHighlight,View,ScrollView} from 'react-native';
+import Util from './utils';
 import GL from "gl-react";
-import { Surface } from "gl-react-native";
+import {Surface} from "gl-react-native";
 
 const shaders = GL.Shaders.create({
   helloGL: {
@@ -70,13 +61,13 @@ const shaders = GL.Shaders.create({
   }
 });
 
-var HelloGL = GL.createComponent(
+const HelloGL = GL.createComponent(
   ({value}) =>
   <GL.Node shader={shaders.helloGL} uniforms={{ value }}/>,
   { displayName: "HelloGL" }
 );
 
-var Saturation = GL.createComponent(
+const Saturation = GL.createComponent(
   ({ factor, image, ...rest }) =>
   <GL.Node
     {...rest}
@@ -85,7 +76,7 @@ var Saturation = GL.createComponent(
   />,
 { displayName: "Saturation" });
 
-var PieProgress = GL.createComponent(
+const PieProgress = GL.createComponent(
   ({
     width,
     height,
@@ -113,16 +104,18 @@ var PieProgress = GL.createComponent(
     }
   });
 
-var Day11 = React.createClass({
-  getInitialState() {
-    return {
+export default class extends Component{
+  constructor() {
+    super();
+    this.state = {
       value:0,
       saturationFactor:1,
       progress:0
     };
-  },
-  render: function () {
-    var {value,saturationFactor,progress} = this.state;
+  }
+
+  render() {
+    let {value,saturationFactor,progress} = this.state;
     return(
       <ScrollView style={styles.container}>
         <View style={styles.titleContainer}><Text style={styles.text}>Gradients:</Text></View>
@@ -157,7 +150,7 @@ var Day11 = React.createClass({
       </ScrollView>
     )
   }
-})
+}
 
 const styles = StyleSheet.create({
   container:{
@@ -175,5 +168,3 @@ const styles = StyleSheet.create({
     fontSize:16,
   }
 });
-
-module.exports = Day11;

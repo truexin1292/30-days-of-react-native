@@ -4,18 +4,16 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  ListView,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} = React;
-var Util = require('./utils');
+import React,{Component,ListView,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
+import Util from './utils';
 
-var WatchFace = React.createClass({
-	render: function () {
+class WatchFace extends Component{
+	static propTypes = {
+        sectionTime: React.PropTypes.string.isRequired,
+        totalTime: React.PropTypes.string.isRequired,
+    }; 
+
+	render() {
 		return(
 			<View style={styles.watchFaceContainer}>
 				<Text style={styles.sectionTime}>{this.props.sectionTime}</Text>
@@ -23,22 +21,32 @@ var WatchFace = React.createClass({
 			</View>
 		)
 	}
-})
+}
 
-var WatchControl = React.createClass({
-	getInitialState: function () {
-		return {
+class WatchControl extends Component{
+	static propTypes = {
+        stopWatch: React.PropTypes.func.isRequired,
+        clearRecord: React.PropTypes.func.isRequired,
+        startWatch: React.PropTypes.func.isRequired,
+        addRecord: React.PropTypes.func.isRequired,
+    }; 
+
+	constructor(props){
+		super(props);
+		this.state = {
 			watchOn: false, 
 			startBtnText: "启动",
 			startBtnColor: "#60B644",
 			stopBtnText: "计次",
-			underlayColor:"#fff"
-		}
-	},
-	_startWatch: function () {
+			underlayColor:"#fff",
+		};
+	}
+
+	_startWatch() {
 		this.setState({
 			watchOn: !this.state.watchOn
-		})
+		});
+
 		if (this.state.watchOn) {
 			this.props.startWatch()
 			this.setState({
@@ -56,8 +64,9 @@ var WatchControl = React.createClass({
 				underlayColor:"#eee"
 			})
 		}	
-	},
-	_addRecord: function () {
+	}
+
+	_addRecord() {
 		if (this.state.watchOn) {
 			this.props.addRecord()
 		}else{
@@ -66,28 +75,33 @@ var WatchControl = React.createClass({
 				stopBtnText: "计次"
 			})
 		}
-	},
-	render: function  () {
+	}
+
+	render() {
 		return(
 			<View style={styles.watchControlContainer}>
 				<View style={{flex:1,alignItems:"flex-start"}}>
-					<TouchableHighlight style={styles.btnStop} underlayColor={this.state.underlayColor} onPress={this._addRecord}>
+					<TouchableHighlight style={styles.btnStop} underlayColor={this.state.underlayColor} onPress={()=>this._addRecord()}>
 			        	<Text style={styles.btnStopText}>{this.state.stopBtnText}</Text>
 			        </TouchableHighlight>
 			    </View>
 			    <View style={{flex:1,alignItems:"flex-end"}}>
-			        <TouchableHighlight style={styles.btnStart} underlayColor="#eee" onPress={this._startWatch}>
+			        <TouchableHighlight style={styles.btnStart} underlayColor="#eee" onPress={()=> this._startWatch()}>
 			        	<Text style={[styles.btnStartText,{color:this.state.startBtnColor}]}>{this.state.startBtnText}</Text>
 			        </TouchableHighlight>
 		        </View>
 			</View>
 		)
 	}
-})
+}
 
-var WatchRecord =  React.createClass({
-	render: function() {
-	  var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
+class WatchRecord extends Component{
+	static propTypes = {
+        record: React.PropTypes.array.isRequired,
+    }; 
+
+	render() {
+	  let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
 	  theDataSource = ds.cloneWithRows(this.props.record);
 	  return (
 	    <ListView
@@ -102,34 +116,37 @@ var WatchRecord =  React.createClass({
 	      	</View>}/>
 	  );
 	}
-})
+}
 
-var Day1 =  React.createClass({
-	getInitialState: function() {
-	  return{
-	  	stopWatch: false,
-	  	resetWatch: true,
-	  	intialTime: 0,
-	  	currentTime:0,
-	  	recordTime:0,
-	  	timeAccumulation:0,
-	  	totalTime: "00:00.00",
-		sectionTime: "00:00.00",
-	  	recordCounter: 0,
-	  	record:[{title:"",time:""},
-		  		{title:"",time:""},
-		  		{title:"",time:""},
-		  		{title:"",time:""},
-		  		{title:"",time:""},
-		  		{title:"",time:""},
-		  		{title:"",time:""}]
-	  }
-	},
-	componentWillUnmount: function () {
+export default class extends Component{
+	constructor() {
+		super();
+	  	this.state = {
+		  	stopWatch: false,
+		  	resetWatch: true,
+		  	intialTime: 0,
+		  	currentTime:0,
+		  	recordTime:0,
+		  	timeAccumulation:0,
+		  	totalTime: "00:00.00",
+			sectionTime: "00:00.00",
+		  	recordCounter: 0,
+		  	record:[{title:"",time:""},
+			  		{title:"",time:""},
+			  		{title:"",time:""},
+			  		{title:"",time:""},
+			  		{title:"",time:""},
+			  		{title:"",time:""},
+			  		{title:"",time:""}],
+		};
+	}
+
+	componentWillUnmount() {
 		this._stopWatch();
 		this._clearRecord();
-	},
-	_startWatch: function () {
+	}
+
+	_startWatch() {
 		if (this.state.resetWatch) {
 			this.setState({
 				stopWatch: false,
@@ -143,8 +160,8 @@ var Day1 =  React.createClass({
 				initialTime: (new Date()).getTime()
 			})
 		}
-		var milSecond, second, minute, countingTime, secmilSecond, secsecond, secminute, seccountingTime;
-		var interval = setInterval(
+		let milSecond, second, minute, countingTime, secmilSecond, secsecond, secminute, seccountingTime;
+		let interval = setInterval(
 	      () => { 
 	      	this.setState({
 	      		currentTime: (new Date()).getTime()
@@ -170,30 +187,32 @@ var Day1 =  React.createClass({
 	      },
 	      10
 	    );
-	},
-	_stopWatch: function () {
+	}
+
+	_stopWatch() {
 		this.setState({
 			stopWatch: true
 		})
-	},
-	_addRecord: function () {
-		var index = this.state.recordCounter,
-			record = this.state.record;
-		index++;
-		if (index<8) {
+	}
+
+	_addRecord() {
+		let {recordCounter, record} = this.state;
+		recordCounter++;
+		if (recordCounter<8) {
 			record.pop();
 		}
-		record.unshift({title:"计次"+index,time:this.state.sectionTime});
+		record.unshift({title:"计次"+recordCounter,time:this.state.sectionTime});
 		this.setState({
 			recordTime: this.state.timeAccumulation + this.state.currentTime - this.state.initialTime,
-			recordCounter: index,
+			recordCounter: recordCounter,
 			record: record
 		})
 		//use refs to call functions within other sub component
 		//can force to update the states
 		// this.refs.record._updateData();
-	},
-	_clearRecord: function () {
+	}
+
+	_clearRecord() {
 		this.setState({
 		  	stopWatch: false,
 		  	resetWatch: true,
@@ -211,18 +230,19 @@ var Day1 =  React.createClass({
 			  		{title:"",time:""},
 			  		{title:"",time:""},
 			  		{title:"",time:""}]
-		 })
-	},
-	render: function(){
+		 });
+	}
+
+	render(){
 		return(
 			<View style={styles.watchContainer}>
 				<WatchFace totalTime={this.state.totalTime} sectionTime={this.state.sectionTime}></WatchFace>
-				<WatchControl addRecord={this._addRecord} clearRecord={this._clearRecord} startWatch={this._startWatch} stopWatch={this._stopWatch}></WatchControl>
+				<WatchControl addRecord={()=>this._addRecord()} clearRecord={()=>this._clearRecord()} startWatch={()=>this._startWatch()} stopWatch={()=>this._stopWatch()}></WatchControl>
 				<WatchRecord record={this.state.record}></WatchRecord>
 			</View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
 	watchContainer:{
@@ -310,5 +330,3 @@ const styles = StyleSheet.create({
 		color:"#222"
 	}
 });
-
-module.exports = Day1;

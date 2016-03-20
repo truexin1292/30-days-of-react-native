@@ -4,25 +4,14 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Animated,
-  Image,
-  ScrollView,
-  StatusBarIOS,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} = React;
+import React,{Component,Animated,Image,ScrollView,StatusBarIOS,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
 import Video from 'react-native-video';
+import Util from './utils';
+import Swiper from 'react-native-swiper';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-var Util = require('./utils');
-var Swiper = require('react-native-swiper');
-var Icon = require('react-native-vector-icons/FontAwesome');
-
-var Intro = React.createClass({
-  render: function () {
+class Intro extends Component{
+  render() {
     return(
       <View style={styles.backgroundFixed}>
         <View style={styles.logo}>
@@ -75,13 +64,14 @@ var Intro = React.createClass({
       </View>
     );
   }
-})
+}
 
-var Day6 = React.createClass({
-  componentDidMount: function () {
+export default class extends Component{
+  componentDidMount() {
     StatusBarIOS.setStyle(1);
-  },
-	render: function () {
+  }
+  
+	render() {
 		return(
 			<View style={styles.container}>
         <Video source={{uri: "moments"}}
@@ -91,7 +81,7 @@ var Day6 = React.createClass({
       </View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
   container:{
@@ -171,5 +161,3 @@ const styles = StyleSheet.create({
     fontSize:14
   }
 });
-
-module.exports = Day6;

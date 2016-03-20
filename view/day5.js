@@ -4,43 +4,51 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  MapView,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} = React;
+import React,{Component,Image,MapView,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
+import Util from './utils';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-var Util = require('./utils');
-var Icon = require('react-native-vector-icons/Ionicons');
+export class Map extends Component{
+  static defaultProps = {
+      mapType: 'standard',
+      showsUserLocation: false,
+      followUserLocation: false,
+  }; 
 
-var Map = React.createClass({
-  getInitialState: function () {
-    return{
+  static propTypes = {
+      mapType: React.PropTypes.oneOf(['standard', 'satellite','hybrid']),
+      // mapStyle: View.PropTypes.style,
+      showsUserLocation: React.PropTypes.bool.isRequired,
+      followUserLocation: React.PropTypes.bool.isRequired,
+  };
+
+  constructor() {
+    super();
+    this.state = {
       isFirstLoad: true,
       mapRegion: undefined,
       annotations: [],
-    }
-  },
-  _getAnnotations: function(region) {
+    };
+  }
+
+  _getAnnotations(region) {
     return [{
       longitude: region.longitude,
       latitude: region.latitude,
       title: 'You Are Here',
     }];
-  },
-  _onRegionChangeComplete: function(region) {
+  }
+
+  _onRegionChangeComplete(region) {
     if (this.state.isFirstLoad) {
       this.setState({
         annotations: this._getAnnotations(region),
         isFirstLoad: false,
       });
     }
-  },
-  render: function () {
+  }
+
+  render() {
     return(
       <View>
         <MapView
@@ -48,36 +56,39 @@ var Map = React.createClass({
           mapType = {this.props.mapType}
           showsUserLocation={this.props.showsUserLocation}
           followUserLocation={this.props.followUserLocation}
-          onRegionChangeComplete={this._onRegionChangeComplete}
+          onRegionChangeComplete={(region) => this._onRegionChangeComplete(region)}
           region={this.state.mapRegion}
           annotations={this.state.annotations}/>
       </View>
     )
   }
-})
+}
 
-var Day5 = React.createClass({
-  getInitialState: function () {
-    return{
+export default class extends Component{
+  constructor() {
+    super();
+    this.state = {
       showGeo:false
-    }
-  },
-  _getLocation: function () {
+    };
+  }
+
+  _getLocation() {
     this.setState({
       showGeo: true
     })
-  },
-	render: function () {
+  }
+
+	render() {
 		return(
 			<View style={styles.container}>
         <Map mapTyle="standard" mapStyle={styles.map} showsUserLocation={this.state.showGeo} followUserLocation={this.state.showGeo}></Map>
-        <TouchableHighlight underlayColor="#00bd03" style={styles.btn} onPress={this._getLocation}>
+        <TouchableHighlight underlayColor="#00bd03" style={styles.btn} onPress={() => this._getLocation()}>
           <Text style={styles.btnText}><Icon size={18} name="navigate"> </Icon> Find my location</Text>
         </TouchableHighlight>
       </View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
   container:{
@@ -104,8 +115,3 @@ const styles = StyleSheet.create({
     color:"#fff"
   },
 });
-
-module.exports = {
-    Day5: Day5,
-    map: Map
-}

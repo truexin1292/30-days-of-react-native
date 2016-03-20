@@ -7,22 +7,19 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  PanResponder,
-  Animated,
-  LayoutAnimation,
-  View
-} = React;
-var Util = require('./utils');
-var Icon = require('react-native-vector-icons/Ionicons');
+import React,{Component,Image,StyleSheet,Text,TouchableHighlight,PanResponder,Animated,LayoutAnimation,View} from 'react-native';
+import Util from './utils';
+import Icon from 'react-native-vector-icons/Ionicons';
 import SwipeCards from 'react-native-swipe-cards';
 
-var Card = React.createClass({
+class Card extends Component{
+    static propTypes = {
+        top: React.PropTypes.number.isRequired,
+        left: React.PropTypes.number.isRequired,
+        width: React.PropTypes.number.isRequired,
+        img: React.PropTypes.string.isRequired,
+    };
+
 	render(){
 		return(
 			<View style={[styles.card,{top:this.props.top,width:this.props.width,left:this.props.left}]}>
@@ -45,9 +42,15 @@ var Card = React.createClass({
 			</View>
 		)
 	}
-})
+}
 
-var SCard = React.createClass({
+class SCard extends Component{
+	static propTypes = {
+        top: React.PropTypes.number.isRequired,
+        width: React.PropTypes.number.isRequired,
+        img: React.PropTypes.string.isRequired,
+    };
+
 	render(){
 		return(
 			<View style={[styles.scard,{top:this.props.top,width:this.props.width}]}>
@@ -70,74 +73,78 @@ var SCard = React.createClass({
 			</View>
 		)
 	}
-})
+}
 
-var SwipeCard = React.createClass({
-  getInitialState() {
-  	var simgs=["minion1","minion2","minion3","minion4","minion5"],
-		names=["Stuart","Bob","Kevin","Dave","Jerry"];
-  	var swipeData = simgs.map(function(elem, index) {
+class SwipeCard extends Component{
+  constructor() {
+  	super();
+  	const simgs=["minion1","minion2","minion3","minion4","minion5"];
+	const names=["Stuart","Bob","Kevin","Dave","Jerry"];
+  	const cards = simgs.map(function(elem, index) {
 		return {img:simgs[4-index], name:names[4-index], top:13+index*4, width:353-index*4,}
 	})
-    return {
-      cards: swipeData
-    }
-  },
-  handleYup (card) {
+    this.state = {
+      cards,
+    };
+  }
+
+  handleYup(card) {
   	this.props.next();
-  },
-  handleNope (card) {
+  }
+
+  handleNope(card) {
   	this.props.next()
-  },
+  }
+
   render() {
     return (
       <SwipeCards
         cards={this.state.cards}
         renderCard={(cardData) => <SCard {...cardData} />}
-        handleYup={this.handleYup}
-        handleNope={this.handleNope}
+        handleYup={() => this.handleYup()}
+        handleNope={() => this.handleNope()}
         showYup={false}
         showNope={false}
       />
     )
   }
-})
+}
 
-var Cards = React.createClass({
-	getInitialState() {
-		return {
-			imgs:["minion1","minion2","minion3","minion4"],
-			names:["Stuart","Bob","Kevin","Dave","Jerry"]
-		};
-	},
-	_next: function() {
-		var imgs = this.state.imgs;
+class Cards extends Component{
+	constructor() {
+		super();
+		const imgs = ["minion1","minion2","minion3","minion4"];
+		const names = ["Stuart","Bob","Kevin","Dave","Jerry"];
+		this.state = {imgs,names,};
+	}
+
+	_next() {
+		const imgs = this.state.imgs;
 		imgs.pop();
-		this.setState({
-			imgs: imgs
-		})
-	},
+		this.setState({imgs,});
+	}
+
 	render() {
-		var {names} = this.state;
-		var cards = this.state.imgs.map(function(elem, index) {
+		const {names,} = this.state;
+		const cards = this.state.imgs.map(function(elem, index) {
 			return <Card key={index} name={names[index]} img={elem} top={30-index*4} width={337+index*4} left={18-index*2}></Card>
-		})
+		});
 		return (
 			<View>
 				{cards}
-				<SwipeCard next={this._next}></SwipeCard>
+				<SwipeCard next={() => this._next()}/>
 			</View>
 		);
 	} 
-})
+}
 
-var Day14 = React.createClass({
+export default class extends Component{
 	render() {
 		return(
 			<View style={styles.container}>
 				<View style={styles.nav}>
 					<Icon name="gear-b" size={35} color="#cecece"></Icon>
-					<Image style={styles.logo} source={require('./img/tinder.png')}></Image>
+					<Image style={styles.logo} source={{uri:'tinder'}}></Image>
 					<Icon name="chatbubbles" size={35} color="#cecece"></Icon>
 				</View>
 				<View style={styles.actionContainer}>
@@ -154,11 +161,11 @@ var Day14 = React.createClass({
 						<Icon name="location" color="#318ff6" size={30}></Icon>
 					</View>
 				</View>
-				<Cards></Cards>
+				<Cards/>
 			</View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
 	container:{
@@ -260,5 +267,3 @@ const styles = StyleSheet.create({
 		paddingTop:5
 	}
 });
-
-module.exports = Day14;

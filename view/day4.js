@@ -4,51 +4,48 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  TouchableHighlight,
-  View
-} = React;
+import React,{Component,Image,StyleSheet,TouchableHighlight,View} from 'react-native';
 
-var ShowImg = React.createClass({
-  componentDidMount: function() {
+class ShowImg extends Component{
+  componentDidMount() {
     React.NativeModules.JTSImagePreview.showImage('http://i.imgur.com/sKh7Z6R.png');
-  },
-  render: function () {
+  }
+
+  render() {
     return(
       <View></View>
     )
   }
-})
+}
 
-var Day4 = React.createClass({
-  getInitialState:function () {
-    return{
+export default class extends Component{
+  constructor() {
+    super();
+    this.state = {
       show:false
-    }
-  },
-  _onImgPress: function () {
+    };
+  }
+
+  _onImgPress() {
     this.setState({
       show:false
     })
     this.setState({
       show:true
     })
-  },
-  render: function () {
-    var show = this.state.show?<ShowImg></ShowImg>:<View></View>;
+  }
+
+  render() {
     return(
       <View style={{marginTop:100, alignItems:"center"}}>
-        <TouchableHighlight onPress={this._onImgPress}>
+        <TouchableHighlight onPress={()=>this._onImgPress()}>
           <Image source={{uri:'http://i.imgur.com/sKh7Z6R.png'}} style={styles.img}></Image>
         </TouchableHighlight>
-        {show}
+        {this.state.show?<ShowImg></ShowImg>:<View></View>}
       </View>
     )
   }
-})
+}
 
 const styles = StyleSheet.create({
   img:{
@@ -56,5 +53,3 @@ const styles = StyleSheet.create({
     width: 300
   }
 });
-
-module.exports = Day4;

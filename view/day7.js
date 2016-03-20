@@ -4,42 +4,38 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
-  Image,
-  StyleSheet,
-  StatusBarIOS,
-  Text,
-  TouchableHighlight,
-  PanResponder,
-  View
-} = React;
-var Util = require('./utils');
-var Icon = require('react-native-vector-icons/Ionicons');
+import React,{Component,Image,StyleSheet,StatusBarIOS,Text,TouchableHighlight,PanResponder,View} from 'react-native';
+import Util from './utils';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-var MoveableCircle = React.createClass({
-	getInitialState: function () {
-		return{
+class MoveableCircle extends Component{
+	constructor() {
+		super();
+		this.state = {
 			color: "rgba(255,255,255,0.7)"
-		}
-	},
-	_previousLeft: Util.size.width/2-40,
-  	_previousTop: Util.size.height/2-50,
-  	_maxTop: Util.size.height -110,
-  	_maxLeft: Util.size.width -98,
-  	_circleStyles: {},
-  	circle: (null : ?{ setNativeProps(props: Object): void }),
-  	_updatePosition: function() {
+		};
+	}
+
+	_previousLeft = Util.size.width/2-40;
+  	_previousTop = Util.size.height/2-50;
+  	_maxTop = Util.size.height-110;
+  	_maxLeft = Util.size.width-98;
+  	_circleStyles = {};
+  	circle = (null : ?{ setNativeProps(props: Object): void });
+
+  	_updatePosition() {
 	    this.circle && this.circle.setNativeProps(this._circleStyles);
-	},
-	_endMove: function (evt, gestureState) {
+	}
+
+	_endMove(evt, gestureState) {
 		this._previousLeft += gestureState.dx;
 	    this._previousTop += gestureState.dy;
 	    this.setState({
         	color: "rgba(255,255,255,0.7)"
-        })
-	},
-	componentWillMount: function() {
+        });
+	}
+
+	componentWillMount() {
 		this._panResponder = PanResponder.create({
 		    onStartShouldSetPanResponder: (evt, gestureState) => true,
 		    onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
@@ -68,8 +64,8 @@ var MoveableCircle = React.createClass({
 				   this._updatePosition();
 		    },
 		    onPanResponderTerminationRequest: (evt, gestureState) => true,
-		    onPanResponderRelease: this._endMove,
-		    onPanResponderTerminate: this._endMove,
+		    onPanResponderRelease: (evt, gestureState) => this._endMove(evt, gestureState),
+		    onPanResponderTerminate: (evt, gestureState) => this._endMove(evt, gestureState),
 	 	});
 
 	    this._circleStyles = {
@@ -79,34 +75,37 @@ var MoveableCircle = React.createClass({
 	      }
 	    };
 
-  	},
-  	componentDidMount: function() {
+  	}
+
+  	componentDidMount() {
 		this._updatePosition();
-	},
-	render: function () {
+	}
+
+	render() {
 		return(
 			<View ref={(circle) => {this.circle = circle;}} style={styles.MoveableCircle} {...this._panResponder.panHandlers}>
 				<Icon ref="baseball" name="ios-baseball" color={this.state.color} size={120}></Icon>
 			</View>
 		)
 	}
-})
+}
 
-var Day7 = React.createClass({
-	componentWillMount: function () {
+export default class extends Component{
+	componentWillMount() {
 		StatusBarIOS.setStyle(1);
-	},
-	render: function () {
+	}
+
+	render() {
 		return(
 			<View style={styles.container}>
-				<Image source={require('./img/agrass.png')} style={styles.bg}></Image>
+				<Image source={require('image!agrass')} style={styles.bg}></Image>
 				<View style={styles.circleContainer}>
 					<MoveableCircle></MoveableCircle>
 				</View>
 			</View>
 		)
 	}
-})
+}
 
 const styles = StyleSheet.create({
 	container:{
@@ -129,5 +128,3 @@ const styles = StyleSheet.create({
 		right:0
 	}
 });
-
-module.exports = Day7;

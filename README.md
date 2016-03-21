@@ -106,6 +106,13 @@ A time picker
 
 ![day15](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day15.gif)
 
+## Day 16
+Unlock with gesture
+
+Reference:https://github.com/spikef/react-native-gesture-password
+
+![day16](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day16.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

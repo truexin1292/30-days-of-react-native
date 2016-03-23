@@ -113,6 +113,13 @@ Reference:https://github.com/spikef/react-native-gesture-password
 
 ![day16](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day16.gif)
 
+## Day 17
+Native search bar and Fuzzy search 
+
+Reference:https://github.com/umhan35/react-native-search-bar
+
+![day17](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day17.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

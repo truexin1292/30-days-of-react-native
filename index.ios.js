@@ -25,6 +25,7 @@ import Day13 from './view/day13';
 import Day14 from './view/day14';
 import Day15 from './view/day15';
 import Day16 from './view/day16';
+import Day17 from './view/day17';
 
 class MainView extends Component {
   constructor() {
@@ -174,6 +175,15 @@ class MainView extends Component {
         size:50,
         color:"#32A69B",
         hideNav: true,
+      },{
+        key:16,
+        title:"Fuzzy search",
+        component: Day17,
+        isFA: false,
+        icon: "search",
+        size:50,
+        color:"#69B32A",
+        hideNav: false,
       }]
     }
   }
@@ -226,7 +236,7 @@ class MainView extends Component {
 
 class ThirtyDaysOfReactNative extends Component{
   componentDidMount() {
-    // StatusBarIOS.setStyle(0);
+    StatusBarIOS.setStyle(0);
   }
   
   render(){
@@ -238,7 +248,7 @@ class ThirtyDaysOfReactNative extends Component{
         title:"30 Days of RN",
         // title:"Time Picker",
         component: MainView,
-        // component: Day16,
+        // component: Day17,
         // titleTextColor:"#ff6b6b",
         backButtonTitle: 'back',
         shadowHidden: true,

@@ -79,6 +79,7 @@ class SwipeCard extends Component{
   constructor() {
     super();
     const simgs=["minion1","minion2","minion3","minion4","minion5"];
+    // const simgs = ["https://media.giphy.com/media/GfXFVHUzjlbOg/giphy.gif","https://media.giphy.com/media/irTuv1L1T34TC/giphy.gif","https://media.giphy.com/media/LkLL0HJerdXMI/giphy.gif","https://media.giphy.com/media/fFBmUMzFL5zRS/giphy.gif","https://media.giphy.com/media/oDLDbBgf0dkis/giphy.gif"];
     const names=["Stuart","Bob","Kevin","Dave","Jerry"];
     const cards = simgs.map(function(elem, index) {
       return {img:simgs[4-index], name:names[4-index], top:13+index*4, width:353-index*4,}

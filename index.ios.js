@@ -26,6 +26,7 @@ import Day14 from './view/day14';
 import Day15 from './view/day15';
 import Day16 from './view/day16';
 import Day17 from './view/day17';
+import Day18 from './view/day18';
 
 class MainView extends Component {
   constructor() {
@@ -184,6 +185,15 @@ class MainView extends Component {
         size:50,
         color:"#69B32A",
         hideNav: false,
+      },{
+        key:17,
+        title:"Sortable",
+        component: Day18,
+        isFA: false,
+        icon: "arrow-move",
+        size:50,
+        color:"#68231A",
+        hideNav: true,
       }]
     }
   }
@@ -248,7 +258,7 @@ class ThirtyDaysOfReactNative extends Component{
         title:"30 Days of RN",
         // title:"Time Picker",
         component: MainView,
-        // component: Day17,
+        // component: Day18,
         // titleTextColor:"#ff6b6b",
         backButtonTitle: 'back',
         shadowHidden: true,

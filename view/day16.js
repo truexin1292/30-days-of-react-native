@@ -9,7 +9,7 @@ import React,{Component,StatusBarIOS,Image,StyleSheet,Text,View} from 'react-nat
 import Util from './utils';
 import PasswordGesture from 'react-native-gesture-password';
 
-class EnterPassword extends Component{
+export class EnterPassword extends Component{
   static propTypes = {
     password: React.PropTypes.string.isRequired,
     enterPassword: React.PropTypes.func.isRequired,

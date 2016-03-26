@@ -27,6 +27,7 @@ import Day15 from './view/day15';
 import Day16 from './view/day16';
 import Day17 from './view/day17';
 import Day18 from './view/day18';
+import Day19 from './view/day19';
 
 class MainView extends Component {
   constructor() {
@@ -194,6 +195,15 @@ class MainView extends Component {
         size:50,
         color:"#68231A",
         hideNav: true,
+      },{
+        key:18,
+        title:"TouchID to unlock",
+        component: Day19,
+        isFA: false,
+        icon: "log-in",
+        size:50,
+        color:"#fdbded",
+        hideNav: true,
       }]
     }
   }
@@ -258,7 +268,7 @@ class ThirtyDaysOfReactNative extends Component{
         title:"30 Days of RN",
         // title:"Time Picker",
         component: MainView,
-        // component: Day18,
+        // component: Day19,
         // titleTextColor:"#ff6b6b",
         backButtonTitle: 'back',
         shadowHidden: true,

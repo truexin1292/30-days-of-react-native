@@ -42,10 +42,10 @@ class Sortable extends Component{
 
   componentWillMount() {
     this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: (evt, gestureState) => true,
-      onMoveShouldSetPanResponder: (evt, gestureState) => {
-        return gestureState.dy/gestureState.dx!=0;
+      onStartShouldSetPanResponder: (evt, gestureState) => {
+        return gestureState.dx!==0 || gestureState.dx!==0;
       },
+      onMoveShouldSetPanResponder: (evt, gestureState) => true,
       onPanResponderGrant: (evt, gestureState) => {
         const {pageX,pageY} = evt.nativeEvent;
         //30 to be offset
@@ -60,6 +60,7 @@ class Sortable extends Component{
         let box = this.refs["box" + this.index];
         box.setNativeProps({
           style: { 
+            opacity:0.7,
             shadowColor: "#000",
             shadowOpacity: 0.3,
             shadowRadius: 5,
@@ -116,6 +117,7 @@ class Sortable extends Component{
 
   _release(evt, gestureState) {
     const shadowStyle = {
+      opacity:1,
       shadowColor: "#000",
       shadowOpacity: 0,
       shadowRadius: 0,

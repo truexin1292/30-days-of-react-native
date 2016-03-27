@@ -28,6 +28,7 @@ import Day16 from './view/day16';
 import Day17 from './view/day17';
 import Day18 from './view/day18';
 import Day19 from './view/day19';
+import Day20 from './view/day20';
 
 class MainView extends Component {
   constructor() {
@@ -256,7 +257,7 @@ class MainView extends Component {
 
 class ThirtyDaysOfReactNative extends Component{
   componentDidMount() {
-    StatusBarIOS.setStyle(0);
+    // StatusBarIOS.setStyle(0);
   }
   
   render(){
@@ -265,14 +266,14 @@ class ThirtyDaysOfReactNative extends Component{
       ref='nav'
       style={styles.container}
       initialRoute={{
-        title:"30 Days of RN",
-        // title:"Time Picker",
+        // title:"30 Days of RN",
+        title:"Time Picker",
         component: MainView,
-        // component: Day19,
+        component: Day20,
         // titleTextColor:"#ff6b6b",
         backButtonTitle: 'back',
         shadowHidden: true,
-        // navigationBarHidden:true
+        navigationBarHidden:true
       }}
       itemWrapperStyle={styles.itemWrapper}
       tintColor="#777"/>

@@ -29,6 +29,7 @@ import Day17 from './view/day17';
 import Day18 from './view/day18';
 import Day19 from './view/day19';
 import Day20 from './view/day20';
+import Day21 from './view/day21';
 
 class MainView extends Component {
   constructor() {
@@ -268,8 +269,8 @@ class ThirtyDaysOfReactNative extends Component{
       initialRoute={{
         // title:"30 Days of RN",
         title:"Time Picker",
-        component: MainView,
-        component: Day20,
+        // component: MainView,
+        component: Day21,
         // titleTextColor:"#ff6b6b",
         backButtonTitle: 'back',
         shadowHidden: true,

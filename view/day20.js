@@ -9,7 +9,7 @@ import Util from './utils';
 import {BlurView,VibrancyView} from 'react-native-blur';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-class ReminderContainer extends Component{
+export class ReminderContainer extends Component{
   static defaultProps = {
     listData:{
       title:"提醒事项",
@@ -21,12 +21,14 @@ class ReminderContainer extends Component{
 
   static propTypes = {
     listData: React.PropTypes.object,
+    switch: React.PropTypes.func,
   };
 
   constructor(props) {
     super(props);
     this.state = {
       listData: this.props.listData,
+      numOfItems: this.props.listData.numOfItems,
     }
     this.animations = {
       duration: 200,
@@ -43,21 +45,25 @@ class ReminderContainer extends Component{
   _done(index) {
     const listData = this.state.listData;
     listData.list[index].selected = !listData.list[index].selected;
+    const numOfItems = this.state.numOfItems - 1;
     this.setState({
-      listData
+      listData,
+      numOfItems,
     });
     LayoutAnimation.configureNext(this.animations);
   }
 
   _addList(text) {
     const listData = this.state.listData;
+    const numOfItems = this.state.numOfItems + 1;
     listData.list.push({
       selected:false,
       text
     })
     this.refs.addList.setNativeProps({text: ''});
     this.setState({
-      listData
+      listData,
+      numOfItems,
     })
   }
 
@@ -67,7 +73,7 @@ class ReminderContainer extends Component{
       return (
         <View ref={"list"+index} key={index} style={[styles.reminderList,{opacity:elem.selected?0.5:1}]}>
           <TouchableHighlight underlayColor="transparent" style={[styles.check,{borderColor: elem.selected?listData.theme:"#c6c6c6"}]} onPress = {() => this._done(index)}>
-            <View style={elem.selected? styles.fill:null}></View>
+            <View style={elem.selected? [styles.fill,{backgroundColor:listData.theme}]:null}></View>
           </TouchableHighlight>
           <View style={styles.input}>
             <TextInput defaultValue={elem.text} style={styles.inputText}/>
@@ -77,22 +83,22 @@ class ReminderContainer extends Component{
     })
     list.push(
       <View key="add" style={styles.reminderList}>
-        <TouchableHighlight style={styles.add}>
+        <View style={styles.add}>
           <Icon name="plus" color="#c6c6c6" size={22}/>
-        </TouchableHighlight>
+        </View>
         <View style={styles.input}>
           <TextInput autoCapitalize="none" ref="addList" onBlur={(event) => this._addList(event.nativeEvent.text)} style={styles.inputText}/>
         </View>
       </View>
     );
     return(
-      <View style={styles.reminderContainer}>
+      <View style={[styles.reminderContainer,this.props.listStyle]}>
         <Image style={styles.reminderBg} source={{uri:"packed"}}/>
         <View style={styles.reminderContent}>
-          <TouchableHighlight>
+          <TouchableHighlight underlayColor="transparent" onPress={this.props.switch}>
             <View style={styles.reminderTitleContainer}>
               <Text style={[styles.reminderTitle,{color:listData.theme}]}>{listData.title}</Text>
-              <Text style={[styles.reminderTitle,{color:listData.theme}]}>{listData.numOfItems}</Text>
+              <Text style={[styles.reminderTitle,{color:listData.theme}]}>{this.state.numOfItems}</Text>
             </View>
           </TouchableHighlight>
           <View style={styles.reminderListContainer}>
@@ -163,6 +169,13 @@ const styles = StyleSheet.create({
     top:20,
     left:0,
     backgroundColor:"#fff",
+    shadowColor: "#000",
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: -1,
+      width: 0,
+    }
   },
   reminderBg:{
     height: Util.size.height-65,
@@ -229,7 +242,6 @@ const styles = StyleSheet.create({
     width:16,
     height:16,
     borderRadius:8,
-    backgroundColor:"#fc571f"
   },
   input:{
     width:325,

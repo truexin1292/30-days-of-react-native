@@ -23,14 +23,14 @@ class Entrance extends Component{
   }
 
   componentDidMount() {
-     Animated.timing(         
+    Animated.timing(         
        this.state.transformAnim,    
        {toValue: 50,
         duration: 1200,
         delay:2000,
         easing: Easing.elastic(2),
       },          
-     ).start();
+    ).start();
     Animated.timing(         
        this.state.opacityAnim,    
        {toValue: 0,

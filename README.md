@@ -142,6 +142,11 @@ Multi page Reminder
 
 ![day21](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day21.gif)
 
+## Day 22
+Google Now
+
+![day22](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day22.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

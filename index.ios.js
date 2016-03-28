@@ -30,6 +30,7 @@ import Day18 from './view/day18';
 import Day19 from './view/day19';
 import Day20 from './view/day20';
 import Day21 from './view/day21';
+import Day22 from './view/day22';
 
 class MainView extends Component {
   constructor() {
@@ -206,6 +207,33 @@ class MainView extends Component {
         size:50,
         color:"#fdbded",
         hideNav: true,
+      },{
+        key:19,
+        title:"Single page Reminder",
+        component: Day20,
+        isFA: false,
+        icon: "ios-list-outline",
+        size:50,
+        color:"#68d746",
+        hideNav: true,
+      },{
+        key:20,
+        title:"Multi page Reminder",
+        component: Day21,
+        isFA: false,
+        icon: "ios-paper-outline",
+        size:50,
+        color:"#fe952b",
+        hideNav: true,
+      },{
+        key:21,
+        title:"Google Now",
+        component: Day22,
+        isFA: false,
+        icon: "android-microphone",
+        size:50,
+        color:"#4285f4",
+        hideNav: true,
       }]
     }
   }
@@ -258,7 +286,7 @@ class MainView extends Component {
 
 class ThirtyDaysOfReactNative extends Component{
   componentDidMount() {
-    // StatusBarIOS.setStyle(0);
+    StatusBarIOS.setStyle(0);
   }
   
   render(){
@@ -269,12 +297,12 @@ class ThirtyDaysOfReactNative extends Component{
       initialRoute={{
         // title:"30 Days of RN",
         title:"Time Picker",
-        // component: MainView,
-        component: Day21,
+        component: MainView,
+        // component: Day22,
         // titleTextColor:"#ff6b6b",
         backButtonTitle: 'back',
         shadowHidden: true,
-        navigationBarHidden:true
+        // navigationBarHidden:true
       }}
       itemWrapperStyle={styles.itemWrapper}
       tintColor="#777"/>

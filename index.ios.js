@@ -31,6 +31,7 @@ import Day19 from './view/day19';
 import Day20 from './view/day20';
 import Day21 from './view/day21';
 import Day22 from './view/day22';
+import Day23 from './view/day23';
 
 class MainView extends Component {
   constructor() {
@@ -234,6 +235,15 @@ class MainView extends Component {
         size:50,
         color:"#4285f4",
         hideNav: true,
+      },{
+        key:22,
+        title:"Local WebView",
+        component: Day23,
+        isFA: true,
+        icon: "safari",
+        size:50,
+        color:"#23bfe7",
+        // hideNav: true,
       }]
     }
   }
@@ -292,26 +302,27 @@ class ThirtyDaysOfReactNative extends Component{
   render(){
     return (
       <NavigatorIOS
-      ref='nav'
-      style={styles.container}
-      initialRoute={{
-        // title:"30 Days of RN",
-        title:"Time Picker",
-        component: MainView,
-        // component: Day22,
-        // titleTextColor:"#ff6b6b",
-        backButtonTitle: 'back',
-        shadowHidden: true,
-        // navigationBarHidden:true
-      }}
-      itemWrapperStyle={styles.itemWrapper}
-      tintColor="#777"/>
+        ref='nav'
+        style={styles.container}
+        initialRoute={{
+          title:"30 Days of RN",
+          // title:"Time Picker",
+          component: MainView,
+          // component: Day23,
+          // titleTextColor:"#ff6b6b",
+          backButtonTitle: 'back',
+          shadowHidden: true,
+          // navigationBarHidden:true
+        }}
+        itemWrapperStyle={styles.itemWrapper}
+        tintColor="#777"
+      />
     );
   }
 }
 
 const styles = StyleSheet.create({
- container:{
+  container:{
     flex:1,
   },
   itemWrapper:{

@@ -167,6 +167,11 @@ Reference: https://github.com/d-a-n/react-native-webbrowser
 
 ![day25](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day25.gif)
 
+## Day 26
+Swipe and Switch
+
+![day26](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day26.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

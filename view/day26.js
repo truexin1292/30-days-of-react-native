@@ -17,7 +17,7 @@ import React,{
 import Util from './utils';
 import Day22 from './day22';
 import Day24 from './day24';
-import Day25 from './day25';
+import Day20 from './day20';
 
 class Menu extends Component{
   render() {
@@ -35,7 +35,7 @@ class Menu extends Component{
         </TouchableHighlight>
         <TouchableHighlight underlayColor="rgba(255,255,255,0.15)"  onPress={() => this.props.getDay(2)}>
           <View style={styles.menu}>
-            <Text style={styles.menuText}>Day 25</Text>
+            <Text style={styles.menuText}>Day 20</Text>
           </View>
         </TouchableHighlight>
       </View>
@@ -143,7 +143,7 @@ export default class extends Component{
         day = Day24;
         break;
       case 2:
-        day = Day25;
+        day = Day20;
         break;
     }
     this.setState({

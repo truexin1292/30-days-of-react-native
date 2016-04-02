@@ -172,6 +172,13 @@ Swipe and Switch
 
 ![day26](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day26.gif)
 
+## Day 27
+iMessage Gradient. The chat bubble changes its gradient color with its pageY.
+
+Reference: https://github.com/brentvatne/react-native-linear-gradient
+
+![day27](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day27.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

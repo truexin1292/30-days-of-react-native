@@ -35,6 +35,7 @@ import Day23 from './view/day23';
 import Day24 from './view/day24';
 import Day25 from './view/day25';
 import Day26 from './view/day26';
+import Day27 from './view/day27';
 
 class MainView extends Component {
   constructor() {
@@ -274,6 +275,15 @@ class MainView extends Component {
         size:50,
         color:"#893D54",
         hideNav: true,
+      },{
+        key:26,
+        title:"iMessage Gradient",
+        component: Day27,
+        isFA: false,
+        icon: "ios-chatbubble",
+        size:50,
+        color:"#248ef5",
+        hideNav: false,
       }]
     }
   }
@@ -338,7 +348,7 @@ class ThirtyDaysOfReactNative extends Component{
           title:"30 Days of RN",
           // title:"Time Picker",
           component: MainView,
-          // component: Day26,
+          // component: Day27,
           // titleTextColor:"#ff6b6b",
           backButtonTitle: 'back',
           shadowHidden: true,

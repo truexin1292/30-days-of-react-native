@@ -36,6 +36,7 @@ import Day24 from './view/day24';
 import Day25 from './view/day25';
 import Day26 from './view/day26';
 import Day27 from './view/day27';
+import Day28 from './view/day28';
 
 class MainView extends Component {
   constructor() {
@@ -284,6 +285,15 @@ class MainView extends Component {
         size:50,
         color:"#248ef5",
         hideNav: false,
+      },{
+        key:27,
+        title:"iMessage image picker",
+        component: Day28,
+        isFA: false,
+        icon: "images",
+        size:50,
+        color:"#f5248e",
+        hideNav: false,
       }]
     }
   }
@@ -348,7 +358,7 @@ class ThirtyDaysOfReactNative extends Component{
           title:"30 Days of RN",
           // title:"Time Picker",
           component: MainView,
-          // component: Day27,
+          // component: Day28,
           // titleTextColor:"#ff6b6b",
           backButtonTitle: 'back',
           shadowHidden: true,

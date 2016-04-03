@@ -11,7 +11,13 @@
 
 #import "RCTRootView.h"
 
+#import "RNQuickActionManager.h"
+
 @implementation AppDelegate
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL succeeded)) completionHandler {
+  [RNQuickActionManager onQuickActionPress:shortcutItem completionHandler:completionHandler];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

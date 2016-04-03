@@ -184,6 +184,11 @@ iMessage Image Picker.
 
 ![day28](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day28.gif)
 
+## Day 29
+Quick action with 3D Touch. Quick action on launching days.
+
+![day29](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day29.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

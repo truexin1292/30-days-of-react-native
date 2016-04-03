@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import React, {AppRegistry,Component,Image,NavigatorIOS,ScrollView,StatusBarIOS,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
+import React, {AppRegistry,DeviceEventEmitter,Component,Image,NavigatorIOS,ScrollView,StatusBarIOS,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
 import Util from './view/utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
@@ -37,6 +37,7 @@ import Day25 from './view/day25';
 import Day26 from './view/day26';
 import Day27 from './view/day27';
 import Day28 from './view/day28';
+import Day29 from './view/day29';
 
 class MainView extends Component {
   constructor() {
@@ -293,9 +294,38 @@ class MainView extends Component {
         icon: "images",
         size:50,
         color:"#f5248e",
+        hideNav: true,
+      },{
+        key:28,
+        title:"iMessage image picker",
+        component: Day29,
+        isFA: false,
+        icon: "navicon-round",
+        size:50,
+        color:"#48f52e",
         hideNav: false,
       }]
     }
+  }
+
+  componentWillMount() {
+    DeviceEventEmitter.addListener(
+    'quickActionShortcut', (data) => {
+      switch(data.title){
+        case "Day5":
+          this._jumpToDay(4);
+          break;
+        case "Day22":
+          this._jumpToDay(21);
+          break;
+        case "Day26":
+          this._jumpToDay(25);
+          break; 
+        case "Day28":
+          this._jumpToDay(27);
+          break;
+      }
+    });
   }
 
   _jumpToDay(index){

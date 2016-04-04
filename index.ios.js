@@ -1,5 +1,6 @@
 /**
  * 30 Days of React Native
+ * Icons made by <a href="http://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
  */
 'use strict';
 
@@ -38,6 +39,7 @@ import Day26 from './view/day26';
 import Day27 from './view/day27';
 import Day28 from './view/day28';
 import Day29 from './view/day29';
+import Day30 from './view/day30';
 
 class MainView extends Component {
   constructor() {
@@ -304,6 +306,15 @@ class MainView extends Component {
         size:50,
         color:"#48f52e",
         hideNav: false,
+      },{
+        key:29,
+        title:"Push Notifications",
+        component: Day30,
+        isFA: false,
+        icon: "android-notifications",
+        size:50,
+        color:"#f27405",
+        hideNav: false,
       }]
     }
   }
@@ -386,13 +397,9 @@ class ThirtyDaysOfReactNative extends Component{
         style={styles.container}
         initialRoute={{
           title:"30 Days of RN",
-          // title:"Time Picker",
           component: MainView,
-          // component: Day28,
-          // titleTextColor:"#ff6b6b",
           backButtonTitle: 'back',
           shadowHidden: true,
-          // navigationBarHidden:true
         }}
         itemWrapperStyle={styles.itemWrapper}
         tintColor="#777"

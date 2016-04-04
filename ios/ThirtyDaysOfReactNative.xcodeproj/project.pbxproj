@@ -27,6 +27,7 @@
 		591B87111C8FC40E00D27177 /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 591B87101C8FC40E00D27177 /* moments.mp4 */; };
 		5928B7D51C979837000F0DB0 /* libRNGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5928B7D31C97982E000F0DB0 /* libRNGL.a */; };
 		592EC88B1CA225DC00D7F67B /* libRNSearchBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 592EC8891CA225D600D7F67B /* libRNSearchBar.a */; };
+		593A87D11CB208920069AF86 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 593A87C31CB208860069AF86 /* libRCTPushNotification.a */; };
 		594363C31C965BC200F35A5B /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 594363C11C965BB700F35A5B /* libRNBlur.a */; };
 		595F50131CA645DB00870045 /* libTouchID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 595F50121CA645C500870045 /* libTouchID.a */; };
 		5972B5321CB0D19600F08219 /* libRNQuickAction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5972B52E1CB0D18A00F08219 /* libRNQuickAction.a */; };
@@ -138,6 +139,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNSearchBar;
 		};
+		593A87C21CB208860069AF86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 593A87B71CB208850069AF86 /* RCTPushNotification.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTPushNotification;
+		};
 		594363C01C965BB700F35A5B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 594363B11C965BB700F35A5B /* RNBlur.xcodeproj */;
@@ -210,7 +218,7 @@
 		0E432F2CF88D4D95B0ED8D20 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* ThirtyDaysOfReactNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThirtyDaysOfReactNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* 30 days of RN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30 days of RN.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ThirtyDaysOfReactNative/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ThirtyDaysOfReactNative/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -228,6 +236,7 @@
 		591B87101C8FC40E00D27177 /* moments.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = moments.mp4; path = ../view/img/moments.mp4; sourceTree = "<group>"; };
 		5928B7C21C97982E000F0DB0 /* RNGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGL.xcodeproj; path = "../node_modules/gl-react-native/ios/RNGL.xcodeproj"; sourceTree = "<group>"; };
 		592EC8751CA225D600D7F67B /* RNSearchBar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSearchBar.xcodeproj; path = "../node_modules/react-native-search-bar/RNSearchBar.xcodeproj"; sourceTree = "<group>"; };
+		593A87B71CB208850069AF86 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		594363B11C965BB700F35A5B /* RNBlur.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNBlur.xcodeproj; path = "../node_modules/react-native-blur/ios/RNBlur.xcodeproj"; sourceTree = "<group>"; };
 		595F4FFC1CA645C500870045 /* TouchID.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TouchID.xcodeproj; path = "../node_modules/react-native-touch-id/TouchID.xcodeproj"; sourceTree = "<group>"; };
 		5972B5191CB0D18A00F08219 /* RNQuickAction.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNQuickAction.xcodeproj; path = "../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction.xcodeproj"; sourceTree = "<group>"; };
@@ -258,6 +267,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				593A87D11CB208920069AF86 /* libRCTPushNotification.a in Frameworks */,
 				5972B5321CB0D19600F08219 /* libRNQuickAction.a in Frameworks */,
 				59D32EF41CAF81F900888B85 /* libBVLinearGradient.a in Frameworks */,
 				595F50131CA645DB00870045 /* libTouchID.a in Frameworks */,
@@ -415,6 +425,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		593A87B81CB208850069AF86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				593A87C31CB208860069AF86 /* libRCTPushNotification.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		594363B21C965BB700F35A5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +492,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				593A87B71CB208850069AF86 /* RCTPushNotification.xcodeproj */,
 				5972B5191CB0D18A00F08219 /* RNQuickAction.xcodeproj */,
 				59D32EDC1CAF81E900888B85 /* BVLinearGradient.xcodeproj */,
 				595F4FFC1CA645C500870045 /* TouchID.xcodeproj */,
@@ -524,7 +543,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* ThirtyDaysOfReactNative.app */,
+				13B07F961A680F5B00A75B9A /* 30 days of RN.app */,
 				00E356EE1AD99517003FC87E /* ThirtyDaysOfReactNativeTests.xctest */,
 			);
 			name = Products;
@@ -603,7 +622,7 @@
 			);
 			name = ThirtyDaysOfReactNative;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* ThirtyDaysOfReactNative.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* 30 days of RN.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -663,6 +682,10 @@
 				{
 					ProductGroup = 00C302D41ABCB9D200DB3ED1 /* Products */;
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = 593A87B81CB208850069AF86 /* Products */;
+					ProjectRef = 593A87B71CB208850069AF86 /* RCTPushNotification.xcodeproj */;
 				},
 				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
@@ -808,6 +831,13 @@
 			fileType = archive.ar;
 			path = libRNSearchBar.a;
 			remoteRef = 592EC8881CA225D600D7F67B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		593A87C31CB208860069AF86 /* libRCTPushNotification.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTPushNotification.a;
+			remoteRef = 593A87C21CB208860069AF86 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		594363C11C965BB700F35A5B /* libRNBlur.a */ = {
@@ -1061,6 +1091,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS/**",
 				);
 				INFOPLIST_FILE = ThirtyDaysOfReactNative/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -1071,7 +1102,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = weifang.30daysofRN;
-				PRODUCT_NAME = ThirtyDaysOfReactNative;
+				PRODUCT_NAME = "30 days of RN";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -1089,6 +1120,7 @@
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/PushNotificationIOS/**",
 				);
 				INFOPLIST_FILE = ThirtyDaysOfReactNative/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -1099,7 +1131,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = weifang.30daysofRN;
-				PRODUCT_NAME = ThirtyDaysOfReactNative;
+				PRODUCT_NAME = "30 days of RN";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

@@ -189,6 +189,11 @@ Quick action with 3D Touch. Quick action on launching days.
 
 ![day29](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day29.gif)
 
+## Day 30
+Push Notification.
+
+![day30](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/master/screenshot/day30.gif)
+
 ## License
 
 ThirtyDaysOfReactNative is under the MIT license.

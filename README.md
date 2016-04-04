@@ -17,6 +17,12 @@ Require node.js & xcode
 
 2. `run ios/ThirtyDaysOfReactNative.xcworkspace`
 
+##Warning
+A warning occurs from package react-native-swiper 
+
+Solution here:
+https://github.com/leecade/react-native-swiper/pull/113/commits/e681a8e5f347efbf10b445647321b1f0865e31a4
+
 ## Day 1
 An IOS-system-like stop watch.
 

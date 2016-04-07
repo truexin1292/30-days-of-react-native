@@ -1,5 +1,5 @@
 # 30 Days of React Native
-A collection of small experiments with React Native.
+30 days of React Native examples/demos.
 
 
 ![main](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/main.gif)

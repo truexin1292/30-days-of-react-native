@@ -17,7 +17,13 @@ Require node.js & xcode
 
 2. `run ios/ThirtyDaysOfReactNative.xcworkspace`
 
-##Warning
+## ToDO
+
+1. Add Android Support. 
+2. Add OSX Support. (https://github.com/ptmt/react-native-desktop)
+3. Add UWP Support when it is released. (https://blogs.windows.com/buildingapps/2016/04/13/react-native-on-the-universal-windows-platform/)
+
+##Known Bugs
 A warning occurs from package react-native-swiper 
 
 Solution here:

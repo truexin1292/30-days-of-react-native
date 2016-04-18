@@ -1,5 +1,5 @@
 # 30 Days of React Native
-A collection of small experiments with React Native.
+30 days of React Native examples/demos.
 
 
 ![main](https://raw.githubusercontent.com/fangwei716/ThirtyDaysOfReactNative/screenshots/screenshot/main.gif)
@@ -33,8 +33,8 @@ Android
 
 4. Add UWP Support when it is released. (https://blogs.windows.com/buildingapps/2016/04/13/react-native-on-the-universal-windows-platform/)
 
-##Know Bugs
-1. A warning occurs from package react-native-swiper 
+##Known Bugs
+A warning occurs from package react-native-swiper 
 
 Solution here:
 https://github.com/leecade/react-native-swiper/pull/113/commits/e681a8e5f347efbf10b445647321b1f0865e31a4

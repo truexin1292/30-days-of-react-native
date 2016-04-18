@@ -13,15 +13,33 @@ This project is inspired by
 ## Installation
 Require node.js & xcode
 
-1. `npm install`
+1. `$ npm install`
+
+IOS
 
 2. `run ios/ThirtyDaysOfReactNative.xcworkspace`
 
-##Warning
-A warning occurs from package react-native-swiper 
+Android
+
+2. `$ react-native run-android`
+
+##ToDO
+
+1. Add Android Support.
+
+2. iPhone Compatibility.
+
+3. Add OSX Support. (https://github.com/ptmt/react-native-desktop)
+
+4. Add UWP Support when it is released. (https://blogs.windows.com/buildingapps/2016/04/13/react-native-on-the-universal-windows-platform/)
+
+##Know Bugs
+1. A warning occurs from package react-native-swiper 
 
 Solution here:
 https://github.com/leecade/react-native-swiper/pull/113/commits/e681a8e5f347efbf10b445647321b1f0865e31a4
+
+2. PNG format images won't update on day14 tinder switch. 
 
 ## Day 1
 An IOS-system-like stop watch.

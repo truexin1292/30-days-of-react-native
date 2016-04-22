@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
     top:30
   },
   totalTime:{
-    fontSize: 70,
+    fontSize: Util.size.width === 375? 70:60,
     fontWeight: "100",
     color: "#222",
     paddingLeft:20

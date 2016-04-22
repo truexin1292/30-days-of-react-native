@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
     flexWrap:"wrap"
   },
   imageIcon:{
-    width: 125,
+    width: Util.size.width/3,
     height:113,
     alignItems:"center",
     justifyContent:"center",
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     borderBottomWidth:1
   },
   image:{
-    width: 125,
+    width: Util.size.width/3,
     height:113,
   },
 });

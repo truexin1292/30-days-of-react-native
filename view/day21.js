@@ -139,11 +139,11 @@ export default class extends Component{
 const styles = StyleSheet.create({
   container:{
     height: Util.size.height,
-    width: 375,
+    width: Util.size.width,
   },
   reset:{
     height:30,
-    width:375,
+    width:Util.size.width,
     position:"absolute",
     bottom:0,
     left:0,

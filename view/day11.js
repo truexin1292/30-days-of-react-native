@@ -123,7 +123,7 @@ export default class extends Component{
           maximumValue = {1}
           value = {0}
           onValueChange={(value) => this.setState({value: value})} />
-        <Surface width={375} height={200}>
+        <Surface width={Util.size.width} height={200}>
           <HelloGL 
             value={value}
           />
@@ -133,7 +133,7 @@ export default class extends Component{
           maximumValue = {5}
           value = {1}
           onValueChange={(value) => this.setState({saturationFactor: value})} />
-        <Surface width={375} height={200}>
+        <Surface width={Util.size.width} height={200}>
           <Saturation
             factor={saturationFactor}
             image={{ uri: "gl" }}
@@ -144,7 +144,7 @@ export default class extends Component{
           maximumValue = {1}
           value = {0}
           onValueChange={(value) => this.setState({progress: value})} />
-        <Surface width={375} height={200} backgroundColor="transparent">
+        <Surface width={Util.size.width} height={200} backgroundColor="transparent">
           <PieProgress progress={progress} />
         </Surface>
       </ScrollView>

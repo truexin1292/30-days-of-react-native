@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   shareIcon:{
     position:"absolute",
     bottom:0,
-    left: 170,
+    left: Util.size.width/2-15,
   }
 });
 

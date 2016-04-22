@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   modalNav:{
     position:"absolute",
     height:60,
-    width:375,
+    width:Util.size.width,
     backgroundColor:"#fff",
     flexDirection:"row",
     justifyContent:"space-between",
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   modalContent:{
     alignItems:"center",
     justifyContent:"center",
-    width:375,
+    width:Util.size.width,
     height:Util.size.height-60,
     marginTop:60
   },

@@ -82,7 +82,7 @@ class SwipeCard extends Component{
     // const simgs = ["https://media.giphy.com/media/GfXFVHUzjlbOg/giphy.gif","https://media.giphy.com/media/irTuv1L1T34TC/giphy.gif","https://media.giphy.com/media/LkLL0HJerdXMI/giphy.gif","https://media.giphy.com/media/fFBmUMzFL5zRS/giphy.gif","https://media.giphy.com/media/oDLDbBgf0dkis/giphy.gif"];
     const names=["Stuart","Bob","Kevin","Dave","Jerry"];
     const cards = simgs.map(function(elem, index) {
-      return {img:simgs[4-index], name:names[4-index], top:13+index*4, width:353-index*4,}
+      return {img:simgs[4-index], name:names[4-index], top:13+index*4, width:Util.size.width-22-index*4,}
     })
 
     this.state = {
@@ -130,7 +130,7 @@ class Cards extends Component{
   render() {
     const {names,} = this.state;
     const cards = this.state.imgs.map(function(elem, index) {
-      return <Card key={index} name={names[index]} img={elem} top={30-index*4} width={337+index*4} left={18-index*2}></Card>
+      return <Card key={index} name={names[index]} img={elem} top={30-index*4} width={Util.size.width-38+index*4} left={18-index*2}></Card>
     });
     return (
       <View>
@@ -174,10 +174,10 @@ const styles = StyleSheet.create({
   container:{
     backgroundColor:"#fff",
     height:Util.size.height,
-    width:375
+    width:Util.size.width
   },
   nav:{
-    width:375,
+    width:Util.size.width,
     flexDirection:"row",
     justifyContent:"space-between",
     height:60,
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     borderBottomWidth:1
   },
   card:{
-    width:355,
+    width:Util.size.width-20,
     height:410,
     borderRadius:5,
     borderWidth:1,
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     backgroundColor:"#fff"
   },
   scard:{
-    width:355,
+    width:Util.size.width-20,
     height:410,
     borderRadius:5,
     borderWidth:1,
@@ -249,8 +249,8 @@ const styles = StyleSheet.create({
     position:"absolute",
   },
   smallAction:{
-    width: 70,
-    height:70,
+    width: Util.size.width===375?70:60,
+    height:Util.size.width===375?70:60,
     borderColor:"#f5f5f5",
     borderWidth:10,
     borderRadius:35,
@@ -260,8 +260,8 @@ const styles = StyleSheet.create({
     paddingTop:5
   },
   largeAction:{
-    width: 110,
-    height:110,
+    width: Util.size.width===375?110:100,
+    height:Util.size.width===375?110:100,
     borderColor:"#f5f5f5",
     borderWidth:10,
     borderRadius:55,

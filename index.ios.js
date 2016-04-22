@@ -351,7 +351,7 @@ class MainView extends Component {
     var onThis = this;
     var boxs = this.state.days.map(function(elem, index) {
       return(
-        <TouchableHighlight key={elem.key} style={[styles.touchBox,styles.touchBox1]} underlayColor="#eee" onPress={()=> onThis._jumpToDay(index)}>
+        <TouchableHighlight key={elem.key} style={[styles.touchBox, index%3==2?styles.touchBox2:styles.touchBox1]} underlayColor="#eee" onPress={()=> onThis._jumpToDay(index)}>
           <View style={styles.boxContainer}>
             <Text style={styles.boxText}>Day{index+1}</Text>
             {elem.isFA? <IconFA size={elem.size} name={elem.icon} style={[styles.boxIcon,{color:elem.color}]}></IconFA>:
@@ -416,7 +416,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f3f3f3'
   },
   touchBox:{
-    width: Util.size.width/3-0.34,
+    width: Util.size.width/3-0.33334,
     height:Util.size.width/3,
     backgroundColor:"#fff",
   },
@@ -440,6 +440,8 @@ const styles = StyleSheet.create({
   touchBox2:{
     borderBottomWidth: Util.pixel,
     borderBottomColor:"#ccc",
+    borderLeftWidth: Util.pixel,
+    borderLeftColor:"#ccc",
   },
   boxContainer:{
     alignItems:"center",

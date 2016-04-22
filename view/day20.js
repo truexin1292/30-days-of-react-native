@@ -159,11 +159,11 @@ export default class extends Component{
 const styles = StyleSheet.create({
   container:{
     height: Util.size.height,
-    width: 375,
+    width: Util.size.width,
   },
   reminderContainer:{
     height: Util.size.height-65,
-    width:375,
+    width:Util.size.width,
     borderRadius: 10,
     position:"absolute",
     top:20,
@@ -179,14 +179,14 @@ const styles = StyleSheet.create({
   },
   reminderBg:{
     height: Util.size.height-65,
-    width:375,
+    width:Util.size.width,
     borderRadius: 10,
     resizeMode:"cover",
     opacity:0.5,
   },
   reminderContent:{
     height: Util.size.height-65,
-    width:375,
+    width:Util.size.width,
     backgroundColor:"transparent",
     position:"absolute",
     top:0,
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   },
   reminderTitleContainer:{
     height: 65,
-    width: 375,
+    width: Util.size.width,
     flexDirection:"row",
     justifyContent:"space-between",
     paddingLeft:15,
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     paddingLeft:15,
     height:45,
-    width:375,
+    width:Util.size.width,
     justifyContent:"space-between",
     alignItems:"center"
   },
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     borderRadius:8,
   },
   input:{
-    width:325,
+    width:Util.size.width-50,
     height:45,
     borderBottomWidth:1,
     borderBottomColor:"#ccc",

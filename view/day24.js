@@ -194,12 +194,12 @@ export default class extends Component{
 const styles = StyleSheet.create({
   navBg:{
     backgroundColor:"#c11f1e",
-    width:375,
+    width:Util.size.width,
     height:20,
   },
   nav:{
     backgroundColor:"#e32524",
-    width:375,
+    width:Util.size.width,
     height:55,
     flexDirection:"row",
     justifyContent:"space-between",

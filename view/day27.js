@@ -24,7 +24,7 @@ export default class extends Component{
     super();
     this.state = {
       color: [['rgba(32,138,246,0.9)', 'rgba(32,138,246,0.92)', 'rgba(32,138,246,0.95)'],['rgba(32,138,246,0.92)', 'rgba(32,138,246,0.95)', 'rgba(32,138,246,0.98)'],['rgba(32,138,246,0.96)', 'rgba(32,138,246,0.98)', 'rgba(32,138,246,1)']],
-      msg:["An iMessage Gradient effect","Color should change according to scroll pageY","testing..."],
+      msg:["An iMessage Gradient effect","Color should change by scroll pageY","testing..."],
     }
   }
 

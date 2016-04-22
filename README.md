@@ -27,14 +27,18 @@ Android
 
 1. Add Android Support.
 
-2. iPhone Compatibility.
+2. ~~iPhone Compatibility~~.
 
 3. Add OSX Support. (https://github.com/ptmt/react-native-desktop)
 
 4. Add UWP Support when it is released. (https://blogs.windows.com/buildingapps/2016/04/13/react-native-on-the-universal-windows-platform/)
 
+##Compatibility
+
+Compatible with iPhone 4, 5/5s, 6/6s, 6+/6s+.
+
 ##Known Bugs
-A warning occurs from package react-native-swiper 
+1. A warning occurs from package react-native-swiper 
 
 Solution here:
 https://github.com/leecade/react-native-swiper/pull/113/commits/e681a8e5f347efbf10b445647321b1f0865e31a4

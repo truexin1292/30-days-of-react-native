@@ -24,7 +24,7 @@ export default class extends Component{
 
     Animated.timing(         
        this.state.shift,    
-       {toValue: 50,
+       {toValue: Util.size.width === 375? 50:30,
         duration: 200,
         delay:100,
         easing: Easing.elastic(1),
@@ -139,27 +139,27 @@ const styles = StyleSheet.create({
   },
   menuItem3:{
     position:"absolute",
-    left: 50,
+    left:50,
     top: 250
   },
   menuItem5:{
     position:"absolute",
-    left: 50,
+    left:50,
     top: 420
   },
   menuItem2:{
     position:"absolute",
-    right: 50,
+    right:50,
     top: 80
   },
   menuItem4:{
     position:"absolute",
-    right: 50,
+    right:50,
     top: 250
   },
   menuItem6:{
     position:"absolute",
-    right: 50,
+    right:50,
     top: 420
   },
   dismiss:{

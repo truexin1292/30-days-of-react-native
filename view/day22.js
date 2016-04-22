@@ -106,7 +106,7 @@ export default class extends Component{
 const styles = StyleSheet.create({
   container:{
     height:Util.size.height,
-    width:375,
+    width:Util.size.width,
     paddingTop:30,
     backgroundColor:"#f2f2f2",
   },
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     resizeMode:"contain"
   },
   btn:{
-    width:375,
+    width:Util.size.width,
     alignItems:"center",
     justifyContent:"center"
   },
@@ -150,12 +150,12 @@ const styles = StyleSheet.create({
     }
   },
   input:{
-    width: 275,
+    width: Util.size.width-100,
     height: 40,
     paddingLeft:10,
   },
   inputContainer:{
-    width: 295,
+    width: Util.size.width-80,
     height: 40,
     marginTop:40,
     marginBottom:40,
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   scaleContainer:{
     position: "absolute",
     height:Util.size.height,
-    width:375,
+    width:Util.size.width,
     top:0,
     left:0,
   },

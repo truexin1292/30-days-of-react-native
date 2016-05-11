@@ -4,7 +4,8 @@
  */
 'use strict';
 
-import React,{Component,Animated,Image,ScrollView,StatusBarIOS,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
+import React,{ Component } from 'react';
+import { Animated,Image,ScrollView,StatusBar,StyleSheet,Text,TouchableHighlight,View } from 'react-native';
 import Video from 'react-native-video';
 import Util from './utils';
 import Swiper from 'react-native-swiper';
@@ -68,7 +69,7 @@ class Intro extends Component{
 
 export default class extends Component{
   componentDidMount() {
-    StatusBarIOS.setStyle(1);
+    StatusBar.setBarStyle(1);
   }
   
 	render() {

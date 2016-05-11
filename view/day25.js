@@ -7,15 +7,8 @@
 
 'use strict';
 
-import React,{
-  Component,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  ActionSheetIOS,
-  View
-} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,Text,TouchableHighlight,ActionSheetIOS,View } from 'react-native';
 import Util from './utils';
 import Webbrowser from './browser/index';
 import Icon from 'react-native-vector-icons/Ionicons';

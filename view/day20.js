@@ -4,7 +4,8 @@
  */
 'use strict';
 
-import React,{Component,Image,StyleSheet,StatusBarIOS,Text,TextInput,LayoutAnimation,TouchableHighlight,View} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,StatusBar,Text,TextInput,LayoutAnimation,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 import {BlurView,VibrancyView} from 'react-native-blur';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -140,7 +141,7 @@ export default class extends Component{
   }
 
   componentDidMount() {
-    StatusBarIOS.setStyle(1);
+    StatusBar.setBarStyle(1);
   }
 
   render() {

@@ -4,19 +4,11 @@
  */
 'use strict';
 
-import React,{
-  Component,
-  Image,
-  StyleSheet,
-  Text,
-  StatusBarIOS,
-  TouchableHighlight,
-  LayoutAnimation,
-  View
-} from 'react-native';
+import React,{ Component } from 'react-native';
+import { Image,StyleSheet,Text,StatusBar,TouchableHighlight,LayoutAnimation,View } from 'react-native';
 import Util from './utils';
-import {BlurView,VibrancyView} from 'react-native-blur';
-import {ReminderContainer} from './day20';
+import { BlurView,VibrancyView } from 'react-native-blur';
+import { ReminderContainer } from './day20';
 
 export default class extends Component{
   constructor() {
@@ -89,7 +81,7 @@ export default class extends Component{
   }
 
   componentDidMount() {
-    StatusBarIOS.setStyle(1);
+    StatusBar.setBarStyle(1);
   }
 
   _switch(index){

@@ -4,7 +4,8 @@
  */
 'use strict';
 
-import React,{Component,Image,StyleSheet,Text,TouchableHighlight,PanResponder,LayoutAnimation,ScrollView,TabBarIOS,StatusBarIOS,SegmentedControlIOS,View} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,Text,TouchableHighlight,PanResponder,LayoutAnimation,ScrollView,TabBarIOS,StatusBar,SegmentedControlIOS,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -202,7 +203,7 @@ class TwitterTab extends Component{
 
 export default class extends Component{
 	componentDidMount() {
-		StatusBarIOS.setStyle(1);
+		StatusBar.setBarStyle(1);
 	}
 
 	render() {

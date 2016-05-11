@@ -4,7 +4,8 @@
  */
 'use strict';
 
-import React,{Component,Image,StyleSheet,CameraRoll,Text,TextInput,TouchableHighlight,View} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,CameraRoll,Text,TextInput,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 

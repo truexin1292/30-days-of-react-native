@@ -4,7 +4,8 @@
  */
 'use strict';
 
-import React,{Component,ListView,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
+import React,{ Component } from 'react';
+import { ListView,StyleSheet,Text,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 
 class WatchFace extends Component{

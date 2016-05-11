@@ -5,10 +5,11 @@
  */
 'use strict';
 
-import React,{Component,Image,StyleSheet,SliderIOS,Text,TouchableHighlight,View,ScrollView} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,Slider,Text,TouchableHighlight,View,ScrollView } from 'react-native';
 import Util from './utils';
 import GL from "gl-react";
-import {Surface} from "gl-react-native";
+import { Surface } from "gl-react-native";
 
 const shaders = GL.Shaders.create({
   helloGL: {
@@ -119,7 +120,7 @@ export default class extends Component{
     return(
       <ScrollView style={styles.container}>
         <View style={styles.titleContainer}><Text style={styles.text}>Gradients:</Text></View>
-        <SliderIOS
+        <Slider
           maximumValue = {1}
           value = {0}
           onValueChange={(value) => this.setState({value: value})} />
@@ -129,7 +130,7 @@ export default class extends Component{
           />
         </Surface>
         <View style={styles.titleContainer}><Text style={styles.text}>Satuation:</Text></View>
-        <SliderIOS
+        <Slider
           maximumValue = {5}
           value = {1}
           onValueChange={(value) => this.setState({saturationFactor: value})} />
@@ -140,7 +141,7 @@ export default class extends Component{
           />
         </Surface>
         <View style={styles.titleContainer}><Text style={styles.text}>Progress Pie:</Text></View>
-        <SliderIOS
+        <Slider
           maximumValue = {1}
           value = {0}
           onValueChange={(value) => this.setState({progress: value})} />

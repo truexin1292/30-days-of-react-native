@@ -1,14 +1,11 @@
+/**
+ * Day 30
+ * push notification
+ */
 'use strict';
 
-var React = require('react-native');
-var {
-  PushNotificationIOS,
-  StyleSheet,
-  Component,
-  Text,
-  TouchableHighlight,
-  View,
-} = React;
+import React,{ Component } from 'react';
+import { PushNotificationIOS,StyleSheet,Text,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 
 class Button extends Component{

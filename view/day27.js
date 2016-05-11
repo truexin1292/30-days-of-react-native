@@ -6,18 +6,11 @@
  */
 'use strict';
 
-import React,{
-  Component,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  ScrollView,
-  View
-} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,Text,TouchableHighlight,ScrollView,View } from 'react-native';
 import Util from './utils';
 import LinearGradient from 'react-native-linear-gradient';
-import {UIManager} from 'NativeModules';
+import { UIManager } from 'NativeModules';
 
 export default class extends Component{
   constructor() {

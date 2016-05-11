@@ -7,7 +7,8 @@
  */
 'use strict';
 
-import React,{Component,Image,StyleSheet,Text,TouchableHighlight,PanResponder,Animated,LayoutAnimation,View} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,Text,TouchableHighlight,PanResponder,Animated,LayoutAnimation,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SwipeCards from 'react-native-swipe-cards';

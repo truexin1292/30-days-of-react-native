@@ -4,23 +4,15 @@
  */
 'use strict';
 
-import React,{
-  Component,
-  Image,
-  StyleSheet,
-  StatusBarIOS,
-  Text,
-  AlertIOS,
-  TouchableHighlight,
-  View
-} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,StatusBar,Text,AlertIOS,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 import TouchID from 'react-native-touch-id';
-import {EnterPassword} from './day16'
+import { EnterPassword } from './day16'
 
 class Main extends Component{
   componentDidMount() {
-    StatusBarIOS.setStyle(0);
+    StatusBar.setBarStyle(0);
   }
 
   render() {
@@ -41,7 +33,7 @@ class RequireTouchID extends Component{
   }
 
   componentDidMount() {
-    StatusBarIOS.setStyle(1);
+    StatusBar.setBarStyle(1);
     this._touchID();
   }
 

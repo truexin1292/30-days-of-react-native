@@ -3,8 +3,8 @@
  * Icons made by <a href="http://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
  */
 'use strict';
-
-import React, {AppRegistry,DeviceEventEmitter,Component,Image,NavigatorIOS,ScrollView,StatusBarIOS,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
+import React, { Component } from 'react';
+import { AppRegistry,DeviceEventEmitter,Image,NavigatorIOS,ScrollView,StatusBar,StyleSheet,Text,TouchableHighlight,View } from 'react-native';
 import Util from './view/utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
@@ -387,7 +387,7 @@ class MainView extends Component {
 
 class ThirtyDaysOfReactNative extends Component{
   componentDidMount() {
-    StatusBarIOS.setStyle(0);
+    StatusBar.setBarStyle(0);
   }
   
   render(){

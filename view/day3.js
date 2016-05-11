@@ -4,9 +4,11 @@
  */
 'use strict';
 
-import React,{Animated,Component,Easing,Image,RefreshControl,ScrollView,StyleSheet,TabBarIOS,Text,TouchableHighlight,View} from 'react-native';
+import React,{ Component } from 'react';
+import { Animated,Easing,Image,RefreshControl,ScrollView,StyleSheet,TabBarIOS,Text,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
+
 const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
 class Entrance extends Component{

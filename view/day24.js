@@ -4,18 +4,8 @@
  */
 'use strict';
 
-import React,{
-  Component,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  TouchableOpacity,
-  StatusBarIOS,
-  Animated,
-  ScrollView,
-  View
-} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,Text,TouchableHighlight,TouchableOpacity,StatusBar,Animated,ScrollView,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
@@ -142,7 +132,7 @@ export default class extends Component{
   }
 
   componentDidMount() {
-    StatusBarIOS.setStyle(1);
+    StatusBar.setBarStyle(1);
   }
 
   _updateTitle(obj) {

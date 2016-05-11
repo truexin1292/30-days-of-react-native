@@ -4,16 +4,8 @@
  */
 'use strict';
 
-import React,{
-  Component,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  LayoutAnimation,
-  PanResponder,
-  View
-} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,Text,TouchableHighlight,LayoutAnimation,PanResponder,View } from 'react-native';
 import Util from './utils';
 import Day22 from './day22';
 import Day24 from './day24';

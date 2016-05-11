@@ -5,7 +5,8 @@
  */
 'use strict';
 
-import React,{Component,StatusBarIOS,Image,StyleSheet,Text,View} from 'react-native';
+import React,{ Component } from 'react';
+import { StatusBar,Image,StyleSheet,Text,View } from 'react-native';
 import Util from './utils';
 import PasswordGesture from 'react-native-gesture-password';
 
@@ -150,7 +151,7 @@ export default class extends Component{
   }
 
   componentDidMount() {
-    StatusBarIOS.setStyle(1);
+    StatusBar.setBarStyle(1);
   }
 
   render() {

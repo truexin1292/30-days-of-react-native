@@ -4,7 +4,8 @@
  */
 'use strict';
 
-import React,{Component,Image,MapView,StyleSheet,Text,TouchableHighlight,View} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,MapView,StyleSheet,Text,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 

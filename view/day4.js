@@ -4,7 +4,8 @@
  */
 'use strict';
 
-import React,{Component,Image,StyleSheet,TouchableHighlight,View} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,TouchableHighlight,View } from 'react-native';
 
 class ShowImg extends Component{
   componentDidMount() {

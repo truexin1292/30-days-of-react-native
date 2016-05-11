@@ -4,7 +4,8 @@
  */
 'use strict';
 
-import React,{Component,Image,StyleSheet,StatusBarIOS,Text,TouchableHighlight,PanResponder,View} from 'react-native';
+import React,{ Component } from 'react';
+import { Image,StyleSheet,StatusBar,Text,TouchableHighlight,PanResponder,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -92,7 +93,7 @@ class MoveableCircle extends Component{
 
 export default class extends Component{
   componentWillMount() {
-    StatusBarIOS.setStyle(1);
+    StatusBar.setBarStyle(1);
   }
 
   render() {

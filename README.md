@@ -11,7 +11,7 @@ This project is inspired by
 30DaysofSwift (https://github.com/allenwong/30DaysofSwift)
 
 ## Installation
-Require node.js , xcode & cocoapods
+Require node.js, npm install -g react-native-cli , xcode & cocoapods
 
 \#1  `$ npm install`
 
@@ -22,6 +22,8 @@ IOS
 Android
 
 \#2  `$ react-native run-android`
+
+If error occurs during npm install, you can also download the node_modules folder directly from branch with_node_modules.
 
 ##ToDO
 

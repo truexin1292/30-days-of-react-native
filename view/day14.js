@@ -46,6 +46,7 @@ class Card extends Component{
 
 class SCard extends Component{
   static propTypes = {
+    id: React.PropTypes.string.isRequired,
     top: React.PropTypes.number.isRequired,
     width: React.PropTypes.number.isRequired,
     img: React.PropTypes.string.isRequired,
@@ -53,7 +54,7 @@ class SCard extends Component{
 
   render(){
     return(
-      <View style={[styles.scard,{top:this.props.top,width:this.props.width}]}>
+      <View key={this.props.id} style={[styles.scard,{top:this.props.top,width:this.props.width}]}>
         <Image style={{width:this.props.width-2,height:350}} source={{uri:this.props.img}}></Image>
         <View style={styles.cardInfo}>
           <View>
@@ -82,7 +83,7 @@ class SwipeCard extends Component{
     // const simgs = ["https://media.giphy.com/media/GfXFVHUzjlbOg/giphy.gif","https://media.giphy.com/media/irTuv1L1T34TC/giphy.gif","https://media.giphy.com/media/LkLL0HJerdXMI/giphy.gif","https://media.giphy.com/media/fFBmUMzFL5zRS/giphy.gif","https://media.giphy.com/media/oDLDbBgf0dkis/giphy.gif"];
     const names=["Stuart","Bob","Kevin","Dave","Jerry"];
     const cards = simgs.map(function(elem, index) {
-      return {img:simgs[4-index], name:names[4-index], top:13+index*4, width:Util.size.width-22-index*4,}
+      return {id:"sc"+index,img:simgs[4-index], name:names[4-index], top:13+index*4, width:Util.size.width-22-index*4,}
     })
 
     this.state = {
@@ -102,7 +103,7 @@ class SwipeCard extends Component{
     return (
       <SwipeCards
         cards={this.state.cards}
-        renderCard={(cardData) => <SCard {...cardData} />}
+        renderCard={(cardData) => <SCard key={cardData.id} {...cardData} />}
         handleYup={() => this.handleYup()}
         handleNope={() => this.handleNope()}
         showYup={false}

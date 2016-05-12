@@ -25,7 +25,7 @@ Have some bugs on day4 and day 27. To be fixed.
 If you want to use the latest version of React Native. You should use the RN@0.25 branch. 
 
 ## Installation
-Require node.js, npm install -g react-native-cli , xcode & cocoapods
+Require node.js (v5.x), npm install -g react-native-cli , xcode & cocoapods
 
 \#1  `$ npm install`
 

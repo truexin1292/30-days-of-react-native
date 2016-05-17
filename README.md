@@ -64,6 +64,11 @@ https://facebook.github.io/react-native/docs/running-on-device-ios.html#content
 Solution here:
 https://github.com/leecade/react-native-swiper/pull/113/commits/e681a8e5f347efbf10b445647321b1f0865e31a4
 
+##A Complete Example
+
+You can also check out a complete React Native Example of mine. 
+
+https://github.com/fangwei716/gene-task-runner
 
 ## Day 1
 An IOS-system-like stop watch.

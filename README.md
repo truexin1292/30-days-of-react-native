@@ -33,7 +33,7 @@ IOS
 
 \#2  run ios/ThirtyDaysOfReactNative.xcworkspace
 
-Android
+Android (most of the days are not supported yet. PR welcomed.)
 
 \#2  `$ react-native run-android`
 

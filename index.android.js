@@ -9,14 +9,14 @@ import Util from './view/utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 
-// import Day1 from './view/day1';
+import Day1 from './view/day1';
 // import Day2 from './view/day2';
 // import Day3 from './view/day3';
 // import Day4 from './view/day4';
-// import Day5 from './view/day5';
+import Day5 from './view/day5';
 // import Day6 from './view/day6';
-// import Day7 from './view/day7';
-// import Day8 from './view/day8';
+import Day7 from './view/day7';
+import Day8 from './view/day8';
 // import Day9 from './view/day9';
 // import Day10 from './view/day10';
 // import Day11 from './view/day11';
@@ -47,7 +47,7 @@ class MainView extends Component {
       days:[{
         key:0,
         title:"A stopwatch",
-        // component: Day1,
+        component: Day1,
         isFA: false,
         icon: "ios-stopwatch",
         size: 48,
@@ -83,7 +83,7 @@ class MainView extends Component {
       },{
         key:4,
         title:"find my location",
-        // component: Day5,
+        component: Day5,
         isFA: false,
         icon: "ios-location",
         size:50,
@@ -101,7 +101,7 @@ class MainView extends Component {
       },{
         key:6,
         title:"Moveable Circle",
-        // component: Day7,
+        component: Day7,
         isFA: false,
         icon: "ios-baseball",
         size:50,
@@ -344,6 +344,9 @@ class MainView extends Component {
     //   component: this.state.days[index].component,
     //   navigationBarHidden: this.state.days[index].hideNav,
     // })
+    this.props.navigator.replace({
+      id: `day${index+1}`,
+    });
   }
 
   render() {
@@ -370,17 +373,35 @@ class MainView extends Component {
 }
 
 class forAndroid extends Component{
-  componentDidMount() {
-    // StatusBarIOS.setStyle(0);
+  _renderScene(route, navigator) {
+    const routeId = route.id;
+    switch(routeId) {
+      case 'main':
+        return <MainView navigator={navigator} />
+        break;
+      case 'day1':
+        return <Day1 navigator={navigator}/>
+        break;
+      case 'day5':
+        return <Day5 navigator={navigator}/>
+        break;
+      case 'day7':
+        return <Day7 navigator={navigator}/>
+        break;
+      case 'day8':
+        return <Day8 navigator={navigator}/>
+        break;
+      default:
+        return <MainView navigator={navigator} />
+        break;
+    }
   }
-  
+
   render(){
     return (
       <Navigator
-        initialRoute={{name: 'My First Scene', index: 0}}
-        renderScene={(route, navigator) =>
-          <MainView/>
-        }
+        initialRoute={{id:'main', index: 0}}
+        renderScene={this._renderScene.bind(this)}
       />
     );
   }

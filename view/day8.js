@@ -4,7 +4,7 @@
  */
 'use strict';
 
-import React,{Component,Image,StyleSheet,StatusBarIOS,Text,TouchableHighlight,PanResponder,LayoutAnimation,ScrollView,View} from 'react-native';
+import React,{Component,Image,StyleSheet,Text,TouchableHighlight,PanResponder,LayoutAnimation,ScrollView,View} from 'react-native';
 import {Map} from './day5';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -168,7 +168,7 @@ export default class extends Component{
 
   componentDidMount() {
     this._updatePosition();
-    StatusBarIOS.setStyle(1);
+    // StatusBarIOS.setStyle(1);
   }
 
   render () {

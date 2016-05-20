@@ -33,7 +33,7 @@ IOS
 
 \#2  run ios/ThirtyDaysOfReactNative.xcworkspace
 
-Android (most of the days are not supported yet. PR welcomed.)
+Android (Since most of the plugins/libraries I used are compatible with IOS only. Majority of the days are not supported yet. PR welcomed. https://github.com/fangwei716/30-days-of-react-native/tree/android-v0.0.1)
 
 \#2  `$ react-native run-android`
 

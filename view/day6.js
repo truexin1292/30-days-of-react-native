@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
     fontWeight:"700"
   },
   logo:{
-    alignItems:"center",
     position:"absolute",
     width: Util.size.width,
     top: 50,

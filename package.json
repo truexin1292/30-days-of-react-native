@@ -9,8 +9,6 @@
   "dependencies": {
     "clamp": "^1.0.1",
     "fuzzy": "^0.1.1",
-    "gl-react": "^2.2.0",
-    "gl-react-native": "^2.21.0",
     "react-native": "^0.21.0",
     "react-native-blur": "^0.7.10",
     "react-native-chart": "^0.1.12",

@@ -25,7 +25,6 @@
 		5916E7001C9A6634006707E7 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5916E6F11C9A65ED006707E7 /* libRCTCameraRoll.a */; };
 		591B870F1C8FC3A200D27177 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 591B870B1C8FC39700D27177 /* libRCTVideo.a */; };
 		591B87111C8FC40E00D27177 /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 591B87101C8FC40E00D27177 /* moments.mp4 */; };
-		5928B7D51C979837000F0DB0 /* libRNGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5928B7D31C97982E000F0DB0 /* libRNGL.a */; };
 		592EC88B1CA225DC00D7F67B /* libRNSearchBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 592EC8891CA225D600D7F67B /* libRNSearchBar.a */; };
 		593A87D11CB208920069AF86 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 593A87C31CB208860069AF86 /* libRCTPushNotification.a */; };
 		594363C31C965BC200F35A5B /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 594363C11C965BB700F35A5B /* libRNBlur.a */; };
@@ -274,7 +273,6 @@
 				592EC88B1CA225DC00D7F67B /* libRNSearchBar.a in Frameworks */,
 				5916E7001C9A6634006707E7 /* libRCTCameraRoll.a in Frameworks */,
 				59B840E41C9901A0006DB8C9 /* libRNChart.a in Frameworks */,
-				5928B7D51C979837000F0DB0 /* libRNGL.a in Frameworks */,
 				594363C31C965BC200F35A5B /* libRNBlur.a in Frameworks */,
 				591B870F1C8FC3A200D27177 /* libRCTVideo.a in Frameworks */,
 				59D32FEE1C8E81BE00763774 /* libJTSImageViewController.a in Frameworks */,

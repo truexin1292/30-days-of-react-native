@@ -10,15 +10,16 @@ This project is inspired by
 
 30DaysofSwift (https://github.com/allenwong/30DaysofSwift)
 
-## Upgrade to RN@0.25
+## Upgrade to RN@0.31
 
-This is a branch under development to upgrade RN to v0.25. 
-Solve the following deprecated features: 
-1. Requiring React API from react-native is now deprecated.
-2. StatusBarIOS is deprecated.
-3. SliderIOS is deprecated. 
+This is a branch under development to upgrade RN to v0.31. 
 
-Have some bugs on day4 and day 27. To be fixed. 
+##TODO
+
+1. compatible with RN 0.31
+2. compatible with Andriod
+3. Remove plugins that doesn't support RN 0.31
+
 
 ## Installation
 Require node.js, npm install -g react-native-cli , xcode & cocoapods

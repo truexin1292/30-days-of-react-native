@@ -24,8 +24,14 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
@@ -49,43 +55,10 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-  <key>UIApplicationShortcutItems</key>
-  <array>
-    <dict>
-      <key>UIApplicationShortcutItemIconType</key>
-      <string>UIApplicationShortcutIconTypeLocation</string>
-      <key>UIApplicationShortcutItemTitle</key>
-      <string>Day5</string>
-      <key>UIApplicationShortcutItemType</key>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).action</string>
-    </dict>
-    <dict>
-      <key>UIApplicationShortcutItemIconType</key>
-      <string>UIApplicationShortcutIconTypeSearch</string>
-      <key>UIApplicationShortcutItemTitle</key>
-      <string>Day22</string>
-      <key>UIApplicationShortcutItemType</key>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).action</string>
-    </dict>
-    <dict>
-      <key>UIApplicationShortcutItemIconType</key>
-      <string>UIApplicationShortcutIconTypeShuffle</string>
-      <key>UIApplicationShortcutItemTitle</key>
-      <string>Day26</string>
-      <key>UIApplicationShortcutItemType</key>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).action</string>
-    </dict>
-    <dict>
-      <key>UIApplicationShortcutItemIconType</key>
-      <string>UIApplicationShortcutIconTypeMessage</string>
-      <key>UIApplicationShortcutItemTitle</key>
-      <string>Day28</string>
-      <key>UIApplicationShortcutItemType</key>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).action</string>
-    </dict>
-  </array>
 </dict>
 </plist>

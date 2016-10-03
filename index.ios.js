@@ -4,14 +4,14 @@
  */
 'use strict';
 import React, { Component } from 'react';
-import { AppRegistry,DeviceEventEmitter,Image,NavigatorIOS,ScrollView,StatusBar,StyleSheet,Text,TouchableHighlight,View } from 'react-native';
+import { AppRegistry,DeviceEventEmitter,Image,Navigator,ScrollView,StatusBar,StyleSheet,Text, TouchableOpacity, TouchableHighlight,View } from 'react-native';
 import Util from './view/utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper';
 
 import Day1 from './view/day1';
-// import Day2 from './view/day2';
+import Day2 from './view/day2';
 // import Day3 from './view/day3';
 // import Day4 from './view/day4';
 // import Day5 from './view/day5';
@@ -54,17 +54,18 @@ class MainView extends Component {
         size: 48,
         color: "#ff856c",
         hideNav: false,
+
+      },{
+        key:1,
+        title:"A weather app",
+        component: Day2,
+        isFA: false,
+        icon: "ios-partly-sunny",
+        size:60,
+        color:"#90bdc1",
+        hideNav: true,
       }]
-      // },{
-      //   key:1,
-      //   title:"A weather app",
-      //   component: Day2,
-      //   isFA: false,
-      //   icon: "ios-partlysunny",
-      //   size:60,
-      //   color:"#90bdc1",
-      //   hideNav: true,
-      // },{
+      // {
       //   key:2,
       //   title:"twitter",
       //   component: Day3,
@@ -343,8 +344,8 @@ class MainView extends Component {
   _jumpToDay(index){
     this.props.navigator.push({
       title: this.state.days[index].title,
-      component: this.state.days[index].component,
-      navigationBarHidden: this.state.days[index].hideNav,
+      index: index + 1,
+      display: !this.state.days[index].hideNav
     })
   }
 
@@ -362,19 +363,19 @@ class MainView extends Component {
       );
     })
     return(
-      <ScrollView>
+      <ScrollView style={styles.mainView} title={this.props.title}>
         <Swiper height={150} showsButtons={false} autoplay={true}
           activeDot={<View style={{backgroundColor: 'rgba(255,255,255,0.8)', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}>
-          <TouchableHighlight onPress={()=> onThis._jumpToDay(11)}>
+          <TouchableHighlight onPress={()=> onThis._jumpToDay(0)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={{uri:'day1'}}></Image>
-              <Text style={styles.slideText}>Day12: Charts</Text>
+              <Text style={styles.slideText}>Day1: Timer</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight onPress={()=> onThis._jumpToDay(10)}>
+          <TouchableHighlight onPress={()=> onThis._jumpToDay(1)}>
             <View style={styles.slide}>
               <Image style={styles.image} source={{uri:'day2'}}></Image>
-              <Text style={styles.slideText}>Day11: OpenGL</Text>
+              <Text style={styles.slideText}>Day2: Weather</Text>
             </View>
           </TouchableHighlight>
         </Swiper>
@@ -386,24 +387,82 @@ class MainView extends Component {
   }
 }
 
+class DayView extends Component {
+  render () {
+    let {index, title, navigator} = this.props;
+    switch(index) {
+      case 0: return <MainView navigator={navigator} title={title} />;
+      case 1: return <Day1 navigator={navigator} title={title} />;
+      case 2: return <Day2 navigator={navigator} title={title} />;
+    }
+  }
+}
+
+class NavigationBar extends Navigator.NavigationBar {
+  render() {
+    var routes = this.props.navState.routeStack;
+
+    if (routes.length) {
+      var route = routes[routes.length - 1];
+
+      if (route.display === false) {
+        return null;
+      }
+    }
+
+    return super.render();
+  }
+}
+
 class ThirtyDaysOfReactNative extends Component{
   componentDidMount() {
     StatusBar.setBarStyle(0);
   }
+
+  configureScene(route, routeStack) {
+    if (route.type == 'Bottom') {
+      return Navigator.SceneConfigs.FloatFromBottom; 
+    }
+    return Navigator.SceneConfigs.PushFromRight;
+  }
+
+  routeMapper = {
+    LeftButton: (route, navigator, index, navState) =>
+      { 
+        if(route.index > 0) {
+          return <TouchableOpacity
+            underlayColor='transparent'
+            onPress={() => {if (index > 0) {navigator.pop()}}}>
+            <Text style={styles.navBackBtn}><Icon size={18} name="ios-arrow-back"></Icon> back</Text>
+          </TouchableOpacity>;
+        }else{
+          return null;
+        }
+      },
+    RightButton: (route, navigator, index, navState) =>
+      { return null; },
+    Title: (route, navigator, index, navState) =>
+      { return (<Text style={styles.navTitle}>{route.title}</Text>); },
+  };
   
   render(){
     return (
-      <NavigatorIOS
-        ref='nav'
-        style={styles.container}
-        initialRoute={{
-          title:"30 Days of RN",
-          component: MainView,
-          backButtonTitle: 'back',
-          shadowHidden: true,
+      <Navigator
+        initialRoute={{ 
+          title: '30 Days of RN',
+          index: 0,
+          display: true,
         }}
-        itemWrapperStyle={styles.itemWrapper}
-        tintColor="#777"
+        configureScene={this.configureScene}
+        renderScene={(route, navigator) => {
+          return <DayView navigator={navigator} title={route.title} index={route.index} />
+        }}
+        navigationBar={
+          <NavigationBar
+            routeMapper={this.routeMapper}
+            style={styles.navBar}
+          />
+        }
       />
     );
   }
@@ -412,6 +471,24 @@ class ThirtyDaysOfReactNative extends Component{
 const styles = StyleSheet.create({
   container:{
     flex:1,
+  },
+  mainView: {
+    marginTop: 63
+  },
+  navBar: {
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
+  },
+  navTitle: {
+    paddingTop: 10,
+    fontSize: 18,
+    fontWeight: "500",
+  },
+  navBackBtn: {
+    paddingTop: 10,
+    paddingLeft: 10,
+    fontSize: 18,
+    color: "#555",
   },
   itemWrapper:{
     backgroundColor: '#f3f3f3'

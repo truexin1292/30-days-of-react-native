@@ -49,10 +49,10 @@ class FunctionView extends Component{
       <View style={styles.functionContainer}>
         <View style={styles.functionIconContainer}>
           <View style={styles.functionIcon}>
-            <Icon name="location" size={23} color="#8899a5"></Icon>
-            <Icon name="camera" size={23} color="#8899a5"></Icon>
-            <Icon name="image" size={23} color="#8899a5"></Icon>
-            <Icon name="pie-graph" size={23} color="#8899a5"></Icon>
+            <Icon name="ios-pin" size={23} color="#8899a5"></Icon>
+            <Icon name="md-camera" size={23} color="#8899a5"></Icon>
+            <Icon name="md-image" size={23} color="#8899a5"></Icon>
+            <Icon name="md-pie" size={23} color="#8899a5"></Icon>
           </View>
           <View style={styles.functionBtn}>
             <Text style={styles.text}>{this.props.numOfText}</Text>
@@ -95,7 +95,7 @@ export default class extends Component{
       <View style={styles.container}>
         <View style={styles.iconContainer}>
           <Image style={styles.icon} source={{uri:'icon'}}></Image>
-          <Icon name="android-close" color="#2aa2ef" size={25}></Icon>
+          <Icon name="md-close" color="#2aa2ef" size={25}></Icon>
         </View>
         <TextInput 
           ref="textarea"
@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
   container:{
     paddingTop:30,
     height:Util.size.height,
+    backgroundColor: "#ffffff"
   },
   icon:{
     width:30,

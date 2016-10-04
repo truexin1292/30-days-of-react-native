@@ -7,17 +7,6 @@
 import React,{ Component } from 'react';
 import { Image,StyleSheet,TouchableHighlight,View } from 'react-native';
 
-class ShowImg extends Component{
-  componentDidMount() {
-    React.NativeModules.JTSImagePreview.showImage('http://i.imgur.com/sKh7Z6R.png');
-  }
-
-  render() {
-    return(
-      <View></View>
-    )
-  }
-}
 
 export default class extends Component{
   constructor() {
@@ -39,10 +28,6 @@ export default class extends Component{
   render() {
     return(
       <View style={{marginTop:100, alignItems:"center"}}>
-        <TouchableHighlight onPress={()=>this._onImgPress()}>
-          <Image source={{uri:'http://i.imgur.com/sKh7Z6R.png'}} style={styles.img}></Image>
-        </TouchableHighlight>
-        {this.state.show?<ShowImg></ShowImg>:<View></View>}
       </View>
     )
   }

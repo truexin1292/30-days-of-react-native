@@ -65,7 +65,7 @@ export default class extends Component{
           <Text style={styles.btnText}>change time</Text>
         </TouchableHighlight>
         <Modal
-          animated={true}
+          animationType="slide"
           transparent={false}
           visible={this.state.showModal}>
           <View style={styles.modalContainer}>
@@ -75,7 +75,7 @@ export default class extends Component{
               <TouchableHighlight underlayColor="#fff" onPress={() => this._setTime()}><Text style={[styles.btnText,,{width:80,textAlign:"right"}]}>Set</Text></TouchableHighlight>
             </View>
             <View style={styles.modalContent}>
-                 <DatePickerIOS
+              <DatePickerIOS
               date={this.state.setDate}
               mode="date"
               timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
@@ -101,7 +101,8 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     height: Util.size.height,
     width: Util.size.width,
-    paddingBottom:60
+    paddingBottom:60,
+    backgroundColor:"#ffffff"
   },
   date:{
     fontSize:25

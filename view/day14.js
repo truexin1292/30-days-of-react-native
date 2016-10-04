@@ -27,7 +27,7 @@ class Card extends Component{
         <Image style={{width:this.props.width-2,height:350}} source={{uri:this.props.img}}></Image>
         <View style={styles.cardInfo}>
           <View>
-            <Text style={styles.cardText}>{this.props.name}, very old  <Icon name="ios-checkmark" size={18} color="#208bf6"></Icon></Text>
+            <Text style={styles.cardText}>{this.props.name}, very old  <Icon name="ios-checkmark-circle" size={18} color="#208bf6"></Icon></Text>
           </View>
           <View style={styles.cardIcon}>
             <View style={styles.cardIconContainer}>
@@ -59,7 +59,7 @@ class SCard extends Component{
         <Image style={{width:this.props.width-2,height:350}} source={{uri:this.props.img}}></Image>
         <View style={styles.cardInfo}>
           <View>
-            <Text style={styles.cardText}>{this.props.name}, very old  <Icon name="ios-checkmark" size={18} color="#208bf6"></Icon></Text>
+            <Text style={styles.cardText}>{this.props.name}, very old  <Icon name="ios-checkmark-circle" size={18} color="#208bf6"></Icon></Text>
           </View>
           <View style={styles.cardIcon}>
             <View style={styles.cardIconContainer}>
@@ -148,22 +148,22 @@ export default class extends Component{
     return(
       <View style={styles.container}>
         <View style={styles.nav}>
-          <Icon name="gear-b" size={35} color="#cecece"></Icon>
+          <Icon name="ios-settings" size={35} color="#cecece"></Icon>
           <Image style={styles.logo} source={{uri:'tinder'}}></Image>
-          <Icon name="chatbubbles" size={35} color="#cecece"></Icon>
+          <Icon name="ios-chatbubbles" size={35} color="#cecece"></Icon>
         </View>
         <View style={styles.actionContainer}>
           <View style={[styles.smallAction,{left:5}]}>
-            <Icon name="android-refresh" color="#fdcd6d" size={30}></Icon>
+            <Icon name="ios-refresh" color="#fdcd6d" size={30}></Icon>
           </View>
           <View style={styles.largeAction}>
-            <Icon name="close" color="#fc6c6e" size={45}></Icon>
+            <Icon name="md-close" color="#fc6c6e" size={45}></Icon>
           </View>
           <View style={styles.largeAction}>
-            <Icon name="heart" color="#52cb93" size={45}></Icon>
+            <Icon name="md-heart" color="#52cb93" size={45}></Icon>
           </View>
           <View style={[styles.smallAction,{right:5}]}>
-            <Icon name="location" color="#318ff6" size={30}></Icon>
+            <Icon name="ios-pin" color="#318ff6" size={30}></Icon>
           </View>
         </View>
         <Cards/>

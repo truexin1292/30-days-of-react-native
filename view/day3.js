@@ -49,7 +49,7 @@ class Entrance extends Component{
   render () {
     return(
       <Animated.View style={[styles.entrance,{opacity:this.state.opacityAnim}]}>
-        <AnimatedIcon size={60} style={[styles.twitter,{transform:[{scale:this.state.transformAnim}]}]} name="social-twitter"></AnimatedIcon>
+        <AnimatedIcon size={60} style={[styles.twitter,{transform:[{scale:this.state.transformAnim}]}]} name="logo-twitter"></AnimatedIcon>
       </Animated.View>
     )
   }
@@ -95,14 +95,14 @@ class TwitterFlow extends Component{
       <View>
         <View style={styles.nav}>
           <View style={styles.navLeft}>
-            <Icon name="person-add" size={23} style={{color:"#1b95e0", paddingLeft:10}}></Icon>
+            <Icon name="ios-person-add" size={23} style={{color:"#1b95e0", paddingLeft:10}}></Icon>
           </View>
           <View style={styles.navMid}>
-            <Icon name="social-twitter" size={27} style={{color:"#1b95e0"}}></Icon>
+            <Icon name="logo-twitter" size={27} style={{color:"#1b95e0"}}></Icon>
           </View>
           <View style={styles.navRight}>
-            <Icon name="ios-search-strong" size={23} style={{color:"#1b95e0", width:30}}></Icon>
-            <Icon name="compose" size={23} style={{color:"#1b95e0", width:30, paddingRight:10}}></Icon>
+            <Icon name="ios-search" size={23} style={{color:"#1b95e0", width:30}}></Icon>
+            <Icon name="ios-create-outline" size={23} style={{color:"#1b95e0", width:30, paddingRight:10}}></Icon>
           </View>
         </View>
         <TwitterPost></TwitterPost>
@@ -140,16 +140,16 @@ class TwitterTab extends Component{
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="通知"
-        iconName="ios-bell-outline"
-        selectedIconName="ios-bell"
+        iconName="ios-notifications-outline"
+        selectedIconName="ios-notifications"
         onPress={ () => this.changeTab('通知') }
         selected={ this.state.selectedTab === '通知'}>
           <TwitterFlow/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="私信"
-        iconName="ios-email-outline"
-        selectedIconName="ios-email"
+        iconName="ios-mail-outline"
+        selectedIconName="ios-mail"
         onPress={ () => this.changeTab('私信') }
         selected={ this.state.selectedTab === '私信'}>
           <TwitterFlow/>

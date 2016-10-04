@@ -75,14 +75,15 @@ export default class extends Component{
 	render() {
 		return(
 			<View style={styles.container}>
-        <Video source={{uri: "moments"}}
-          style={styles.backgroundFixed}
-          resizeMode="cover" repeat={true} key="video1" />
         <Intro></Intro>
       </View>
 		)
 	}
 }
+
+        //<Video source={{uri: "moments"}}
+          //style={styles.backgroundFixed}
+          //resizeMode="cover" repeat={true} key="video1" />
 
 const styles = StyleSheet.create({
   container:{

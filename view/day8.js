@@ -85,16 +85,17 @@ export default class extends Component{
   _minLeft = -0.7*Util.size.width-10;
   _menuStyles = {};
   _dropStyle = {};
-  _CustomLayoutLinear = {
-    duration: 200,
-    create: {
-      type: LayoutAnimation.Types.linear,
-      property: LayoutAnimation.Properties.left,
-    },
-    update: {
-      type: LayoutAnimation.Types.curveEaseInEaseOut,
-    },
-  };
+  // _CustomLayoutLinear = {
+  //   duration: 200,
+  //   create: {
+  //     type: LayoutAnimation.Types.linear,
+  //     property: LayoutAnimation.Properties.left,
+  //   },
+  //   update: {
+  //     type: LayoutAnimation.Types.curveEaseInEaseOut,
+  //   },
+  // };
+  _CustomLayoutLinear = LayoutAnimation.Presets.linear;
   menu = (null : ?{ setNativeProps(props: Object): void });
   drop = (null : ?{ setNativeProps(props: Object): void });
 

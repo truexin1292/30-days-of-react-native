@@ -111,10 +111,10 @@ class TwitterUser extends Component{
           <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}]}><Image style={styles.icon} source={{uri:"icon"}}></Image></View>
           <View style={styles.userControl}>
             <TouchableHighlight style={styles.controlIcon}>
-              <Icon name="gear-a" color="#8999a5" size={20}></Icon>
+              <Icon name="ios-settings" color="#8999a5" size={20}></Icon>
             </TouchableHighlight>
             <TouchableHighlight style={styles.controlBtn}>
-              <Icon name="person-stalker" color="#8999a5" size={20}></Icon>
+              <Icon name="ios-people" color="#8999a5" size={20}></Icon>
             </TouchableHighlight>
             <TouchableHighlight style={styles.controlBtn2}>
               <Text style={styles.controlBtnText}>编辑个人资料</Text>
@@ -174,16 +174,16 @@ class TwitterTab extends Component{
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="通知"
-        iconName="ios-bell-outline"
-        selectedIconName="ios-bell"
+        iconName="ios-notifications-outline"
+        selectedIconName="ios-notifications"
         onPress={ () => this.changeTab('通知') }
         selected={ this.state.selectedTab === '通知'}>
           <TwitterUser/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
         title="私信"
-        iconName="ios-email-outline"
-        selectedIconName="ios-email"
+        iconName="ios-mail-outline"
+        selectedIconName="ios-mail"
         onPress={ () => this.changeTab('私信') }
         selected={ this.state.selectedTab === '私信'}>
           <TwitterUser/>

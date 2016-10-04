@@ -7,7 +7,7 @@
 import React,{ Component } from 'react';
 import { Image,StyleSheet,Text,TouchableHighlight,View,ScrollView } from 'react-native';
 import Util from './utils';
-import RNChart from 'react-native-chart';
+// import RNChart from 'react-native-chart';
 
 const chartData1 = [
   {
@@ -50,22 +50,6 @@ export default class extends Component{
       <ScrollView style={styles.container}>
         <View style={styles.centerContainer}>
           <Text style={styles.title}>Bar chart</Text>
-          <RNChart style={styles.chart}
-            chartData={chartData1}
-            verticalGridStep={5}
-            xLabels={xLabels}
-          />
-          <Text style={styles.title}>Line chart</Text>
-          <RNChart style={styles.chart}
-            chartData={chartData2}
-            verticalGridStep={5}
-            xLabels={xLabels}
-          />
-          <Text style={styles.title}>Pie chart</Text>
-          <RNChart style={styles.chart}
-            chartData={chartData3}
-            xLabels={xLabels}
-          />
         </View>
       </ScrollView>
     )
@@ -76,6 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    marginTop: 63
   },
   centerContainer:{
     flex:1,

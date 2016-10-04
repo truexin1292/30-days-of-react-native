@@ -12,19 +12,19 @@ import Swiper from 'react-native-swiper';
 
 import Day1 from './view/day1';
 import Day2 from './view/day2';
-// import Day3 from './view/day3';
-// import Day4 from './view/day4';
-// import Day5 from './view/day5';
-// import Day6 from './view/day6';
-// import Day7 from './view/day7';
-// import Day8 from './view/day8';
-// import Day9 from './view/day9';
-// import Day10 from './view/day10';
-// import Day11 from './view/day11';
-// import Day12 from './view/day12';
-// import Day13 from './view/day13';
-// import Day14 from './view/day14';
-// import Day15 from './view/day15';
+import Day3 from './view/day3';
+import Day4 from './view/day4';
+import Day5 from './view/day5';
+import Day6 from './view/day6';
+import Day7 from './view/day7';
+import Day8 from './view/day8';
+import Day9 from './view/day9';
+import Day10 from './view/day10';
+import Day11 from './view/day11';
+import Day12 from './view/day12';
+import Day13 from './view/day13';
+import Day14 from './view/day14';
+import Day15 from './view/day15';
 // import Day16 from './view/day16';
 // import Day17 from './view/day17';
 // import Day18 from './view/day18';
@@ -64,125 +64,125 @@ class MainView extends Component {
         size:60,
         color:"#90bdc1",
         hideNav: true,
+      },{
+        key:2,
+        title:"twitter",
+        component: Day3,
+        isFA: false,
+        icon: "logo-twitter",
+        size:50,
+        color:"#2aa2ef",
+        hideNav: true,
+      },{
+        key:3,
+        title:"cocoapods",
+        component: Day4,
+        isFA: true,
+        icon: "contao",
+        size:50,
+        color:"#FF9A05",
+        hideNav: false,
+      },{
+        key:4,
+        title:"find my location",
+        component: Day5,
+        isFA: false,
+        icon: "md-pin",
+        size:50,
+        color:"#00D204",
+        hideNav: false,
+      },{
+        key:5,
+        title:"Spotify",
+        component: Day6,
+        isFA: true,
+        icon: "spotify",
+        size:50,
+        color:"#777",
+        hideNav: true,
+      },{
+        key:6,
+        title:"Moveable Circle",
+        component: Day7,
+        isFA: false,
+        icon: "ios-baseball",
+        size:50,
+        color:"#5e2a06",
+        hideNav: true,
+      },{
+        key:7,
+        title:"Swipe Left Menu",
+        component: Day8,
+        isFA: true,
+        icon: "google",
+        size:50,
+        color:"#4285f4",
+        hideNav: true,
+      },{
+        key:8,
+        title:"Twitter Parallax View",
+        component: Day9,
+        isFA: true,
+        icon: "twitter-square",
+        size:50,
+        color:"#2aa2ef",
+        hideNav: true,
+      },{
+        key:9,
+        title:"Tumblr Menu",
+        component: Day10,
+        isFA: false,
+        icon: "logo-tumblr",
+        size:50,
+        color:"#37465c",
+        hideNav: true,
+      },{
+        key:10,
+        title:"OpenGL",
+        component: Day11,
+        isFA: false,
+        icon: "md-contrast",
+        size:50,
+        color:"#2F3600",
+        hideNav: false,
+      },{
+        key:11,
+        title:"charts",
+        component: Day12,
+        isFA: false,
+        icon: "ios-stats",
+        size:50,
+        color:"#fd8f9d",
+        hideNav: false,
+      },{
+        key:12,
+        title:"tweet",
+        component: Day13,
+        isFA: false,
+        icon: "md-chatboxes",
+        size:50,
+        color:"#83709d",
+        hideNav: true,
+      },{
+        key:13,
+        title:"tinder",
+        component: Day14,
+        isFA: true,
+        icon: "fire",
+        size:50,
+        color:"#ff6b6b",
+        hideNav: true,
+      },{
+        key:14,
+        title:"Time picker",
+        component: Day15,
+        isFA: false,
+        icon: "ios-calendar-outline",
+        size:50,
+        color:"#ec240e",
+        hideNav: false,
       }]
-      // {
-      //   key:2,
-      //   title:"twitter",
-      //   component: Day3,
-      //   isFA: false,
-      //   icon: "social-twitter",
-      //   size:50,
-      //   color:"#2aa2ef",
-      //   hideNav: true,
-      // },{
-      //   key:3,
-      //   title:"cocoapods",
-      //   component: Day4,
-      //   isFA: true,
-      //   icon: "contao",
-      //   size:50,
-      //   color:"#FF9A05",
-      //   hideNav: false,
-      // },{
-      //   key:4,
-      //   title:"find my location",
-      //   component: Day5,
-      //   isFA: false,
-      //   icon: "ios-location",
-      //   size:50,
-      //   color:"#00D204",
-      //   hideNav: false,
-      // },{
-      //   key:5,
-      //   title:"Spotify",
-      //   component: Day6,
-      //   isFA: true,
-      //   icon: "spotify",
-      //   size:50,
-      //   color:"#777",
-      //   hideNav: true,
-      // },{
-      //   key:6,
-      //   title:"Moveable Circle",
-      //   component: Day7,
-      //   isFA: false,
-      //   icon: "ios-baseball",
-      //   size:50,
-      //   color:"#5e2a06",
-      //   hideNav: true,
-      // },{
-      //   key:7,
-      //   title:"Swipe Left Menu",
-      //   component: Day8,
-      //   isFA: true,
-      //   icon: "google",
-      //   size:50,
-      //   color:"#4285f4",
-      //   hideNav: true,
-      // },{
-      //   key:8,
-      //   title:"Twitter Parallax View",
-      //   component: Day9,
-      //   isFA: false,
-      //   icon: "social-twitter-outline",
-      //   size:50,
-      //   color:"#2aa2ef",
-      //   hideNav: true,
-      // },{
-      //   key:9,
-      //   title:"Tumblr Menu",
-      //   component: Day10,
-      //   isFA: false,
-      //   icon: "social-tumblr",
-      //   size:50,
-      //   color:"#37465c",
-      //   hideNav: true,
-      // },{
-      //   key:10,
-      //   title:"OpenGL",
-      //   component: Day11,
-      //   isFA: false,
-      //   icon: "contrast",
-      //   size:50,
-      //   color:"#2F3600",
-      //   hideNav: false,
-      // },{
-      //   key:11,
-      //   title:"charts",
-      //   component: Day12,
-      //   isFA: false,
-      //   icon: "stats-bars",
-      //   size:50,
-      //   color:"#fd8f9d",
-      //   hideNav: false,
-      // },{
-      //   key:12,
-      //   title:"tweet",
-      //   component: Day13,
-      //   isFA: false,
-      //   icon: "chatbox-working",
-      //   size:50,
-      //   color:"#83709d",
-      //   hideNav: true,
-      // },{
-      //   key:13,
-      //   title:"tinder",
-      //   component: Day14,
-      //   isFA: false,
-      //   icon: "fireball",
-      //   size:50,
-      //   color:"#ff6b6b",
-      //   hideNav: true,
-      // },{
-      //   key:14,
-      //   title:"Time picker",
-      //   component: Day15,
-      //   isFA: false,
-      //   icon: "ios-calendar-outline",
-      //   size:50,
-      //   color:"#ec240e",
-      //   hideNav: false,
-      // },{
+      // ,{
       //   key:15,
       //   title:"Gesture unlock",
       //   component: Day16,
@@ -394,6 +394,19 @@ class DayView extends Component {
       case 0: return <MainView navigator={navigator} title={title} />;
       case 1: return <Day1 navigator={navigator} title={title} />;
       case 2: return <Day2 navigator={navigator} title={title} />;
+      case 3: return <Day3 navigator={navigator} title={title} />;
+      case 4: return <Day4 navigator={navigator} title={title} />; //to update to groupon
+      case 5: return <Day5 navigator={navigator} title={title} />;
+      case 6: return <Day6 navigator={navigator} title={title} />; //to update; RN video bug
+      case 7: return <Day7 navigator={navigator} title={title} />;
+      case 8: return <Day8 navigator={navigator} title={title} />; //update animation
+      case 9: return <Day9 navigator={navigator} title={title} />;
+      case 10: return <Day10 navigator={navigator} title={title} />;
+      case 11: return <Day11 navigator={navigator} title={title} />;
+      case 12: return <Day12 navigator={navigator} title={title} />; // update to google inbox
+      case 13: return <Day13 navigator={navigator} title={title} />;
+      case 14: return <Day14 navigator={navigator} title={title} />;
+      case 15: return <Day15 navigator={navigator} title={title} />;
     }
   }
 }

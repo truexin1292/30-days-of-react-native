@@ -155,6 +155,7 @@ export default class extends Component{
 
 const styles = StyleSheet.create({
   container:{
+    marginTop: 63
   },
   titleContainer:{
     alignItems:"center",

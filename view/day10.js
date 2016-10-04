@@ -5,9 +5,9 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,StyleSheet,Text,TouchableWithoutFeedback,StatusBar,Animated,Easing,View } from 'react-native';
+import { Image,StyleSheet,Text,TouchableWithoutFeedback,TouchableHighlight,StatusBar,Animated,Easing,View } from 'react-native';
 import Util from './utils';
-import {BlurView,VibrancyView} from 'react-native-blur';
+// import {BlurView} from 'react-native-blur';
 
 export default class extends Component{
   constructor() {
@@ -61,8 +61,7 @@ export default class extends Component{
           <Image source={{uri:'tumblr'}} style={styles.img}></Image>
         </TouchableWithoutFeedback>
         {this.state.show?
-        <Image source={{uri:'tumblr'}} style={styles.menu}>
-          <BlurView blurType="dark" style={styles.blur}>
+        <Image source={{uri:'tumblrblur'}} style={styles.menu}>
             <Animated.View style={[styles.menuItem1,{left:this.state.shift}]}>
               <Image style={styles.menuImg} source={{uri:'tumblr-text'}}></Image>
               <Text style={styles.menuText}>Text</Text>
@@ -87,8 +86,9 @@ export default class extends Component{
               <Image style={styles.menuImg} source={{uri:'tumblr-audio'}}></Image>
               <Text style={styles.menuText}>Audio</Text>
             </Animated.View>
-            <TouchableWithoutFeedback onPress={() => this._popMenu()}><Text style={styles.dismiss}>NeverMind</Text></TouchableWithoutFeedback>
-          </BlurView>
+            <TouchableHighlight underlayColor="rgba(0,0,0,0)" activeOpacity={0} style={styles.dismissBtn} onPress={() => this._popMenu()}>
+              <Text style={styles.dismiss}>NeverMind</Text>
+            </TouchableHighlight>
           </Image>:
           <View></View>
         }
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   menu:{
     height: Util.size.height,
     width: Util.size.width,
-    resizeMode:"contain",
+    resizeMode:"cover",
     position:"absolute",
     top:0,
     left:0
@@ -131,7 +131,8 @@ const styles = StyleSheet.create({
   menuText:{
     width:120,
     textAlign:"center",
-    color:"#fff"
+    color:"#fff",
+    backgroundColor: "transparent"
   },
   menuItem1:{
     position:"absolute",
@@ -163,13 +164,16 @@ const styles = StyleSheet.create({
     right:50,
     top: 420
   },
-  dismiss:{
+  dismissBtn:{
     position:"absolute",
     width:Util.size.width,
     left:0,
     bottom:50,
+  },
+  dismiss:{
     textAlign:"center",
     color:"rgba(255,255,255,0.2)",
-    fontWeight:"700"
+    fontWeight:"700",
+    backgroundColor: "transparent"
   },
 });

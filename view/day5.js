@@ -84,7 +84,7 @@ export default class extends Component{
 			<View style={styles.container}>
         <Map mapTyle="standard" mapStyle={styles.map} showsUserLocation={this.state.showGeo} followUserLocation={this.state.showGeo}></Map>
         <TouchableHighlight underlayColor="#00bd03" style={styles.btn} onPress={() => this._getLocation()}>
-          <Text style={styles.btnText}><Icon size={18} name="navigate"> </Icon> Find my location</Text>
+          <Text style={styles.btnText}><Icon size={18} name="md-navigate"> </Icon> Find my location</Text>
         </TouchableHighlight>
       </View>
 		)

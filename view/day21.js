@@ -4,10 +4,9 @@
  */
 'use strict';
 
-import React,{ Component } from 'react-native';
+import React,{ Component } from 'react';
 import { Image,StyleSheet,Text,StatusBar,TouchableHighlight,LayoutAnimation,View } from 'react-native';
 import Util from './utils';
-import { BlurView,VibrancyView } from 'react-native-blur';
 import { ReminderContainer } from './day20';
 
 export default class extends Component{
@@ -116,8 +115,6 @@ export default class extends Component{
     return(
       <View style={styles.container}>
         <Image source={{uri:"desktop"}} style={styles.container}> 
-          <BlurView blurType="dark" style={styles.container}>
-          </BlurView>
         </Image>       
         {lists}
         <TouchableHighlight underlayColor="transparent" style={styles.reset} onPress={() => this._reset()}>

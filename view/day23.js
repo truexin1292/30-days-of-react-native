@@ -44,15 +44,17 @@ export default class extends Component{
   _show(index) {
     if (index) {
       this.props.navigator.push({
+        index: 231,
         title: "Sphere",
         component: Sphere,
-        navigationBarHidden: false,
+        hideNav: false,
       })
     }else{
       this.props.navigator.push({
+        index: 232,
         title: "Poincare",
         component: Poincare,
-        navigationBarHidden: false,
+        hideNav: false,
       })
     }
   }
@@ -65,7 +67,7 @@ export default class extends Component{
             <Image source={require('./img/poincare.png')} style={styles.img}/>
             <View style={styles.textContainer}>
               <Text style={styles.text}>Poincaré Disk</Text>
-              <Icon style={styles.itemNav} name="ios-arrow-right" size={35}/>
+              <Icon style={styles.itemNav} name="ios-arrow-forward-outline" size={35}/>
             </View>
           </View>
         </TouchableHighlight>
@@ -74,7 +76,7 @@ export default class extends Component{
             <Image source={require('./img/sphere.jpg')} style={styles.img}/>
             <View style={styles.textContainer}>
               <Text style={styles.text}>Sphere</Text>
-              <Icon style={styles.itemNav} name="ios-arrow-right" size={35}/>
+              <Icon style={styles.itemNav} name="ios-arrow-forward-outline" size={35}/>
             </View>
           </View>
         </TouchableHighlight>
@@ -86,12 +88,16 @@ export default class extends Component{
 const styles = StyleSheet.create({
   container:{
     flex:1,
+    backgroundColor: "#ffffff"
   },
   itemWrapper:{
     backgroundColor: '#f3f3f3'
   },
   menu:{
     paddingTop:80,
+    backgroundColor: "#ffffff",
+    width: Util.size.width,
+    height: Util.size.height,
   },
   btn:{
     height: 100,

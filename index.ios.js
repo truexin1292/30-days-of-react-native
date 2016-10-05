@@ -13,33 +13,33 @@ import Swiper from 'react-native-swiper';
 import Day1 from './view/day1';
 import Day2 from './view/day2';
 import Day3 from './view/day3';
-import Day4 from './view/day4';
+import Day4 from './view/day4'; //to update to groupon
 import Day5 from './view/day5';
-import Day6 from './view/day6';
+import Day6 from './view/day6'; //to update; RN video bug
 import Day7 from './view/day7';
-import Day8 from './view/day8';
+import Day8 from './view/day8';  //update animation
 import Day9 from './view/day9';
 import Day10 from './view/day10';
 import Day11 from './view/day11';
-import Day12 from './view/day12';
+import Day12 from './view/day12'; // update to google inbox
 import Day13 from './view/day13';
 import Day14 from './view/day14';
-import Day15 from './view/day15';
-// import Day16 from './view/day16';
-// import Day17 from './view/day17';
-// import Day18 from './view/day18';
-// import Day19 from './view/day19';
-// import Day20 from './view/day20';
-// import Day21 from './view/day21';
-// import Day22 from './view/day22';
-// import Day23 from './view/day23';
-// import Day24 from './view/day24';
-// import Day25 from './view/day25';
-// import Day26 from './view/day26';
-// import Day27 from './view/day27';
-// import Day28 from './view/day28';
-// import Day29 from './view/day29';
-// import Day30 from './view/day30';
+import Day15 from './view/day15'; //to update to snapchat
+import Day16 from './view/day16';
+import Day17 from './view/day17';
+import Day18 from './view/day18';
+import Day19 from './view/day19';
+import Day20 from './view/day20';
+import Day21 from './view/day21';
+import Day22 from './view/day22';
+import Day23 from './view/day23';
+import Day24 from './view/day24';
+import Day25 from './view/day25'; // to update imessage UI
+import Day26 from './view/day26'; // to update imessage UI
+import Day27 from './view/day27';
+import Day28 from './view/day28';
+import Day29 from './view/day29'; //to update
+import Day30 from './view/day30';
 
 class MainView extends Component {
   constructor() {
@@ -181,171 +181,151 @@ class MainView extends Component {
         size:50,
         color:"#ec240e",
         hideNav: false,
+      },{
+        key:15,
+        title:"Gesture unlock",
+        component: Day16,
+        isFA: false,
+        icon: "ios-unlock",
+        size:50,
+        color:"#32A69B",
+        hideNav: true,
+      },{
+        key:16,
+        title:"Fuzzy search",
+        component: Day17,
+        isFA: false,
+        icon: "md-search",
+        size:50,
+        color:"#69B32A",
+        hideNav: false,
+      },{
+        key:17,
+        title:"Sortable",
+        component: Day18,
+        isFA: false,
+        icon: "md-move",
+        size:50,
+        color:"#68231A",
+        hideNav: true,
+      },{
+        key:18,
+        title:"TouchID to unlock",
+        component: Day19,
+        isFA: false,
+        icon: "ios-log-in",
+        size:50,
+        color:"#fdbded",
+        hideNav: true,
+      },{
+        key:19,
+        title:"Single page Reminder",
+        component: Day20,
+        isFA: false,
+        icon: "ios-list-outline",
+        size:50,
+        color:"#68d746",
+        hideNav: true,
+      },{
+        key:20,
+        title:"Multi page Reminder",
+        component: Day21,
+        isFA: false,
+        icon: "ios-paper-outline",
+        size:50,
+        color:"#fe952b",
+        hideNav: true,
+      },{
+        key:21,
+        title:"Google Now",
+        component: Day22,
+        isFA: false,
+        icon: "ios-mic-outline",
+        size:50,
+        color:"#4285f4",
+        hideNav: true,
+      },{
+        key:22,
+        title:"Local WebView",
+        component: Day23,
+        isFA: true,
+        icon: "safari",
+        size:50,
+        color:"#23bfe7",
+        hideNav: false,
+      },{
+        key:23,
+        title:"Youtube scrollable tab",
+        component: Day24,
+        isFA: false,
+        icon: "logo-youtube",
+        size:50,
+        color:"#e32524",
+        hideNav: true,
+      },{
+        key:24,
+        title:"custome in-app browser",
+        component: Day25,
+        isFA: false,
+        icon: "ios-globe",
+        size:50,
+        color:"#00ab6b",
+        hideNav: true,
+      },{
+        key:25,
+        title:"swipe and switch",
+        component: Day26,
+        isFA: false,
+        icon: "md-shuffle",
+        size:50,
+        color:"#893D54",
+        hideNav: true,
+      },{
+        key:26,
+        title:"iMessage Gradient",
+        component: Day27,
+        isFA: false,
+        icon: "ios-chatbubbles",
+        size:50,
+        color:"#248ef5",
+        hideNav: false,
+      },{
+        key:27,
+        title:"iMessage image picker",
+        component: Day28,
+        isFA: false,
+        icon: "md-images",
+        size:50,
+        color:"#f5248e",
+        hideNav: true,
+      },{
+        key:28,
+        title:"3d touch",
+        component: Day29,
+        isFA: false,
+        icon: "ios-navigate",
+        size:50,
+        color:"#48f52e",
+        hideNav: false,
+      },{
+        key:29,
+        title:"Push Notifications",
+        component: Day30,
+        isFA: false,
+        icon: "md-notifications",
+        size:50,
+        color:"#f27405",
+        hideNav: false,
       }]
-      // ,{
-      //   key:15,
-      //   title:"Gesture unlock",
-      //   component: Day16,
-      //   isFA: false,
-      //   icon: "unlocked",
-      //   size:50,
-      //   color:"#32A69B",
-      //   hideNav: true,
-      // },{
-      //   key:16,
-      //   title:"Fuzzy search",
-      //   component: Day17,
-      //   isFA: false,
-      //   icon: "search",
-      //   size:50,
-      //   color:"#69B32A",
-      //   hideNav: false,
-      // },{
-      //   key:17,
-      //   title:"Sortable",
-      //   component: Day18,
-      //   isFA: false,
-      //   icon: "arrow-move",
-      //   size:50,
-      //   color:"#68231A",
-      //   hideNav: true,
-      // },{
-      //   key:18,
-      //   title:"TouchID to unlock",
-      //   component: Day19,
-      //   isFA: false,
-      //   icon: "log-in",
-      //   size:50,
-      //   color:"#fdbded",
-      //   hideNav: true,
-      // },{
-      //   key:19,
-      //   title:"Single page Reminder",
-      //   component: Day20,
-      //   isFA: false,
-      //   icon: "ios-list-outline",
-      //   size:50,
-      //   color:"#68d746",
-      //   hideNav: true,
-      // },{
-      //   key:20,
-      //   title:"Multi page Reminder",
-      //   component: Day21,
-      //   isFA: false,
-      //   icon: "ios-paper-outline",
-      //   size:50,
-      //   color:"#fe952b",
-      //   hideNav: true,
-      // },{
-      //   key:21,
-      //   title:"Google Now",
-      //   component: Day22,
-      //   isFA: false,
-      //   icon: "android-microphone",
-      //   size:50,
-      //   color:"#4285f4",
-      //   hideNav: true,
-      // },{
-      //   key:22,
-      //   title:"Local WebView",
-      //   component: Day23,
-      //   isFA: true,
-      //   icon: "safari",
-      //   size:50,
-      //   color:"#23bfe7",
-      //   hideNav: false,
-      // },{
-      //   key:23,
-      //   title:"Youtube scrollable tab",
-      //   component: Day24,
-      //   isFA: false,
-      //   icon: "social-youtube",
-      //   size:50,
-      //   color:"#e32524",
-      //   hideNav: true,
-      // },{
-      //   key:24,
-      //   title:"custome in-app browser",
-      //   component: Day25,
-      //   isFA: false,
-      //   icon: "ios-world",
-      //   size:50,
-      //   color:"#00ab6b",
-      //   hideNav: true,
-      // },{
-      //   key:25,
-      //   title:"swipe and switch",
-      //   component: Day26,
-      //   isFA: false,
-      //   icon: "shuffle",
-      //   size:50,
-      //   color:"#893D54",
-      //   hideNav: true,
-      // },{
-      //   key:26,
-      //   title:"iMessage Gradient",
-      //   component: Day27,
-      //   isFA: false,
-      //   icon: "ios-chatbubble",
-      //   size:50,
-      //   color:"#248ef5",
-      //   hideNav: false,
-      // },{
-      //   key:27,
-      //   title:"iMessage image picker",
-      //   component: Day28,
-      //   isFA: false,
-      //   icon: "images",
-      //   size:50,
-      //   color:"#f5248e",
-      //   hideNav: true,
-      // },{
-      //   key:28,
-      //   title:"iMessage image picker",
-      //   component: Day29,
-      //   isFA: false,
-      //   icon: "navicon-round",
-      //   size:50,
-      //   color:"#48f52e",
-      //   hideNav: false,
-      // },{
-      //   key:29,
-      //   title:"Push Notifications",
-      //   component: Day30,
-      //   isFA: false,
-      //   icon: "android-notifications",
-      //   size:50,
-      //   color:"#f27405",
-      //   hideNav: false,
-      // }]
     }
-  }
-
-  componentWillMount() {
-    // DeviceEventEmitter.addListener(
-    // 'quickActionShortcut', (data) => {
-    //   switch(data.title){
-    //     case "Day5":
-    //       this._jumpToDay(4);
-    //       break;
-    //     case "Day22":
-    //       this._jumpToDay(21);
-    //       break;
-    //     case "Day26":
-    //       this._jumpToDay(25);
-    //       break; 
-    //     case "Day28":
-    //       this._jumpToDay(27);
-    //       break;
-    //   }
-    // });
   }
 
   _jumpToDay(index){
     this.props.navigator.push({
       title: this.state.days[index].title,
       index: index + 1,
-      display: !this.state.days[index].hideNav
+      display: !this.state.days[index].hideNav,
+      component: this.state.days[index].component,
     })
   }
 
@@ -384,30 +364,6 @@ class MainView extends Component {
         </View>
       </ScrollView>
     );
-  }
-}
-
-class DayView extends Component {
-  render () {
-    let {index, title, navigator} = this.props;
-    switch(index) {
-      case 0: return <MainView navigator={navigator} title={title} />;
-      case 1: return <Day1 navigator={navigator} title={title} />;
-      case 2: return <Day2 navigator={navigator} title={title} />;
-      case 3: return <Day3 navigator={navigator} title={title} />;
-      case 4: return <Day4 navigator={navigator} title={title} />; //to update to groupon
-      case 5: return <Day5 navigator={navigator} title={title} />;
-      case 6: return <Day6 navigator={navigator} title={title} />; //to update; RN video bug
-      case 7: return <Day7 navigator={navigator} title={title} />;
-      case 8: return <Day8 navigator={navigator} title={title} />; //update animation
-      case 9: return <Day9 navigator={navigator} title={title} />;
-      case 10: return <Day10 navigator={navigator} title={title} />;
-      case 11: return <Day11 navigator={navigator} title={title} />;
-      case 12: return <Day12 navigator={navigator} title={title} />; // update to google inbox
-      case 13: return <Day13 navigator={navigator} title={title} />;
-      case 14: return <Day14 navigator={navigator} title={title} />;
-      case 15: return <Day15 navigator={navigator} title={title} />;
-    }
   }
 }
 
@@ -465,10 +421,11 @@ class ThirtyDaysOfReactNative extends Component{
           title: '30 Days of RN',
           index: 0,
           display: true,
+          component: MainView,
         }}
         configureScene={this.configureScene}
         renderScene={(route, navigator) => {
-          return <DayView navigator={navigator} title={route.title} index={route.index} />
+          return <route.component navigator={navigator} title={route.title} index={route.index} />
         }}
         navigationBar={
           <NavigationBar

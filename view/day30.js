@@ -81,10 +81,11 @@ export default class extends Component{
 var styles = StyleSheet.create({
   container:{
     paddingTop:80,
-    height: Util.size.height-80,
+    height: Util.size.height,
     width: Util.size.width,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: "#fff"
   },
   button: {
     padding: 10,

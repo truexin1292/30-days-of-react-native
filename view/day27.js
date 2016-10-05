@@ -7,7 +7,7 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,StyleSheet,Text,TouchableHighlight,ScrollView,View } from 'react-native';
+import { findNodeHandle,Image,StyleSheet,Text,TouchableHighlight,ScrollView,View } from 'react-native';
 import Util from './utils';
 import LinearGradient from 'react-native-linear-gradient';
 import { UIManager } from 'NativeModules';
@@ -30,7 +30,7 @@ export default class extends Component{
   _changeColor = (index)=> {
     const wHeight = Util.size.height;
     let view = this.refs['msg'+index]; // Where view is a ref obtained through <View ref='ref'/>
-    let handle = React.findNodeHandle(view);
+    let handle = findNodeHandle(view);
     UIManager.measure(handle, (x, y, width, height, pageX, pageY) => {
       let initOpacity = Math.pow((pageY/wHeight),2) + 0.5;
       let colors = ['rgba(32,138,246,'+initOpacity+')', 'rgba(32,138,246,'+(initOpacity+0.05)+')', 'rgba(32,138,246,'+(initOpacity+0.1)+')'];
@@ -53,7 +53,7 @@ export default class extends Component{
       );
     })
     return(
-      <ScrollView onScroll={this._handleScroll} scrollEventThrottle={16} >
+      <ScrollView style={styles.container} onScroll={this._handleScroll} scrollEventThrottle={16} >
         <View style={{height:2*Util.size.height}}>
           {linears}
         </View>
@@ -63,6 +63,9 @@ export default class extends Component{
 }
 
 const styles = StyleSheet.create({
+  container:{
+    backgroundColor:"#ffffff",
+  },
   linearGradient: {
     // width:90,s
     height: 26,

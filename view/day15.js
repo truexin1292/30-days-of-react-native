@@ -5,7 +5,7 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,StyleSheet,Text,TouchableHighlight,Modal,View,DatePickerIOS } from 'react-native';
+import { Image,StyleSheet,StatusBar,Text,TouchableHighlight,Modal,View,DatePickerIOS } from 'react-native';
 import Util from './utils';
 
 export default class extends Component{
@@ -19,6 +19,10 @@ export default class extends Component{
     let showModal = false;
 
     this.state = {time,showModal,setDate,timeZoneOffsetInHours};
+  }
+  
+  componentDidMount() {
+    StatusBar.setBarStyle(0);
   }
 
   _getTime(date){
@@ -76,16 +80,16 @@ export default class extends Component{
             </View>
             <View style={styles.modalContent}>
               <DatePickerIOS
-              date={this.state.setDate}
-              mode="date"
-              timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-              onDateChange={(date) => this._onDateChange(date)}
+                date={this.state.setDate}
+                mode="date"
+                timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
+                onDateChange={this._onDateChange}
             />
              <DatePickerIOS
-              date={this.state.setDate}
-              mode="time"
-              timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-              onDateChange={(date) => this._onDateChange(date)}
+                date={this.state.setDate}
+                mode="time"
+                timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
+                onDateChange={this._onDateChange}
             />
             </View>
           </View>

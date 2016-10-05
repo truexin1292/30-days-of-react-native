@@ -5,7 +5,7 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,StyleSheet,Text,TextInput,TouchableWithoutFeedback,Animated,Easing,View } from 'react-native';
+import { Image,StyleSheet,StatusBar,Text,TextInput,TouchableWithoutFeedback,Animated,Easing,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -18,6 +18,10 @@ export default class extends Component{
       on: 0,
       scaleOn: 0,
     }
+  }
+  
+  componentDidMount() {
+    StatusBar.setBarStyle(0);
   }
 
   _onMic() {
@@ -58,7 +62,7 @@ export default class extends Component{
     return(
       <View style={styles.container}>
         <View style={styles.nav}>
-          <Icon name="gear-a" size={25} color="#969696"/>
+          <Icon name="ios-settings" size={25} color="#969696"/>
           <Text style={styles.navText}>SIGN IN</Text>
           <Icon name="ios-albums-outline" size={25} color="#969696"/>
         </View>
@@ -74,9 +78,9 @@ export default class extends Component{
               <Animated.View style={[styles.btnContent,{transform:[{scale:this.state.scale}]}]}>
                 {this.state.on?
                     <View style={[styles.btnContent,{backgroundColor:"#ff3b3e",top:8,transform:[{scale:0.05}]}]}>
-                      <Icon name="android-microphone" size={25} color="#fff"/>
+                      <Icon name="ios-mic-outline" size={25} color="#fff"/>
                     </View>:
-                  <Icon name="android-microphone" size={25} color="#4285f4"/>}
+                  <Icon name="ios-mic-outline" size={25} color="#4285f4"/>}
               </Animated.View>
             </TouchableWithoutFeedback>
           </View>
@@ -85,7 +89,7 @@ export default class extends Component{
           <View style={styles.scaleContainer}>
             <Text style={styles.scaleText}>Speak Now</Text>
             <TouchableWithoutFeedback style={styles.close} onPress={() => this._offMic()}>
-              <Icon name="android-close" style={styles.closeIcon} color="#969696" size={25}/>
+              <Icon name="md-close" style={styles.closeIcon} color="#969696" size={25}/>
             </TouchableWithoutFeedback>
           </View>:
           <View></View>}

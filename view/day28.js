@@ -8,7 +8,6 @@ import React,{ Component } from 'react';
 import { Image,StyleSheet,Text,TouchableHighlight,TouchableWithoutFeedback,LayoutAnimation,ScrollView,CameraRoll,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { BlurView,VibrancyView } from 'react-native-blur';
 
 export default class extends Component{
   constructor() {

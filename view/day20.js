@@ -7,7 +7,7 @@
 import React,{ Component } from 'react';
 import { Image,StyleSheet,StatusBar,Text,TextInput,LayoutAnimation,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
-import {BlurView,VibrancyView} from 'react-native-blur';
+// import {BlurView,VibrancyView} from 'react-native-blur';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export class ReminderContainer extends Component{
@@ -85,7 +85,7 @@ export class ReminderContainer extends Component{
     list.push(
       <View key="add" style={styles.reminderList}>
         <View style={styles.add}>
-          <Icon name="plus" color="#c6c6c6" size={22}/>
+          <Icon name="md-add" style={styles.addIcon} color="#c6c6c6" size={22}/>
         </View>
         <View style={styles.input}>
           <TextInput autoCapitalize="none" ref="addList" onBlur={(event) => this._addList(event.nativeEvent.text)} style={styles.inputText}/>
@@ -148,8 +148,6 @@ export default class extends Component{
     return(
       <View style={styles.container}>
         <Image source={{uri:"desktop"}} style={styles.container}> 
-          <BlurView blurType="dark" style={styles.container}>
-          </BlurView>
         </Image>       
         <ReminderContainer listData={this.listData}/>
       </View>
@@ -253,6 +251,9 @@ const styles = StyleSheet.create({
   inputText:{
     height:43,
     color:"#363636",
+  },
+  addIcon:{
+    paddingLeft: 5
   }
 });
 

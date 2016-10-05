@@ -7,7 +7,7 @@
 import React,{ Component } from 'react';
 import { Image,StyleSheet,StatusBar,Text,AlertIOS,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
-import TouchID from 'react-native-touch-id';
+// import TouchID from 'react-native-touch-id';
 import { EnterPassword } from './day16'
 
 class Main extends Component{
@@ -70,12 +70,11 @@ class RequireTouchID extends Component{
 export default class extends Component{
   render() {
     return(
-      <View>
-        <RequireTouchID/>
-      </View>
+      <View></View>
     )
   }
 }
+// <RequireTouchID/>
 
 const styles = StyleSheet.create({
   container:{

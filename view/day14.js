@@ -8,7 +8,7 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,StyleSheet,Text,TouchableHighlight,PanResponder,Animated,LayoutAnimation,View } from 'react-native';
+import { Image,StyleSheet,StatusBar,Text,TouchableHighlight,PanResponder,Animated,LayoutAnimation,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SwipeCards from 'react-native-swipe-cards';
@@ -121,6 +121,10 @@ class Cards extends Component{
     const names = ["Stuart","Bob","Kevin","Dave","Jerry"];
     
     this.state = {imgs,names,};
+  }
+  
+  componentDidMount() {
+    StatusBar.setBarStyle(0);
   }
 
   _next() {

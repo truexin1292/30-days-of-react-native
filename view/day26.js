@@ -40,16 +40,17 @@ class Main extends Component{
   _maxLeft = 150;
   _mainStyles = {};
   main = (null : ?{ setNativeProps(props: Object): void });
-  _CustomLayoutLinear = {
-    duration: 200,
-    create: {
-      type: LayoutAnimation.Types.linear,
-      property: LayoutAnimation.Properties.left,
-    },
-    update: {
-      type: LayoutAnimation.Types.curveEaseInEaseOut,
-    },
-  };
+  // _CustomLayoutLinear = {
+  //   duration: 200,
+  //   create: {
+  //     type: LayoutAnimation.Types.linear,
+  //     property: LayoutAnimation.Properties.left,
+  //   },
+  //   update: {
+  //     type: LayoutAnimation.Types.curveEaseInEaseOut,
+  //   },
+  // };
+  _CustomLayoutLinear = LayoutAnimation.Presets.linear;
 
   componentWillMount() {
     this._panResponder = PanResponder.create({

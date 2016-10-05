@@ -7,8 +7,8 @@
 import React,{ Component } from 'react';
 import { Image,StyleSheet,Text,TouchableHighlight,ScrollView,View } from 'react-native';
 import Util from './utils';
-import SearchBar from 'react-native-search-bar';
-import fuzzy from 'fuzzy';
+// import SearchBar from 'react-native-search-bar';
+// import fuzzy from 'fuzzy';
 
 export default class extends Component{
   constructor() {
@@ -42,20 +42,22 @@ export default class extends Component{
 
     return(
       <ScrollView style={styles.container} contentOffset={{y:50}}>
-        <SearchBar
-          ref='searchBar'
-          placeholder='Search'
-          onChangeText={(text)=> this._onChangeText(text)}
-        />
         {statesList}
       </ScrollView>
     )
   }
 }
 
+        // <SearchBar
+          // ref='searchBar'
+          // placeholder='Search'
+          // onChangeText={(text)=> this._onChangeText(text)}
+        // />
+
 const styles = StyleSheet.create({
   container:{
-
+    backgroundColor:"#ffffff",
+    marginTop: 63
   },
   list:{
     height:40,

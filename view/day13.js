@@ -5,7 +5,7 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,StyleSheet,CameraRoll,Text,TextInput,TouchableHighlight,View } from 'react-native';
+import { Image,StyleSheet,StatusBar,CameraRoll,Text,TextInput,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -81,6 +81,10 @@ export default class extends Component{
     this.state = {
       numOfText:140,
     };
+  }
+  
+  componentDidMount() {
+    StatusBar.setBarStyle(0);
   }
 
   _updateTextNum(text) {

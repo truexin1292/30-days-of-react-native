@@ -5,7 +5,7 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Animated,Easing,Image,RefreshControl,ScrollView,StyleSheet,TabBarIOS,Text,TouchableHighlight,View } from 'react-native';
+import { Animated,Easing,Image,RefreshControl,ScrollView,StatusBar,StyleSheet,TabBarIOS,Text,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -173,6 +173,10 @@ export default class extends Component{
     this.state = {
       show:true
     };
+  }
+
+  componentDidMount() {
+    StatusBar.setBarStyle(0);
   }
 
   _hideEntrance() {

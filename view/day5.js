@@ -5,7 +5,7 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,MapView,StyleSheet,Text,TouchableHighlight,View } from 'react-native';
+import { Image,MapView,StatusBar,StyleSheet,Text,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -71,6 +71,10 @@ export default class extends Component{
     this.state = {
       showGeo:false
     };
+  }
+  
+  componentDidMount() {
+    StatusBar.setBarStyle(0);
   }
 
   _getLocation() {

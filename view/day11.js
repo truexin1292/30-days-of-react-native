@@ -6,7 +6,7 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,StyleSheet,Slider,Text,TouchableHighlight,View,ScrollView } from 'react-native';
+import { Image,StyleSheet,Slider,StatusBar,Text,TouchableHighlight,View,ScrollView } from 'react-native';
 import Util from './utils';
 import GL from "gl-react";
 import { Surface } from "gl-react-native";
@@ -115,6 +115,10 @@ export default class extends Component{
     };
   }
 
+  componentDidMount() {
+    StatusBar.setBarStyle(0);
+  }
+
   render() {
     let {value,saturationFactor,progress} = this.state;
     return(
@@ -155,7 +159,8 @@ export default class extends Component{
 
 const styles = StyleSheet.create({
   container:{
-    marginTop: 63
+    marginTop: 63,
+    backgroundColor:"#ffffff"
   },
   titleContainer:{
     alignItems:"center",

@@ -5,9 +5,10 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Animated,Easing,Image,RefreshControl,ScrollView,StatusBar,StyleSheet,TabBarIOS,Text,TouchableHighlight,View } from 'react-native';
+import { Platform,Animated,Easing,Image,RefreshControl,ScrollView,StatusBar,StyleSheet,TabBarIOS,Text,TouchableHighlight,TouchableOpacity,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
@@ -77,13 +78,12 @@ class TwitterPost extends Component{
   render() {
     return(
       <ScrollView
-      style={styles.twitterPostContainer}
       refreshControl={
           <RefreshControl
             refreshing={this.state.isRefreshing}
             onRefresh={()=>this._onRefresh()}
             tintColor="#ddd"/>}>
-            <Image source={{uri:'day3'}} style={{width:Util.size.width, height:Util.size.height-110}}></Image>
+            <Image source={require('./img/day3.png')} style={{width:Util.size.width, height:Util.size.height-110}}></Image>
       </ScrollView>
     )
   }
@@ -111,11 +111,62 @@ class TwitterFlow extends Component{
   }
 }
 
+const FacebookTabBar = React.createClass({
+  tabIcons: [],
+
+  propTypes: {
+    goToPage: React.PropTypes.func,
+    activeTab: React.PropTypes.number,
+    tabs: React.PropTypes.array,
+  },
+
+  componentDidMount() {
+    setTimeout( () => this.props.goToPage(0), 0 );
+    this._listener = this.props.scrollValue.addListener(this.setAnimationValue);
+  },
+
+  setAnimationValue({ value, }) {
+    this.tabIcons.forEach((icon, i) => {
+      const progress = (value - i >= 0 && value - i <= 1) ? value - i : 1;
+      icon.setNativeProps({
+        style: {
+          color: this.iconColor(progress),
+        },
+      });
+    });
+  },
+
+  //color between rgb(59,89,152) and rgb(204,204,204)
+  iconColor(progress) {
+    const red = 49 + (159 - 49) * progress;
+    const green = 149 + (159 - 149) * progress;
+    const blue = 215 + (159 - 215) * progress;
+    return `rgb(${red}, ${green}, ${blue})`;
+  },
+
+  render() {
+    return <View style={[styles.tabs, this.props.style, ]}>
+      {this.props.tabs.map((tab, i) => {
+        return <TouchableOpacity key={tab} onPress={() => setTimeout( () => this.props.goToPage(i), 0 )} style={styles.tab}>
+          <Icon
+            name={tab}
+            size={30}
+            color={this.props.activeTab === i ? 'rgb(49,149,215)' : 'rgb(159,159,159)'}
+            ref={(icon) => { this.tabIcons[i] = icon; }}
+          />
+        </TouchableOpacity>;
+      })}
+    </View>;
+  },
+});
+
+
 class TwitterTab extends Component{
   constructor() {
     super();
     this.state = {
       selectedTab:'主页',
+      title:'主页',
     };
   }
 
@@ -125,45 +176,87 @@ class TwitterTab extends Component{
       });
   }
 
+  _updateTitle(obj) {
+    const {i} = obj;
+    let title = "";
+    switch(i) {
+      case 0:
+        title = "主页";
+        break;
+      case 1: 
+        title = "通知";
+        break;
+      case 2: 
+        title = "私信";
+        break;
+      case 3: 
+        title = "我";
+        break;
+    }
+    this.setState({
+      title
+    });
+  }
+
   render(){
-    return (
-      <TabBarIOS
-        barTintColor="#fff"
-        tintColor="#1b95e0">
+    const iosTabView = <TabBarIOS
+          barTintColor="#fff"
+          tintColor="#1b95e0">
         <Icon.TabBarItem
-        title="主页"
-        iconName="ios-home-outline"
-        selectedIconName="ios-home"
-        onPress={ () => this.changeTab('主页') }
-        selected={ this.state.selectedTab === '主页' }>
+          title="主页"
+          iconName="ios-home-outline"
+          selectedIconName="ios-home"
+          onPress={ () => this.changeTab('主页') }
+          selected={ this.state.selectedTab === '主页' }>
           <TwitterFlow/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
-        title="通知"
-        iconName="ios-notifications-outline"
-        selectedIconName="ios-notifications"
-        onPress={ () => this.changeTab('通知') }
-        selected={ this.state.selectedTab === '通知'}>
+          title="通知"
+          iconName="ios-notifications-outline"
+          selectedIconName="ios-notifications"
+          onPress={ () => this.changeTab('通知') }
+          selected={ this.state.selectedTab === '通知'}>
           <TwitterFlow/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
-        title="私信"
-        iconName="ios-mail-outline"
-        selectedIconName="ios-mail"
-        onPress={ () => this.changeTab('私信') }
-        selected={ this.state.selectedTab === '私信'}>
+          title="私信"
+          iconName="ios-mail-outline"
+          selectedIconName="ios-mail"
+          onPress={ () => this.changeTab('私信') }
+          selected={ this.state.selectedTab === '私信'}>
           <TwitterFlow/>
         </Icon.TabBarItem>
         <Icon.TabBarItem
-        title="我"
-        iconName="ios-person-outline"
-        selectedIconName="ios-person"
-        onPress={ () => this.changeTab('我') }
-        selected={ this.state.selectedTab === '我'}>
+          title="我"
+          iconName="ios-person-outline"
+          selectedIconName="ios-person"
+          onPress={ () => this.changeTab('我') }
+          selected={ this.state.selectedTab === '我'}>
           <TwitterFlow/>
         </Icon.TabBarItem>
-      </TabBarIOS>
-    );
+      </TabBarIOS>;
+    const androidTabView =   <View>
+        <View style={styles.navBg}></View>
+          <View style={styles.navAndroid}>
+            <View style={styles.logoContainer}>
+              <Icon name="logo-twitter" color="#fff" size={27}/>
+              <Text style={styles.title}>{this.state.title}</Text>
+            </View>
+            <View style={styles.iconContainer}>
+              <Icon name="ios-search" color="#fff" size={25}/>
+              <Icon name="ios-create-outline" color="#fff" size={25}/>
+            </View>
+          </View>
+          <ScrollableTabView
+            onChangeTab={(obj) => this._updateTitle(obj)}
+            renderTabBar={() => <FacebookTabBar />}>
+            <TwitterPost tabLabel="ios-home" />
+            <TwitterPost tabLabel="ios-notifications" />
+            <TwitterPost tabLabel="ios-mail" />
+            <TwitterPost tabLabel="ios-person" />
+          </ScrollableTabView>
+        </View>;
+    return Platform.OS === "ios"? iosTabView:androidTabView;
   }
 }
 
@@ -176,7 +269,9 @@ export default class extends Component{
   }
 
   componentDidMount() {
-    StatusBar.setBarStyle(0);
+    if(Platform.OS === "ios") {
+      StatusBar.setBarStyle(0);
+    }
   }
 
   _hideEntrance() {
@@ -248,5 +343,61 @@ const styles = StyleSheet.create({
     height:Util.size.height-90,
     position:"relative",
     top:-20
+  },
+  navAndroid:{
+    backgroundColor:"#3195d7",
+    width:Util.size.width,
+    height:55,
+    flexDirection:"row",
+    justifyContent:"space-between",
+    paddingTop:15,
+    paddingLeft:20,
+    paddingRight:10,
+  },
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 10,
+  },
+  tabs: {
+    height: 45,
+    flexDirection: 'row',
+    paddingTop: 5,
+    borderWidth: 1,
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+    borderBottomColor: 'rgba(0,0,0,0.05)',
+    backgroundColor:"#111"
+  },
+  icon: {
+    position: 'absolute',
+    top: 0,
+    left: 35,
+  },
+  img: {
+    width:375,
+    height: 550,
+  },
+  title:{
+    color:"#fff",
+    fontSize:20,
+    paddingLeft: 10
+  },
+  iconContainer:{
+    flexDirection:"row",
+    justifyContent:"space-between",
+    width:60,
+  },
+  logoContainer:{
+    flexDirection:"row",
+    justifyContent:"flex-start",
+  },
+  tabView: {
+    flex: 1,
+    height: 500,
+    padding: 10,
+    backgroundColor: 'rgba(0,0,0,0.01)',
   },
 });

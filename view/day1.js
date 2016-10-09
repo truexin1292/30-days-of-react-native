@@ -5,14 +5,14 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { ListView,StyleSheet,StatusBar,Text,TouchableHighlight,View } from 'react-native';
+import { Platform,ListView,StyleSheet,StatusBar,Text,TouchableHighlight,View } from 'react-native';
 import Util from './utils';
 
 class WatchFace extends Component{
   static propTypes = {
     sectionTime: React.PropTypes.string.isRequired,
     totalTime: React.PropTypes.string.isRequired,
-    }; 
+  }; 
 
   render() {
     return(
@@ -148,7 +148,9 @@ export default class extends Component{
   }
 
   componentDidMount() {
-    StatusBar.setBarStyle(0);
+    if(Platform.OS === "ios"){
+      StatusBar.setBarStyle(0);
+    }
   }
 
   _startWatch() {

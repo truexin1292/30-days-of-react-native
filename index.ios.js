@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import Swiper from 'react-native-swiper';
 
-import Day1 from './view/day1';
+import Day1 from './view/day1'; //bug when not stop then exit
 import Day2 from './view/day2';
 import Day3 from './view/day3';
 import Day4 from './view/day4'; //to update to groupon

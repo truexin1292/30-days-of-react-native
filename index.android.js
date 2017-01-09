@@ -13,13 +13,13 @@ import Swiper from 'react-native-swiper';
 import Day1 from './view/day1'; //bug when not stop then exit
 import Day2 from './view/day2';
 import Day3 from './view/day3';
-// import Day4 from './view/day4'; //to update to groupon
+import Day4 from './view/day4'; //to update to groupon
 // import Day5 from './view/day5';
 // import Day6 from './view/day6'; //to update; RN video bug
-// import Day7 from './view/day7';
+import Day7 from './view/day7';
 // import Day8 from './view/day8';  //update animation
 // import Day9 from './view/day9';
-// import Day10 from './view/day10';
+import Day10 from './view/day10';
 // import Day11 from './view/day11';
 // import Day12 from './view/day12'; // update to google inbox
 // import Day13 from './view/day13';
@@ -73,34 +73,25 @@ class MainView extends Component {
         color:"#2aa2ef",
         hideNav: true,
       },{
-        key:23,
-        title:"Youtube scrollable tab",
-        component: Day24,
-        isFA: false,
-        icon: "logo-youtube",
+        key:3,
+        title:"cocoapods",
+        component: Day4,
+        isFA: true,
+        icon: "contao",
         size:50,
-        color:"#e32524",
-        hideNav: true,
-      }]
+        color:"#FF9A05",
+        hideNav: false,
+      // },{
+      //   key:4,
+      //   title:"find my location",
+      //   component: Day5,
+      //   isFA: false,
+      //   icon: "md-pin",
+      //   size:50,
+      //   color:"#00D204",
+      //   hideNav: false,
+      // }]
   //     ,{
-  //       key:3,
-  //       title:"cocoapods",
-  //       component: Day4,
-  //       isFA: true,
-  //       icon: "contao",
-  //       size:50,
-  //       color:"#FF9A05",
-  //       hideNav: false,
-  //     },{
-  //       key:4,
-  //       title:"find my location",
-  //       component: Day5,
-  //       isFA: false,
-  //       icon: "md-pin",
-  //       size:50,
-  //       color:"#00D204",
-  //       hideNav: false,
-  //     },{
   //       key:5,
   //       title:"Spotify",
   //       component: Day6,
@@ -109,16 +100,17 @@ class MainView extends Component {
   //       size:50,
   //       color:"#777",
   //       hideNav: true,
-  //     },{
-  //       key:6,
-  //       title:"Moveable Circle",
-  //       component: Day7,
-  //       isFA: false,
-  //       icon: "ios-baseball",
-  //       size:50,
-  //       color:"#5e2a06",
-  //       hideNav: true,
-  //     },{
+      },{
+        key:6,
+        title:"Moveable Circle",
+        component: Day7,
+        isFA: false,
+        icon: "ios-baseball",
+        size:50,
+        color:"#5e2a06",
+        hideNav: true,
+      // }]
+  //     ,{
   //       key:7,
   //       title:"Swipe Left Menu",
   //       component: Day8,
@@ -136,16 +128,17 @@ class MainView extends Component {
   //       size:50,
   //       color:"#2aa2ef",
   //       hideNav: true,
-  //     },{
-  //       key:9,
-  //       title:"Tumblr Menu",
-  //       component: Day10,
-  //       isFA: false,
-  //       icon: "logo-tumblr",
-  //       size:50,
-  //       color:"#37465c",
-  //       hideNav: true,
-  //     },{
+      },{
+        key:9,
+        title:"Tumblr Menu",
+        component: Day10,
+        isFA: false,
+        icon: "logo-tumblr",
+        size:50,
+        color:"#37465c",
+        hideNav: true,
+      }]
+  //     ,{
   //       key:10,
   //       title:"OpenGL",
   //       component: Day11,

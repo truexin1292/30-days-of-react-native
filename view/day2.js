@@ -2,7 +2,7 @@
  * Day 2
  * A weather app
  * Have trouble completing the animation part
- * will study on the animation in later experiments
+ * will stçdy on the animation in later experiments
  */
 'use strict';
 

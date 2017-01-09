@@ -20,7 +20,7 @@ import Day7 from './view/day7';
 import Day8 from './view/day8';  //update animation
 import Day9 from './view/day9';
 import Day10 from './view/day10';
-import Day11 from './view/day11';
+// import Day11 from './view/day11'; //to be fixed
 import Day12 from './view/day12'; // update to google inbox
 import Day13 from './view/day13';
 import Day14 from './view/day14';
@@ -54,7 +54,6 @@ class MainView extends Component {
         size: 48,
         color: "#ff856c",
         hideNav: false,
-
       },{
         key:1,
         title:"A weather app",
@@ -137,15 +136,15 @@ class MainView extends Component {
         color:"#37465c",
         hideNav: true,
       },{
-        key:10,
-        title:"OpenGL",
-        component: Day11,
-        isFA: false,
-        icon: "md-contrast",
-        size:50,
-        color:"#2F3600",
-        hideNav: false,
-      },{
+      //   key:10,
+      //   title:"OpenGL",
+      //   component: Day11,
+      //   isFA: false,
+      //   icon: "md-contrast",
+      //   size:50,
+      //   color:"#2F3600",
+      //   hideNav: false,
+      // },{
         key:11,
         title:"charts",
         component: Day12,
@@ -440,7 +439,7 @@ class ThirtyDaysOfReactNative extends Component{
 
 const styles = StyleSheet.create({
   container:{
-    flex:1,
+    flexGrow:1,
   },
   mainView: {
     marginTop: 63
@@ -510,7 +509,7 @@ const styles = StyleSheet.create({
     backgroundColor:"transparent"
   },
   slide: {
-    flex: 1,
+    flexGrow: 1,
     height: 150,
     justifyContent: 'center',
     alignItems: 'center',
@@ -527,7 +526,7 @@ const styles = StyleSheet.create({
   },
   image:{
     width: Util.size.width,
-    flex: 1,
+    flexGrow: 1,
     alignSelf: 'stretch',
   }
 });

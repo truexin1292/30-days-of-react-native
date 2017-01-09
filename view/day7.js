@@ -5,7 +5,7 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,StyleSheet,StatusBar,Text,TouchableHighlight,PanResponder,View } from 'react-native';
+import { Platform,Image,StyleSheet,StatusBar,Text,TouchableHighlight,PanResponder,View } from 'react-native';
 import Util from './utils';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -93,13 +93,15 @@ class MoveableCircle extends Component{
 
 export default class extends Component{
   componentWillMount() {
-    StatusBar.setBarStyle(1);
+    if(Platform.OS === "ios"){
+      StatusBar.setBarStyle(1);
+    }
   }
 
   render() {
     return(
       <View style={styles.container}>
-        <Image source={require('image!agrass')} style={styles.bg}></Image>
+        <Image source={require('./img/agrass.png')} style={styles.bg}></Image>
         <View style={styles.circleContainer}>
           <MoveableCircle></MoveableCircle>
         </View>

@@ -32,15 +32,15 @@ Android
 
 \# TODO
 
-##Compatibility
+## Compatibility
 
 Not tested yet. 
 
-##Running on Device
+## Running on Device
 
 https://facebook.github.io/react-native/docs/running-on-device-ios.html#content
 
-##Known Bugs
+## Known Bugs
 
 ## Day 1
 An IOS-system-like stop watch.

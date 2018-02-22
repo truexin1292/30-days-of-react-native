@@ -12,7 +12,7 @@ This project is inspired by
 
 ## Upgrade to RN@0.34
 
-This is a branch under development to upgrade RN to v0.34 & compatible with Xcode 8. 
+This is a branch under development to upgrade RN to v0.40 & compatible with Xcode 8. 
 
 ## Change
 
